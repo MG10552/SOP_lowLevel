@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+main()
+{
+printf("How many processes you wish to fork()?") 
+getchar()
+return 0;
+}

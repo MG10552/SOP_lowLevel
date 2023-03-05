@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- This HTML file has been created by texi2html 1.54+ (gsl)
+     from gccintro.texi -->
+
+<title>An Introduction to GCC - A simple makefile</title>
+<link rel="stylesheet" title="Default Style Sheet" href="gccintro_16_pliki/nt-2007-01-11.css" type="text/css">
+<link rel="stylesheet" media="print" href="gccintro_16_pliki/print.css" type="text/css">
+<!--[if lte IE 7]>
+<LINK rel="stylesheet" href="/css/ie.css" type="text/css" />
+<![endif]-->
+<link href="http://www.network-theory.co.uk/docs/gccintro/gccintro_17.html" rel="Next">
+<link href="http://www.network-theory.co.uk/docs/gccintro/gccintro_15.html" rel="Previous">
+<link href="http://www.network-theory.co.uk/docs/gccintro/index.html" rel="ToC">
+</head><body>
+<div class="top"><div class="Header"><span class="logo">Network Theory Ltd</span><span class="tagline"> - publishing free software manuals</span></div>
+<div class="nav">
+[<a href="http://www.network-theory.co.uk/">Home</a>]
+[<a href="http://www.network-theory.co.uk/books.html">Catalogue</a>]
+[<a href="http://www.network-theory.co.uk/newtitles.html">New Titles</a>]
+[<a href="http://www.network-theory.co.uk/articles.html">Articles</a>]
+[<a href="http://www.network-theory.co.uk/news.html">News</a>]
+[<a href="http://www.network-theory.co.uk/sitemap.html">Site Map</a>]
+[<a href="http://www.network-theory.co.uk/about.html">About</a>]
+[<a href="http://www.network-theory.co.uk/contact.html">Contact</a>]
+</div></div>
+<div class="main"><div class="nav2">
+<table class="navdoc" width="100%">
+<tbody><tr>
+<td class="prev"><a href="http://www.network-theory.co.uk/docs/gccintro/gccintro_15.html">&lt;&lt;&lt; previous</a></td>
+<td class="toc"><a href="http://www.network-theory.co.uk/docs/gccintro/index.html">table of contents</a></td>
+<td class="next"><a href="http://www.network-theory.co.uk/docs/gccintro/gccintro_17.html">next &gt;&gt;&gt;</a></td>
+</tr>
+</tbody></table>
+</div>
+<table class="docbar" cellspacing="0" width="100%"><tbody><tr><td><b><a href="http://www.network-theory.co.uk/gcc/intro/">An Introduction to GCC - for the GNU compilers gcc and g++</a></b><br> by Brian J. Gough, foreword by Richard M. Stallman<br>Paperback (6"x9"), 144 pages<br>ISBN 0954161793<br>RRP £12.95 ($19.95)<p>"An excellent introduction... fills a much-needed niche in the marketplace" --- <i>Association of C and C++ Users book review (Issue 16-4, August 2004)</i> <a href="http://www.network-theory.co.uk/gcc/intro/">Get a printed copy&gt;&gt;&gt;</a></p></td><td width="30%"><div class="buyit"><a href="http://www.network-theory.co.uk/gcc/intro/"><span class="buytitle">An Introduction to GCC</span><br></a><a href="http://www.network-theory.co.uk/gcc/intro/"><img id="docicon" alt="" src="gccintro_16_pliki/0954161793-tiny.png"></a><br><a href="http://www.network-theory.co.uk/gcc/intro/">Buy the book here!&nbsp;&gt;&gt;&gt;<br><span class="buytitle">learn more</span><br></a></div></td></tr></tbody></table>
+
+<h2>2.6  A simple makefile</h2>
+
+<p>
+For those unfamiliar with <code>make</code>, this section provides a simple
+demonstration of its use.  Make is a program in its own right and can be
+found on all Unix systems.  To learn more about the GNU version of
+<code>make</code> you will need to consult the <cite>GNU Make</cite> manual by
+Richard M. Stallman and Roland McGrath (see section Further <a href="http://www.network-theory.co.uk/docs/gccintro/gccintro_98.html">reading</a>).
+
+</p>
+<p>
+Make reads a description of a project from a <i>makefile</i> (by default,
+called <tt>&#8216;Makefile&#8217;</tt> in the current directory).  A makefile specifies
+a set of compilation rules in terms of <i>targets</i> (such as
+executables) and their <i>dependencies</i> (such as object files and
+source files) in the following format:
+
+</p>
+
+<pre class="example"><i>target</i>: <i>dependencies</i>
+        <i>command</i>
+</pre>
+
+<p>
+For each target, make checks the modification time of the corresponding
+dependency files to determine whether the target needs to
+be rebuilt using the corresponding command.  Note that the
+<code><i>command</i></code> lines in a makefile must be indented with a single
+<kbd>TAB</kbd> character, not spaces.
+
+</p>
+<p>
+GNU Make contains many default rules, referred to as <i>implicit</i>
+rules, to simplify the construction of makefiles.  For example, these
+specify that <tt>&#8216;.o&#8217;</tt> files can be obtained from <tt>&#8216;.c&#8217;</tt> files by
+compilation, and that an executable can be made by linking together
+<tt>&#8216;.o&#8217;</tt> files.  Implicit rules are defined in terms of <i>make
+variables</i>, such as <code>CC</code> (the C compiler) and <code>CFLAGS</code> (the
+compilation options for C programs), which can be set using
+<code><i>VARIABLE</i>=<i>VALUE</i></code> lines in the makefile.  For C++ the
+equivalent variables are <code>CXX</code> and <code>CXXFLAGS</code>, while the make
+variable <code>CPPFLAGS</code> sets the preprocessor options.  The implicit and
+user-defined rules are automatically chained together as necessary by
+GNU Make.
+
+</p>
+<p>
+A simple <tt>&#8216;Makefile&#8217;</tt> for the project above can be written as
+follows:
+
+</p>
+
+<pre class="example">CC=gcc 
+CFLAGS=-Wall
+main: main.o hello_fn.o
+
+clean:
+	rm -f main main.o hello_fn.o
+</pre>
+
+<p>
+The file can be read like this: using the C compiler <code>gcc</code>,
+with compilation option <code>-Wall</code>, build the target executable
+<code>main</code> from the object files <tt>&#8216;main.o&#8217;</tt> and <tt>&#8216;hello_fn.o&#8217;</tt>
+(these, in turn, will be built via implicit rules from <tt>&#8216;main.c&#8217;</tt>
+and <tt>&#8216;hello_fn.c&#8217;</tt>).  The target <code>clean</code> has no dependencies
+and simply removes all the compiled files.<sup>(<a name="DOCF4" href="http://www.network-theory.co.uk/docs/gccintro/gccintro_foot.html#FOOT4">4</a>)</sup> The option <code>-f</code> (force) on the <code>rm</code> command
+suppresses any error messages if the files do not exist.
+
+</p>
+<p>
+To use the makefile, type <code>make</code>.  When called with no arguments,
+the first target in the makefile is built, producing the executable
+<tt>&#8216;main&#8217;</tt>:
+
+</p>
+
+<pre class="example">$ make
+gcc -Wall   -c -o main.o main.c
+gcc -Wall   -c -o hello_fn.o hello_fn.c
+gcc   main.o hello_fn.o   -o main
+$ ./main
+Hello, world!
+</pre>
+
+<p>
+To rebuild the executable after modifying a source file, simply type
+<code>make</code> again. By checking the timestamps of the target and dependency files, 
+make identifies the files which have changed and regenerates the corresponding
+intermediate files needed to update the targets:
+
+</p>
+
+<pre class="example">$ emacs main.c  (edit the file)
+$ make
+gcc -Wall   -c -o main.o main.c
+gcc    main.o hello_fn.o   -o main
+$ ./main
+Hello, everyone!
+</pre>
+
+<p>
+Finally, to remove the generated files, type <code>make clean</code>:
+
+</p>
+
+<pre class="example">$ make clean
+rm -f main main.o hello_fn.o
+</pre>
+
+<p>
+A more sophisticated makefile would usually contain additional targets
+for installation (<code>make install</code>) and testing (<code>make check</code>).
+
+</p>
+<p>
+The examples in the rest of this book are small enough not to need
+makefiles, but the use of make is recommended for any larger programs.
+
+</p>
+<div class="nav2">
+<table class="navdoc" width="100%">
+<tbody><tr>
+<td class="prev"><a href="http://www.network-theory.co.uk/docs/gccintro/gccintro_15.html">&lt;&lt;&lt; previous</a></td>
+<td class="toc"><a href="http://www.network-theory.co.uk/docs/gccintro/index.html">table of contents</a></td>
+<td class="next"><a href="http://www.network-theory.co.uk/docs/gccintro/gccintro_17.html">next &gt;&gt;&gt;</a></td>
+</tr>
+</tbody></table>
+</div>
+<table class="docbar" cellspacing="0" width="100%"><tbody><tr><td width="20%"><a class="boxed" href="http://www.network-theory.co.uk/gcc/intro/">ISBN 0954161793</a></td><td align="center"><b>An Introduction to GCC - for the GNU compilers gcc and g++</b></td><td align="right" width="20%"><a class="boxed" href="http://www.network-theory.co.uk/gcc/intro/">See the print edition</a></td></tr></tbody></table>
+<a href="http://www.network-theory.co.uk/robotrack.html"></a>
+</div>
+<div class="Footer">
+Network Theory Limited,
+United Kingdom<br>
+Telephone: +44 117 317 9309 
+Fax: +44 117 973 3323
+Email: sales<!-- s p a m 
+-->@<!-- 
+domain. 
+ -->network-theory.<!-- no s p am.
+-->co.<!-- at 
+ --><!-- dot 
+-->uk<br>
+<span class="print">
+Web: www.network-theory.co.uk<br>
+Buying our books supports the development of free software and documentation!
+</span>
+</div>
+<script src="gccintro_16_pliki/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-551476-2";
+urchinTracker();
+</script>
+</body></html>

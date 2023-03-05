@@ -1,0 +1,440 @@
+<html><head>
+
+
+
+ 
+ <!-- base href="http://www.programuj.com/" -->
+ <title>Make - Tworzenie Makefile [MOJA PASJA - PROGRAMOWANIE]</title>
+ <meta name="author" content="Kacper Cieśla (comboy)">
+ <meta name="DESCRIPTION" content="Podstawy narzędzia meke. Tworzenie Makefile">
+ <meta name="KEYWORDS" content="makefile, make, tworzenie makefile, makefile'a, pisanie, linux, programowanie">
+ <meta name="ROBOTS" content="index,follow">
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+ <link href="makefile.php_pliki/style.css" rel="stylesheet" type="text/css">
+ <link rel="stylesheet" href="makefile.php_pliki/ht.css" type="text/css">
+ <link rel="icon" href="http://www.programuj.com/favicon.ico" type="image/x-icon">
+ <link rel="shortcut icon" href="http://www.programuj.com/favicon.ico" type="image/x-icon">
+ </head><body bgcolor="#ffffff">
+ <center>
+
+ <center>
+ <table border="0" cellpadding="0" cellspacing="0" width="750">
+ <tbody><tr>
+ <!-- byl tyt5.gif -->
+ <td align="left"><a href="http://www.programuj.com/index.php"><img src="makefile.php_pliki/tytul.gif" alt="MOJA PASJA - PROGRAMOWANIE" border="0"></a></td>
+ <td align="right">
+  <script language="JavaScript" type="text/javascript" src="makefile.php_pliki/adx.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+   if (!document.phpAds_used) document.phpAds_used = ',';
+   phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
+   
+   document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
+   document.write ("http://www.programuj.com/ads/adjs.php?n=" + phpAds_random);
+   document.write ("&amp;what=zone:1");
+   document.write ("&amp;exclude=" + document.phpAds_used);
+   if (document.referrer)
+      document.write ("&amp;referer=" + escape(document.referrer));
+   document.write ("'><" + "/script>");
+//-->
+</script><script language="JavaScript" type="text/javascript" src="makefile.php_pliki/adjs.js"></script><a target="_blank" href="http://ads.programuj.com/adclick.php?bannerid=60&amp;zoneid=1&amp;source=&amp;dest=http%3A%2F%2Fsasq.programuj.com%2F&amp;ismap="><img src="makefile.php_pliki/BannerAnim.gif" border="0"></a><div id="beacon_60" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><a target="_blank" href="http://ads.programuj.com/adclick.php?bannerid=60&amp;zoneid=1&amp;source=&amp;dest=http%3A%2F%2Fsasq.programuj.com%2F&amp;ismap="><img src="makefile.php_pliki/adlog.gif" alt="" style="width: 0px; height: 0px;" height="0" width="0"></a></div><noscript><a target="_blank" href="http://ads.programuj.com/adclick.php?bannerid=60&zoneid=1&source=&dest=http%3A%2F%2Fsasq.programuj.com%2F&ismap="><a
+href='http://www.programuj.com/ads/adclick.php?n=a4858827'
+target='_blank'><img
+src='http://www.programuj.com/ads/adview.php?what=zone:1&amp;n=a4858827'
+border='0' alt=''></a></a></noscript>
+
+
+<a target="_blank" href="http://ads.programuj.com/adclick.php?bannerid=60&amp;zoneid=1&amp;source=&amp;dest=http%3A%2F%2Fsasq.programuj.com%2F&amp;ismap="> </a></td>
+ </tr>
+ </tbody></table>
+
+ <table border="0" cellpadding="1" cellspacing="1" width="750">
+ <tbody><tr><td background="makefile.php_pliki/tlok.gif">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ <tbody><tr><td bgcolor="#eeeeee">
+ &nbsp;&nbsp;&nbsp;Dzisiaj jest Niedziela, 6 grudnia, 2009r. Ostatnia aktualzacja miała miejsce:
+ 10 grudnia 2006r. </td>
+ <td bgcolor="#eeeeee">
+ <a href="mailto:admin@programuj.com"><img src="makefile.php_pliki/email.gif" border="0"></a>
+ <a href="#" onclick="window.external.addFavorite('http://www.pasja.scrypty.com','MOJA PASJA - PROGRAMOWANIE')"><img src="makefile.php_pliki/fav.gif" border="0"></a>
+ <a href="#" onclick="this.style.behavior='url(#default#homepage)'; this.setHomePage('http://www.pasja.scrypty.com');" id="c1"><img src="makefile.php_pliki/home.gif" alt="Homepage" border="0"></a></td>
+ </tr></tbody></table>
+ </td></tr>
+ </tbody></table>
+
+ <font size="1"><br></font>
+ <table border="0" cellpadding="0" cellspacing="0" width="720">
+ <tbody><tr>
+ <td>
+ <font color="#444444">
+ <b>Programowanie:</b>
+ <a href="http://www.programuj.com/artykuly.php">Artykuły</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/faq.php">FAQ</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/download.php">Download</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <x href="uc.php">Komponenty <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/ksiazki/">Książki</a>
+ <b>WWW:</b>
+ <a href="http://www.programuj.com/artwww.php">Artykuły</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/narzedzia.php">Narzędzia</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/kursy.php">Kursy</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/darmowe.php">Darmowe</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/faqwww.php">FAQ</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/skrypty/index.php">Skrypty</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <x href="uc.php">Ksiązki
+ <!-- <IMG src="img/kropka.gif" alt="*">
+ <x href="">Linki</A> -->
+ <b>Off-Topic:</b>
+ <a href="http://www.programuj.com/aforyzmy.php">Aforyzmy</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/humor.php">Humor</a>
+ <b> Inne:</b>
+ <a href="http://forum.programuj.com/">Forum</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+<!-- <x href="uc.php">Księga Gości</A> <IMG src="img/kropka.gif"> -->
+ <a href="http://www.programuj.com/wiki/">Wiki</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/liczniki/darmowe.php">Liczniki</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/linki.php">Linki</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <!--<x href="http://www.prokat.prv.pl" target="_blank">Katalog</A> <IMG src="img/kropka.gif" alt="*">-->
+ <a href="http://chat.programuj.com/">Chat</a> 
+ <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/grafika/index.php">Grafika</a>  <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://video.programuj.com/">Video</a>  <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/inne.php">Inne</a> 
+ </x></x></font>
+ </td>
+ </tr></tbody></table>
+  <!-- <a href="reklama.php">Reklama</A> <IMG src="img/kropka.gif" alt="*">
+ <A href="ostronie.php">O stronie</A> -->
+
+ <hr color="#eeeeee" width="700">
+ <center>
+  	                                             
+<script type="text/javascript"><!--<![CDATA[
+/* (c)AdOcean 2003-2007 */
+if(location.protocol.substr(0,4)=='http')document.write(unescape('%3C')+'script id="Przestrze_ reklamowa.Programuj.com.Linki tekstowe.1x1 link tekstowy" src="'+location.protocol+'//s1.ad.adocean.pl/_'+(new Date()).getTime()+'/ad.js?id=iRaaLiGNoxrXmtI1Ra7yY1bOw5jwINJMh9F5KvfxI7T.B7/x='+screen.width+'/y='+screen.height+'" type="text/javascript"'+unescape('%3E%3C')+'/script'+unescape('%3E'));
+//]]>--></script><script id="Przestrze_ reklamowa.Programuj.com.Linki tekstowe.1x1 link tekstowy" src="makefile.php_pliki/ad.js" type="text/javascript"></script><script id="script_xfokmqrpbf" src="makefile.php_pliki/fastid1224979098645114044.js" language="javascript"></script><img src="makefile.php_pliki/bk.gif" alt="" style="display: none;" height="1" width="1">
+<br>
+<br>
+ <table border="0" cellpadding="0" cellspacing="0" width="740">
+ <tbody><tr><td>
+
+
+
+  
+  <h1 align="center">Make - Tworzenie Makefile</h1><br><br>
+  <div align="right"><i>
+  <span class="text12">Autor: <b>mgr inż. Bartosz Baliś</b>
+  </span>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+  </i></div>
+   
+
+<div style="border: 1px solid rgb(170, 170, 170); margin: 20px; padding: 10px; background: rgb(247, 247, 247) none repeat scroll 0% 0%; float: right; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;"><img src="makefile.php_pliki/kropka.gif"> <a href="http://www.programuj.com/artykuly/linux/makefile.php#n0">Wstęp</a><br><img src="makefile.php_pliki/kropka.gif"> <a href="http://www.programuj.com/artykuly/linux/makefile.php#n1">Budowa pliku Makefile</a><br><img src="makefile.php_pliki/kropka.gif"> <a href="http://www.programuj.com/artykuly/linux/makefile.php#n2">Zmienne w pliku Makefile</a><br><img src="makefile.php_pliki/kropka.gif"> <a href="http://www.programuj.com/artykuly/linux/makefile.php#n3">Więcej o regułach</a><br></div>
+
+<h2><a style="color: rgb(0, 0, 0);" name="n0"><b>Wstęp</b></a></h2>
+Narzędzie <b>make</b> służy do zarządzania kompilacją projektów składających się z wielu plików źródłowych. 
+<br><br>
+
+
+Aby używać make należy napisać skrypt o nazwie <b>Makefile</b> lub <b>makefile</b>, w którym opisane są: 
+<ul>
+<li>zależności pomiędzy plikami źródłowymi i plikami wynikowymi, 
+</li><li>sposób tworzenia plików wynikowych z plików źródłowych.
+</li></ul>
+
+
+Następnie przy pomocy polecenia <b>make</b> kompilujemy
+projekt.
+
+<br><br>
+Make usprawnia kompilację, gdyż samodzielnie decyduje, które z plików
+źródłowych mają być przekompilowane (sprawdzając daty ostatniej
+modyfikacji).
+<h2><a style="color: rgb(0, 0, 0);" name="n1"><b>Budowa pliku Makefile</b></a></h2>
+Plik Makefile składa się głównie z reguł. Reguła ma następującą budowę:
+<br><br>
+
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre><pre>CEL: SKŁADNIKI
+	KOMENDA
+</pre></pre></td></tr></tbody></table><br><br>Gdzie CEL to nazwa pliku
+docelowego, który jest tworzony z plików wymienionych jako SKŁADNIKI,
+zaś KOMENDA podaje komendę, która tworzy plik docelowy CEL z plików
+składowych SKŁADNIKI
+<br><br>
+
+Przykład reguły:
+
+<br><br>
+
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre><pre>hello: hello.c aux.c
+	gcc hello.c aux.c -o hello
+</pre></pre></td></tr></tbody></table><br><br>
+
+Reguła ta określa sposób tworzenia pliku wykonywalnego hello z plików hello.c i aux.c
+<br><br>
+<i><b>UWAGA</b> Przed komendą musi obowiązkowo wystąpić znak tabulacji.</i>
+
+<br><br>
+
+<span style="font-size: 14px;"><b>Przetwarzanie pliku składającego się z wielu reguł.</b></span><br><br>
+<b>Make dąży do tego, żeby utworzyć plik docelowy znajdujący się w pierwszej regule w pliku Makefile.</b> szystkie pozostałe reguły w pliku Makefile są pomocnicze i zwykle podają sposób utworzenia składników z reguł poprzednich.
+
+<br><br>
+
+Przykład pliku Makefile składającego się z kilku reguł: 
+
+<br><br>
+
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre>hello: hello.o aux.o
+	gcc hello.o aux.o -o hello
+
+hello.o: hello.c
+	gcc -c hello.c -o hello.o
+
+aux.o: aux.c
+	gcc -c aux.c -o aux.o
+</pre></td></tr></tbody></table><br><br>W tym wypadku głównym plikiem
+docelowym jest plik hello. Jego składniki to pliki hello.o i aux.o.
+Make szuka tych plików w katalogu bieżącym, jeśli jednak ich nie
+znajdzie to szuka reguł, które podają sposób w jaki te pliki utworzyć.
+W powyższym przykładzie są to dwie kolejne reguły. Make korzysta z
+nich, żeby utworzyć składniki reguły głównej i dopiero wtedy może
+utworzyć główny plik docelowy hello
+<h2><a style="color: rgb(0, 0, 0);" name="n2"><b>Zmienne w pliku Makefile</b></a></h2>
+W pliku Makefile można definiować zmienne, tak jak w poniższym przykładzie:
+
+<br><br>
+
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre>OBJS=hello.o aux.o
+
+hello: $(OBJS)
+	gcc $(OBJS) -o hello
+
+hello.o: hello.c
+	gcc -c hello.c -o hello.o
+
+aux.o: aux.c
+	gcc -c aux.c -o aux.o
+</pre></td></tr></tbody></table><br><br>W tym przykładzie zdefiniowana
+została zmienna o nazwie OBJS i nadana jej została wartość 'hello.o
+aux.o'. Odwołanie do zdefiniowanej zmiennej odbywa się przy pomocy
+znaku dolara i nawiasów okrągłych. W tym przypadku raz zdefiniowana
+zmienna została użyta dwukrotnie. Jeśli będziemy chcieli dodać coś do
+listy składników pliku hello to dzięki użyciu zmiennej wystarczy to
+zrobić raz - w definicji zmiennej OBJS
+<br><br>
+
+<span style="font-size: 14px;"><b>Zmienne standardowe</b></span><br><br>
+W Makefile można używać wielu zmiennych zdefiniowanych standardowo. Najczęściej używane zmienne standardowe:
+
+<ul>
+<li><tt>CC</tt> - nazwa kompilatora języka C
+</li><li type=""><tt>CXX</tt> - nazwa kompilatora języka C++
+</li><li type=""><tt>CFLAGS</tt> - opcje kompilatora języka C
+</li><li type=""><tt>CXXLAGS</tt> - opcje kompilatora języka C
+</li><li type=""><tt>LFLAGS</tt> - opcje dla linkera
+</li></ul>Zmienne standardowe mają pewną predefiniowaną wartość (np.
+zmienna CC ma predefiniowaną wartość 'cc'), którą jednak można
+zmieniać. Oto przykład: <br><br>
+
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre>CC=gcc
+CFLAGS=-g
+LFLAGS=
+OBJS=hello.o aux.o
+
+hello: $(OBJS)
+	$(CC) $(LFLAGS) $(OBJS) -o hello
+
+hello.o: hello.c
+	$(CC) $(CFLAGS) -c hello.c -o hello.o
+
+aux.o: aux.c
+	$(CC) $(CFLAGS) -c aux.c -o aux.o
+</pre></td></tr></tbody></table><br><br>
+
+<span style="font-size: 14px;"><b>Zmienne automatyczne</b></span><br><br>
+Zmienne automatyczne są to specjalne zmienne, które przechowują
+wartości zmieniające się dynamicznie w trakcie wykonywania Makefile'a,
+np. nazwa pliku docelowego aktualnie przetwarzanej reguły. Najczęściej
+używane zmienne automatyczne:
+<ul>
+<li><tt>&lt;</tt> - aktualnie przetwarzany plik z listy 
+składników (patrz przykład)
+</li><li><tt>@</tt> - nazwa pliku docelowego
+</li><li><tt>^</tt> - składniki
+</li></ul>
+
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre>CC=gcc
+CFLAGS=-g
+OBJS=hello.o aux.o
+
+hello: $(OBJS)
+	$(CC) $(LFLAGS) $^ -o $@
+
+hello.o: hello.c
+	$(CC) $(CFLAGS) -c $&lt; -o $@
+
+aux.o: aux.c
+	$(CC) $(CFLAGS) -c $&lt; -o $@
+</pre></td></tr></tbody></table><br><br>
+
+<h2><a style="color: rgb(0, 0, 0);" name="n3"><b>Więcej o regułach</b></a></h2>
+<span style="font-size: 14px;"><b>Reguły z wzorcem.</b></span><br><br>
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre>CC=gcc
+CFLAGS=-g
+OBJS=hello.o aux.o
+
+hello: $(OBJS)
+	$(CC) $(LFLAGS) $^ -o $@
+
+$(OBJS): %.o: %.c
+	$(CC) -c $(CFLAGS) $&lt; -o $@
+</pre></td></tr></tbody></table><br><br>
+
+<span style="font-size: 14px;"><b>Reguły domyślne.</b></span><br><br>Make
+posiada pewne standardowe reguły do tworzenia pewnych typów plików. W
+poniższym przykładzie pominięto regułę tworzenia plików '.o' z plików
+'.c'. Make posiada jednak standardowe, domyślne reguły tworzenia plików
+.o. W tym przypadku make odnajdzie w katalogu bieżącym pliki '.c', z
+których utworzy pliki '.o' przy pomocy polecenia '$(CC) -c'.]
+<br><br>
+
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre>CC=gcc
+CFLAGS=-g
+OBJS=hello.o aux.o
+
+hello: $(OBJS)
+	$(CC) $(LFLAGS) $^ -o $@
+</pre></td></tr></tbody></table><br><br>
+
+<span style="font-size: 14px;"><b>Reguła clean</b></span><br><br>Każdy
+dobry plik makefile powinien posiadać regułę, która usuwa pliki
+pośrednie, tymczasowe, etc. powstałe podczas kompilacji. W powyższych
+przykładach plikami pośrednimi są pliki '.o'. Powszechnie przyjęło się,
+że taka reguła ma nazwę 'clean'. Oto przykład:
+<br><br>
+
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre>CC=gcc
+CFLAGS=-g
+OBJS=hello.o aux.o
+
+hello: $(OBJS)
+	$(CC) $(LFLAGS) $^ -o $@
+
+clean:
+	rm -f *.o
+</pre></td></tr></tbody></table><br><br>
+
+Zauważmy, że reguła clean ma pustą listę składników. Aby wywołać regułę clean używamy polecenia make clean
+
+<br><br>
+
+<span style="font-size: 14px;"><b>Więcej plików wynikowych</b></span><br><br>
+
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre>CC=gcc
+
+all: prog1 prog2
+
+prog1: prog1.c
+	$(CC) $(CFLAGS) $(LFLAGS) prog1.c -o prog1
+	
+prog2: prog2.c
+	$(CC) $(CFLAGS) $(LFLAGS) prog2.c -o prog2
+
+clean:
+	rm -f prog1.o prog2.o
+</pre></td></tr></tbody></table><br><br>
+
+<span style="font-size: 14px;"><b>Reguła .PHONY</b></span><br><br>Reguły
+'clean' i 'all' są regułami specjalnymi w tym sensie, że 'clean' i
+'all' nie są nazwami plików. Gdyby jednak zdarzyło się, że w katalogu
+bieżącym istnieje plik o nazwie 'all' lub 'clean' to reguły te mogłyby
+nie działać! Aby temu zapobiec trzeba by poinstruować make'a, że 'all'
+i 'clean' nie są nazwami plików. Do tego celu służy specjalna reguła o
+nazwie '.PHONY'.
+<br><br>
+
+<table bgcolor="#f7f9cf" width="100%"><tbody><tr><td><pre>CC=gcc
+
+all: prog1 prog2
+
+prog1: prog1.c
+	$(CC) $(CFLAGS) $(LFLAGS) prog1.c -o prog1
+	
+prog2: prog2.c
+	$(CC) $(CFLAGS) $(LFLAGS) prog2.c -o prog2
+
+clean:
+	rm -f prog1.o prog2.o
+
+.PHONY: all clean
+</pre></td></tr></tbody></table><br><br>
+
+<br>
+<b>Warning</b>:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in <b>/home/pasja/public_html/functions.inc.php</b> on line <b>248</b><br>
+
+<a name="comm">
+</a><center>
+<table bgcolor="#fafafa" border="0" cellpadding="3" cellspacing="0" width="100%">
+<tbody><tr bgcolor="#eeeeee"><td colspan="2">&nbsp;&nbsp;&nbsp;Wasze opinie:</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;Średnia ocena: <b>5.66</b>/10 (184 głosów)</td><td align="right">
+<form action="/artykuly/linux/makefile.php#comm" method="post"><select name="comm_ocena" style="border: thin solid rgb(119, 119, 119); background-color: rgb(238, 238, 238);">
+<option selected="selected" value="-"> -- Wybierz ocenę --</option>
+<option value="10">10 - Genialny</option>
+<option value="9">9 - Świetny</option>
+<option value="8">8 - Jeden z naj.</option>
+<option value="7">7 - Bardzo dobry</option>
+<option value="6">6 - Dobry</option>
+<option value="5">5 - Przeciętny</option>
+<option value="4">4 - Lipa</option>
+<option value="3">3 - Lipa z miodem</option>
+<option value="2">2 - Zły</option>
+<option value="1">1 - Kompletne dno</option>
+<option value="1">1 - Skasuj to</option>
+</select><input name="comm_a" value="oc" type="hidden"><input style="border: thin solid rgb(119, 119, 119); background-color: rgb(238, 238, 238);" value=" Głosuj &gt;&gt; " type="submit"></form>&nbsp;&nbsp;&nbsp;
+</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;Liczba komentarzy: <b></b></td><td align="right"><a href="http://www.programuj.com/artykuly/linux/makefile.php?comm_a=dk#comm">Skomentuj !</a>&nbsp;&nbsp;&nbsp;<br></td></tr><tr><td colspan="2"><br>
+<b>Warning</b>:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in <b>/home/pasja/public_html/functions.inc.php</b> on line <b>298</b><br>
+</td></tr></tbody></table></center><a name="comm"><br><br></a>
+
+ 
+ </td></tr>
+ </tbody></table><br>
+
+ <table border="0" cellpadding="1" cellspacing="1" width="740">
+ <tbody><tr><td background="makefile.php_pliki/tlok.gif">
+ <table cellpadding="0" cellspacing="0" width="100%">
+ <tbody><tr><td bgcolor="#eeeeee">
+ <center>
+ Stronę przygotował: <b>Kacper Cieśla (comboy)</b>. Wszelkie prawa zastrzeżone.<br>
+ <a href="http://www.programuj.com/reklama.php">Reklama</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/blad.php?url=%20%2Fartykuly%2Flinux%2Fmakefile.php">Zgłoś błąd</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="mailto:admin@programuj.com">Kontakt</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.hosted.pl/">Hosting</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/ostronie.php">O stronie</a> <img src="makefile.php_pliki/kropka.gif" alt="*">
+ <a href="http://www.programuj.com/sponsoring.php">Sponsoring</a><br>
+ </center>
+ </td>
+ </tr></tbody></table>
+ </td></tr>
+ </tbody></table>
+ <div style="font-size: 9px; color: rgb(170, 170, 170);" align="center"></div>
+ <center><span style="font-size: 9px;">
+ Czas generowania strony:
+ 0.005s</span><br>
+
+<script src="makefile.php_pliki/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-628306-1";
+urchinTracker();
+</script>
+
+<!-- (C)2003 Gemius SA - GemiusAudience  / Programuj.com / podstrony -->
+<script language="javascript" type="text/javascript">
+<!--
+var pp_gemius_identifier = new String('ByNLoGsRkKL_f_f9MpgHpuTkLcCRwI8iA7FNCPnvmaX.37');
+//-->
+</script>
+<script language="javascript" type="text/javascript" src="makefile.php_pliki/pp_gemius.js"></script>
+
+<img src="makefile.php_pliki/c.htm" height="1" width="1">
+
+ </center></center></center></center></body></html>

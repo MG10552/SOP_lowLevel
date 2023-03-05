@@ -1,0 +1,452 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+<title>sfdisk(8): Partition table manipulator for - Linux man page</title>
+<link rel="stylesheet" type="text/css" href="sfdisk_pliki/white.css">
+<link rel="shortcut icon" href="http://linux.die.net/favicon.ico" type="image/x-icon">
+<meta name="description" content="sfdisk has four (main) uses: list the size of a partition, list the partitions on a device, check the partitions on a device, and - very dangerous - repartition a device.">
+</head><body alink="#000000" bgcolor="#ffffff" link="#660000" text="#333333" vlink="#660000">
+<div id="bg"><div id="content">
+
+<!-- google_ad_section_start -->
+<h1>sfdisk(8) - Linux man page</h1>
+
+<h2>Name</h2>
+sfdisk - Partition table manipulator for Linux
+<h2>Synopsis</h2>
+<b>sfdisk</b> [options] device<br>
+<b>sfdisk -s</b> [partition]
+<h2>Description</h2>
+<b>sfdisk</b> has four (main) uses: list the size of a partition, list the partitions on a
+device, check the partitions on a device, and - very dangerous - repartition a device.
+<p><b>sfdisk</b> doesn't understand GUID Partition Table (GPT) and it
+is not designed for large partitions. In particular case use more
+advanced GNU
+<i><b><b><a href="http://linux.die.net/man/8/parted">parted</a></b>(8)</b></i><b>.</b>
+</p><h3>List Sizes</h3>
+<b>sfdisk -s</b> <i>partition</i> gives the size of <i>partition</i> in blocks. This may be
+useful in connection with programs like <b>mkswap</b> or so. Here <i>partition</i> is usually something like <i>/dev/hda1</i> or <i>/dev/sdb12</i>, but may
+also be an entire disk, like <i>/dev/xda</i>.<br>
+<blockquote><pre class="code">% sfdisk -s /dev/hda9
+81599
+%</pre></blockquote>If the partition argument is omitted, <b>sfdisk</b> will list the sizes of all disks, and the total:<br>
+<blockquote><pre class="code">% sfdisk -s
+/dev/hda: 208896
+/dev/hdb: 1025136
+/dev/hdc: 1031063
+/dev/sda: 8877895
+/dev/sdb: 1758927
+total: 12901917 blocks
+%</pre></blockquote>
+<h3>List Partitions</h3>
+The second type of invocation: <b>sfdisk -l</b> <i>[options] device</i> will list the
+partitions on this device. If the device argument is omitted, the partitions on all hard disks are listed.<pre class="code">% sfdisk -l /dev/hdc
+Disk /dev/hdc: 16 heads, 63 sectors, 2045 cylinders
+Units = cylinders of 516096 bytes, blocks of 1024 bytes, counting from
+0
+   Device Boot Start     End   #cyls   #blocks   Id  System
+/dev/hdc1          0+    406     407-   205096+  83  Linux native
+/dev/hdc2        407     813     407    205128   83  Linux native
+/dev/hdc3        814    2044    1231    620424   83  Linux native
+/dev/hdc4          0       -       0         0    0  Empty
+%</pre>The
+trailing - and + signs indicate that rounding has taken place, and that
+the actual value is slightly less (more). To see the exact values, ask
+for a
+listing with sectors as unit.
+<h3>Check partitions</h3>
+The third type of invocation: <b>sfdisk -V</b> <i>device</i> will apply various
+consistency checks to the partition tables on <i>device</i>. It prints 'OK' or complains. The -V option can be used together with -l. In a shell script one
+might use <b>sfdisk -V -q</b> <i>device</i> which only returns a status.
+<h3>Create partitions</h3>
+The fourth type of invocation: <b>sfdisk</b> <i>device</i> will cause <b>sfdisk</b> to
+read the specification for the desired partitioning of <i>device</i> from its standard input, and then to change the partition tables on that disk. Thus, it is
+possible to use <b>sfdisk</b> from a shell script. When <b>sfdisk</b> determines that its standard input is a terminal, it will be conversational; otherwise it
+will abort on any error.
+<p>BE EXTREMELY CAREFUL - ONE TYPING MISTAKE AND ALL YOUR DATA IS LOST
+</p><p>As a precaution, one can save the sectors changed by <b>sfdisk</b>:
+</p><blockquote><pre class="code">% sfdisk /dev/hdd -O hdd-partition-sectors.save
+...
+%</pre></blockquote>
+<p>Then, if you discover that you did something stupid before anything
+else has been written to disk, it may be possible to recover the old
+situation with
+</p><blockquote><pre class="code">% sfdisk /dev/hdd -I hdd-partition-sectors.save
+%</pre></blockquote>
+<p>(This is not the same as saving the old partition table: a readable
+version of the old partition table can be saved using the -d option.
+However, if you
+create logical partitions, the sectors describing them are located
+somewhere on disk, possibly on sectors that were not part of the
+partition table before.
+Thus, the information the -O option saves is not a binary version of
+the output of -d.)
+</p><p>There are many options.
+</p><h2>Options</h2>
+<dl compact="compact">
+<dt><b>-v</b> or <b>--version</b>
+</dt><dd>Print version number of <b>sfdisk</b> and exit immediately.
+</dd><dt><b>-?</b> or <b>--help</b>
+</dt><dd>Print a usage message and exit immediately.
+</dd><dt><b>-T</b> or <b>--list-types</b>
+</dt><dd>Print the recognized types (system Id's).
+</dd><dt><b>-s</b> or <b>--show-size</b>
+</dt><dd>List the size of a partition.
+</dd><dt><b>-g</b> or <b>--show-geometry</b>
+</dt><dd>List the kernel's idea of the geometry of the indicated <b>disk</b>(s).
+</dd><dt><b>-G</b> or <b>--show-pt-geometry</b>
+</dt><dd>List the geometry of the indicated disks guessed by looking at the partition table.
+</dd><dt><b>-l</b> or <b>--list</b>
+</dt><dd>List the partitions of a device.
+</dd><dt><b>-d</b>
+</dt><dd>Dump the partitions of a device in a format useful as input to sfdisk. For example,<pre class="code">% sfdisk -d /dev/hda &gt; hda.out
+% sfdisk /dev/hda &lt; hda.out</pre>
+will correct the bad last extended partition that the OS/2 fdisk creates.
+</dd><dt><b>-V</b> or <b>--verify</b>
+</dt><dd>Test whether partitions seem correct. (See above.)
+</dd><dt><b>-i</b> or <b>--increment</b>
+</dt><dd>Number cylinders etc. starting from 1 instead of 0.
+</dd><dt><b>-N</b> <i>number</i>
+</dt><dd>Change only the single partition indicated. For example:<pre class="code">% sfdisk /dev/hdb -N5
+,,,*
+%</pre>will
+make the fifth partition on /dev/hdb bootable ('active') and change
+nothing else. (Probably this fifth partition is called /dev/hdb5, but
+you are free to
+call it something else, like '/my_equipment/disks/2/5' or so).
+</dd><dt><b>-A</b><i>number</i>
+</dt><dd>Make the indicated <b>partition</b>(s) active, and all others inactive.
+</dd><dt><b>-c</b> <i>or</i> <b>--id</b> <i>number [Id]</i>
+</dt><dd>If no Id argument given: print the partition Id of the
+indicated partition. If an Id argument is present: change the type (Id)
+of the indicated partition
+to the given value. This option has the two very long forms --print-id
+and --change-id. For example:<pre class="code">% sfdisk --print-id /dev/hdb 5
+6
+% sfdisk --change-id /dev/hdb 5 83
+OK</pre>
+first reports that /dev/hdb5 has Id 6, and then changes that into 83.
+</dd><dt><b>-uS</b> or <b>-uB</b> or <b>-uC</b> or <b>-uM</b>
+</dt><dd>Accept or report in units of sectors (blocks, cylinders,
+megabytes, respectively). The default is cylinders, at least when the
+geometry is known.
+</dd><dt><b>-x</b> or <b>--show-extended</b>
+</dt><dd>Also list non-primary extended partitions on output, and expect descriptors for them on input.
+</dd><dt><b>-C</b> <i>cylinders</i>
+</dt><dd>Specify the number of cylinders, possibly overriding what the kernel thinks.
+</dd><dt><b>-H</b> <i>heads</i>
+</dt><dd>Specify the number of heads, possibly overriding what the kernel thinks.
+</dd><dt><b>-S</b> <i>sectors</i>
+</dt><dd>Specify the number of sectors, possibly overriding what the kernel thinks.
+</dd><dt><b>-f</b> or <b>--force</b>
+</dt><dd>Do what I say, even if it is stupid.
+</dd><dt><b>-q</b> or <b>--quiet</b>
+</dt><dd>Suppress warning messages.
+</dd><dt><b>-L</b> or <b>--Linux</b>
+</dt><dd>Do not complain about things irrelevant for Linux.
+</dd><dt><b>-D</b> or <b>--DOS</b>
+</dt><dd>For DOS-compatibility: waste a little space. (More precisely:
+if a partition cannot contain sector 0, e.g. because that is the MBR of
+the device, or
+contains the partition table of an extended partition, then <b>sfdisk</b>
+would make it start the next sector. However, when this option is given
+it skips to
+the start of the next track, wasting for example 33 sectors (in case of
+34 sectors/track), just like certain versions of DOS do.) Certain Disk
+Managers and
+boot loaders (such as OSBS, but not LILO or the OS/2 Boot Manager) also
+live in this empty space, so maybe you want this option if you use one.
+</dd><dt><b>-E</b> or <b>--DOS-extended</b>
+</dt><dd>Take the starting sector numbers of "inner" extended
+partitions to be relative to the starting cylinder boundary of the
+outer one, (like some versions of
+DOS do) rather than to the starting sector (like Linux does). (The fact
+that there is a difference here means that one should always let
+extended partitions
+start at cylinder boundaries if DOS and Linux should interpret the
+partition table in the same way. Of course one can only know where
+cylinder boundaries are
+when one knows what geometry DOS will use for this disk.)
+</dd><dt><b>--IBM</b> or <b>--leave-last</b>
+</dt><dd>Certain IBM diagnostic programs assume that they can use the
+last cylinder on a disk for disk-testing purposes. If you think you
+might ever run such
+programs, use this option to tell <b>sfdisk</b> that it should not allocate the last cylinder. Sometimes the last cylinder contains a bad sector table.
+</dd><dt><b>-n</b>
+</dt><dd>Go through all the motions, but do not actually write to disk.
+</dd><dt><b>-R</b>
+</dt><dd>Only execute the BLKRRPART ioctl (to make the kernel re-read
+the partition table). This can be useful for checking in advance that
+the final BLKRRPART will
+be successful, and also when you changed the partition table 'by hand'
+(e.g., using dd from a backup). If the kernel complains ('device busy
+for revalidation
+(usage = 2)') then something still uses the device, and you still have
+to unmount some file system, or say swapoff to some swap partition.
+</dd><dt><b>--no-reread</b>
+</dt><dd>When starting a repartitioning of a disk, sfdisk checks that
+this disk is not mounted, or in use as a swap device, and refuses to
+continue if it is. This
+option suppresses the test. (On the other hand, the -f option would
+force sfdisk to continue even when this test fails.)
+</dd><dt><b>-O</b> <i>file</i>
+</dt><dd>Just before writing the new partition, output the sectors that are going to be overwritten to <i>file</i> (where hopefully <i>file</i> resides on another
+disk, or on a floppy).
+</dd><dt><b>-I</b> <i>file</i>
+</dt><dd>After destroying your filesystems with an unfortunate <b>sfdisk</b> command, you would have been able to restore the old situation if only you had
+preserved it using the -O flag.</dd></dl>
+<h2>Theory</h2>
+Block 0 of a disk (the Master Boot Record) contains among other things four partition descriptors.
+The partitions described here are called <i>primary</i> partitions.
+<p>A partition descriptor has 6 fields:</p><pre class="code">struct partition {
+    unsigned char bootable;<tt>       </tt> /* 0 or 0x80 */
+    hsc begin_hsc;
+    unsigned char id;
+    hsc end_hsc;
+    unsigned int starting_sector;
+    unsigned int nr_of_sectors;
+}</pre>The
+two hsc fields indicate head, sector and cylinder of the begin and the
+end of the partition. Since each hsc field only takes 3 bytes, only 24
+bits are
+available, which does not suffice for big disks (say &gt; 8GB). In
+fact, due to the wasteful representation (that uses a byte for the
+number of heads, which is
+typically 16), problems already start with 0.5GB. However Linux does
+not use these fields, and problems can arise only at boot time, before
+Linux has been
+started. For more details, see the <b>lilo</b> documentation.
+<p>Each partition has a type, its 'Id', and if this type is 5 or f ('<i>extended partition</i>')
+the starting sector of the partition again contains 4
+partition descriptors. MSDOS only uses the first two of these: the
+first one an actual data partition, and the second one again an
+extended partition (or
+empty). In this way one gets a chain of extended partitions. Other
+operating systems have slightly different conventions. Linux also
+accepts type 85 as
+equivalent to 5 and f - this can be useful if one wants to have
+extended partitions under Linux past the 1024 cylinder boundary,
+without DOS FDISK hanging. (If
+there is no good reason, you should just use 5, which is understood by
+other systems.)
+</p><p>Partitions that are not primary or extended are called <i>logical</i>.
+Often, one cannot boot from logical partitions (because the process of
+finding them
+is more involved than just looking at the MBR). Note that of an
+extended partition only the Id and the start are used. There are
+various conventions about what
+to write in the other fields. One should not try to use extended
+partitions for data storage or swap.
+</p><h2>Input Format</h2>
+<div id="adright">
+<script type="text/javascript"><!--
+google_ad_client = "pub-5823754184406795";
+google_ad_slot = "5992934909";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="sfdisk_pliki/show_ads.js">
+</script><script src="sfdisk_pliki/expansion_embed.js"></script><script src="sfdisk_pliki/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 250px; position: relative; visibility: visible; width: 300px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 250px; position: relative; visibility: visible; width: 300px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="sfdisk_pliki/ads.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins>
+</div>
+
+
+<b>sfdisk</b> reads lines of the form<br>
+<blockquote>&lt;start&gt; &lt;size&gt; &lt;id&gt; &lt;bootable&gt; &lt;c,h,s&gt; &lt;c,h,s&gt;</blockquote>where each line fills one partition descriptor.
+<p>Fields are separated by whitespace, or comma or semicolon possibly
+followed by whitespace; initial and trailing whitespace is ignored.
+Numbers can be octal,
+decimal or hexadecimal, decimal is default. When a field is absent or
+empty, a default value is used.
+</p><p>The &lt;c,h,s&gt; parts can (and probably should) be omitted - <b>sfdisk</b> computes them from &lt;start&gt; and &lt;size&gt; and the disk geometry as
+given by the kernel or specified using the -H, -S, -C flags.
+</p><p>Bootable is specified as [*|-], with as default not-bootable.
+(The value of this field is irrelevant for Linux - when Linux runs it
+has been booted already
+- but might play a role for certain boot loaders and for other
+operating systems. For example, when there are several primary DOS
+partitions, DOS assigns C: to
+the first among these that is bootable.)
+</p><p>Id is given in hex, without the 0x prefix, or is [E|S|L|X],
+where L (LINUX_NATIVE (83)) is the default, S is LINUX_SWAP (82), E is <i>EXTENDED_PARTITION
+(5)</i>, and X is LINUX_EXTENDED (85).
+</p><p>The default value of start is the first nonassigned sector/cylinder/...
+</p><p>The default value of size is as much as possible (until next partition or end-of-disk).
+</p><p>However, for the four partitions inside an extended partition,
+the defaults are: Linux partition, Extended partition, Empty, Empty.
+</p><p>But when the -N option (change a single partition only) is given, the default for each field is its previous value.
+</p><h2>Example</h2>
+The command
+<blockquote><pre class="code">sfdisk /dev/hdc &lt;&lt; EOF
+0,407
+,407
+;
+;
+EOF</pre></blockquote>will partition /dev/hdc just as indicated above.
+<p>The command
+</p><blockquote><pre class="code">sfdisk /dev/hdb &lt;&lt; EOF
+,3,L
+,60,L
+,19,S
+,,E
+,130,L
+,130,L
+,130,L
+,,L
+EOF</pre></blockquote>will
+partition /dev/hdb into two Linux partitions of 3 and 60 cylinders, a
+swap space of 19 cylinders, and an extended partition covering
+the rest. Inside the extended partition there are four Linux logical
+partitions, three of 130 cylinders and one covering the rest.
+<p>With the -x option, the number of input lines must be a multiple of
+4: you have to list the two empty partitions that you never want using
+two blank lines.
+Without the -x option, you give one line for the partitions inside a
+extended partition, instead of four, and terminate with end-of-file
+(^D). (And
+<b>sfdisk</b> will assume that your input line represents the first of four, that the second one is extended, and the 3rd and 4th are empty.)
+</p><h2>DOS 6.x WARNING</h2>
+<p>The DOS 6.x FORMAT command looks for some information in the first
+sector of the data area of the partition, and treats this information
+as more reliable
+than the information in the partition table. DOS FORMAT expects DOS
+FDISK to clear the first 512 bytes of the data area of a partition
+whenever a size change
+occurs. DOS FORMAT will look at this extra information even if the /U
+flag is given -- we consider this a bug in DOS FORMAT and DOS FDISK.
+</p><p>The bottom line is that if you use sfdisk to change the size of a DOS partition table entry, then you must also use <b>dd</b>
+to zero the first 512 bytes of
+that partition before using DOS FORMAT to format the partition. For
+example, if you were using sfdisk to make a DOS partition table entry
+for /dev/hda1, then
+(after exiting sfdisk and rebooting Linux so that the partition table
+information is valid) you would use the command "dd if=/dev/zero
+of=/dev/hda1 bs=512
+count=1" to zero the first 512 bytes of the partition. <b>BE EXTREMELY CAREFUL</b> if you use the <b>dd</b> command, since a small typo can make all of the
+data on your disk useless.
+</p><p>For best results, you should always use an OS-specific partition
+table program. For example, you should make DOS partitions with the DOS
+FDISK program and
+Linux partitions with the Linux sfdisk program.
+</p><h2>Drdos Warnings</h2>
+<p>Stephen Tweedie reported (930515): 'Most reports of superblock
+corruption turn out to be due to bad partitioning, with one filesystem
+overrunning the start
+of the next and corrupting its superblock. I have even had this problem
+with the supposedly-reliable DRDOS. This was quite possibly due to
+DRDOS-6.0's FDISK
+command. Unless I created a blank track or cylinder between the DRDOS
+partition and the immediately following one, DRDOS would happily stamp
+all over the start
+of the next partition. Mind you, as long as I keep a little free disk
+space after any DRDOS partition, I don't have any other problems with
+the two coexisting
+on the one drive.'
+</p><p>A. V. Le Blanc writes in README.efdisk: 'Dr. DOS 5.0 and 6.0
+has been reported to have problems cooperating with Linux, and with
+this version of efdisk in
+particular. This efdisk sets the system type to hexadecimal 81. Dr. DOS
+seems to confuse this with hexadecimal 1, a DOS code. If you use Dr.
+DOS, use the
+efdisk command 't' to change the system code of any Linux partitions to
+some number less than hexadecimal 80; I suggest 41 and 42 for the
+moment.'
+</p><p>A. V. Le Blanc writes in his README.fdisk: 'DR-DOS 5.0 and 6.0
+are reported to have difficulties with partition ID codes of 80 or
+more. The Linux 'fdisk'
+used to set the system type of new partitions to hexadecimal 81. DR-DOS
+seems to confuse this with hexadecimal 1, a DOS code. The values 82 for
+swap and 83 for
+file systems should not cause problems with DR-DOS. If they do, you may
+use the 'fdisk' command 't' to change the system code of any Linux
+partitions to some
+number less than hexadecimal 80; I suggest 42 and 43 for the moment.'
+</p><p>In fact, it seems that only 4 bits are significant for the
+DRDOS FDISK, so that for example 11 and 21 are listed as DOS 2.0.
+However, DRDOS itself seems to
+use the full byte. I have not been able to reproduce any corruption
+with DRDOS or its fdisk.
+</p><h2>Bugs</h2>
+A corresponding interactive <b>cfdisk</b> (with curses interface) is still lacking.
+<p>There are too many options.
+</p><p>There is no support for non-DOS partition types.
+</p><h2>See Also</h2>
+<i><b><a href="http://linux.die.net/man/8/cfdisk">cfdisk</a></b>(8)</i>, <i><b><a href="http://linux.die.net/man/8/fdisk">fdisk</a></b>(8)</i>, <i><b><a href="http://linux.die.net/man/8/mkfs">mkfs</a></b>(8)</i>, <i><b><a href="http://linux.die.net/man/8/parted" rel="nofollow">parted</a></b>(8)</i>
+
+<!-- google_ad_section_end -->
+<h2>Referenced By</h2>
+<b><a href="http://linux.die.net/man/8/lphdisk" rel="nofollow">lphdisk</a></b>(8),
+<b><a href="http://linux.die.net/man/8/ntfsresize" rel="nofollow">ntfsresize</a></b>(8)
+<div id="adbottom">
+<script type="text/javascript"><!--
+google_ad_client = "pub-5823754184406795";
+google_ad_slot = "8789940313";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript" src="sfdisk_pliki/show_ads.js">
+</script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 280px; position: relative; visibility: visible; width: 336px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 280px; position: relative; visibility: visible; width: 336px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" src="sfdisk_pliki/ads_002.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" frameborder="0" height="280" scrolling="no" width="336"></iframe></ins></ins>
+</div>
+
+
+</div>
+<div id="menu">
+<a href="http://www.die.net/"><img src="sfdisk_pliki/logo.gif" alt="die.net" border="0" height="121" width="119"></a>
+
+
+<dl><dd>
+<form id="cse-search-box-menu" action="http://www.die.net/search/">
+<label><a href="http://www.die.net/search/">site search</a></label>
+<input name="q" size="10" type="text">
+<span style="font-family: Arial,Helvetica,sans-serif; font-size: 75%;">Google Custom Search</span>
+<input name="sa" value="Search" type="hidden">
+<input name="ie" value="ISO-8859-1" type="hidden">
+<input name="cx" value="partner-pub-5823754184406795:54htp1rtx5u" type="hidden">
+<input name="cof" value="FORID:9" type="hidden">
+</form>
+<script type="text/javascript">
+<!--
+document.forms["cse-search-box-menu"].action = "http://www.die.net/search/";
+// -->
+</script>
+</dd></dl>
+
+
+
+
+<dl>
+<dt>Library</dt>
+<dd><a href="http://dictionary.die.net/">online dictionary</a></dd>
+<dd><a href="http://linux.die.net/">linux docs</a></dd>
+<dd><a href="http://linux.die.net/man/">linux man pages</a></dd>
+<dd><a href="http://www.die.net/musings/page_load_time/">page load time</a></dd>
+</dl>
+<dl>
+<dt>Toys</dt>
+<dd><a href="http://www.die.net/earth/">world sunlight</a></dd>
+<dd><a href="http://www.die.net/moon/">moon phase</a></dd>
+<dd><a href="http://trace.die.net/">trace explorer</a></dd>
+</dl>
+
+
+<div id="adlink">
+<script type="text/javascript"><!--
+google_ad_client = "pub-5823754184406795";
+google_ad_slot = "4470416430";
+google_ad_width = 120;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="sfdisk_pliki/show_ads.js">
+</script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 90px; position: relative; visibility: visible; width: 120px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 90px; position: relative; visibility: visible; width: 120px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame3" marginheight="0" marginwidth="0" name="google_ads_frame" src="sfdisk_pliki/ads_003.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" frameborder="0" height="90" scrolling="no" width="120"></iframe></ins></ins>
+</div>
+</div></div>
+<script type="text/javascript">
+<!--
+if (top.location != self.location) top.location = self.location;
+// -->
+</script>
+</body></html>

@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" xml:lang="pl" xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Software RAID 1 (mirroring) na linuksie (mdadm)! | www.ladogorski.com</title>
+  <link type="text/css" rel="stylesheet" media="all" href="software_raid_pliki/node.css">
+<link type="text/css" rel="stylesheet" media="all" href="software_raid_pliki/defaults.css">
+<link type="text/css" rel="stylesheet" media="all" href="software_raid_pliki/system.css">
+<link type="text/css" rel="stylesheet" media="all" href="software_raid_pliki/system-menus.css">
+<link type="text/css" rel="stylesheet" media="all" href="software_raid_pliki/user.css">
+<link type="text/css" rel="stylesheet" media="all" href="software_raid_pliki/style.css">
+    <script type="text/javascript"> </script>
+</head><body>
+
+<table class="tlo" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td colspan="3"><div style="position: relative;">
+      <img src="software_raid_pliki/gora.jpg">
+      <h1 style="position: absolute; left: 0px; top: -10px;" class="site-name"><a href="http://www.ladogorski.com/" title="Strona główna">www.ladogorski.com</a></h1>                  <div style="position: absolute; right: 30px; top: 110px;"><ul class="links" id="navlist"><li class="menu-140 first"><a href="http://www.ladogorski.com/pozycjonowanie_stron_internetowych" title="pozycjonowanie">pozycjonowanie</a></li>
+<li class="menu-137"><a href="http://www.ladogorski.com/projektowanie_stron_www" title="KOMPLETNA STRONA z SERWEREM, kontami EMAIL za 500zł netto">projektowanie stron WWW</a></li>
+<li class="menu-141 last"><a href="http://www.ladogorski.com/contact" title="kontakt">kontakt</a></li>
+</ul>      </div></div>
+    </td>
+
+  </tr>
+  <tr>
+    <td colspan="3"><div></div></td>
+  </tr>
+  <tr>
+    <td id="sidebar-left">
+        <div class="block block-menu" id="block-menu-menu-articles">
+    <h2 class="title">Artykuły</h2>
+    <div class="content"><ul class="menu"><li class="leaf first"><a href="http://www.ladogorski.com/czas_ntp" title="Czas NTP">Czas NTP</a></li>
+<li class="leaf"><a href="http://www.ladogorski.com/firebird_autoinkrementacja" title="Firebird SQL - autoinkrementacja">Firebird SQL - autoinkrementacja</a></li>
+<li class="leaf"><a href="http://www.ladogorski.com/oracle_kompilowanie_obiektow" title="ORACLE - kompilowanie obiektów">ORACLE - kompilowanie obiektów</a></li>
+<li class="leaf"><a href="http://www.ladogorski.com/gsm_simei" title="Program dla salonów telefonii komórkowej GSM">Program GSM SIMEI</a></li>
+<li class="leaf"><a href="http://www.ladogorski.com/raport_mks" title="">Raport MKS</a></li>
+<li class="leaf"><a href="http://www.ladogorski.com/reverse_dns" title="Reverse DNS - dlaczego działa tylko lokalnie?">Reverse DNS</a></li>
+<li class="leaf"><a href="http://www.ladogorski.com/1440_900_problem_na_linuksie" title="Rozdzielczość 16:9 1440x900 na linuksie debian/ubuntu, chipset intel i8xx, i9xx">Rozdzielczość 16:9 1440x900 na linuksie</a></li>
+<li class="leaf active-trail"><a href="http://www.ladogorski.com/software_raid" title="" class="active">Software Raid</a></li>
+<li class="leaf last"><a href="http://jutro.cba.pl/" title="">jutro</a></li>
+</ul></div>
+ </div>
+    </td>    <td valign="top">
+            <div id="main">
+        <div class="breadcrumb"><a href="http://www.ladogorski.com/">Strona główna</a></div>        <h1 class="title">Software RAID 1 (mirroring) na linuksie (mdadm)!</h1>
+        <div class="tabs"></div>
+                          <div class="node">
+            <span class="submitted">robson, wt., 02/14/2006 - 01:00</span>
+    <div class="taxonomy"></div>
+    <div class="content"><p>Dla
+kogo jest ten HOW-TO? Dla osób, które pierwszy raz chcą postawić
+Software RAID 1 (mirroring) na linuksie, oraz dla osób, które już to
+robiły, ale po zainstalowaniu nowych pakietów <b>Raidtools2</b> ku swojemu przerażeniu nie znalazły polecenia <code>mkraid</code>.</p>
+<p><b>Czym jest Raid 1 (mirroring)?</b> W wielkim skrócie - jest to
+technika zapisywania danych na dwa dyski jednocześnie. Partycje wraz z
+danymi na obu dyskach są dla siebie jakby lustrzanymi odbiciami. W
+razie awarii jednego z dysków system może pracować dalej bez utraty
+danych. W takim wypadku wystarczy wymienić uszkodzony dysk i odbudować
+dane na nowym.</p>
+<p><b>Jaka jest różnica między hardware RAID a software RAID?</b>
+Przede wszystkim w cenie. Do software RAID-a nie musimy kupować
+dodatkowego sprzętu oprócz dysków, natomiast hardware RAID wymaga
+specjalnego kontrolera (więcej informacji, ceny itp. można uzyskać w
+linkach Google po lewej stronie). Poza tym hardware RAID w znacznie
+mniejszym stopniu obciąża procesor serwera.</p>
+<p>Obecne dystrybucje linuksa (np. Debian 3.1) umożliwiają konfigurację
+software raid-u podczas instalacji systemu, ale tu zajmiemy się
+instalacją raid-u na gotowym, już istniejącym systemie.</p>
+<p><b>Co będzie potrzebne?</b> Dwa dyski twarde, najlepiej identyczne, odpowiednio przygotowane jądro systemu, oraz pakiet <b>mdadm</b> zamiast dotychczasowego <b>raidtools</b>. W jądro powinna być wkompilowana obsługa Raid1 (mirroring). Jak sprawdzić, czy jest? Jeśli istnieje plik <code>/proc/mdstat</code> wszystko powinno być ok, jeśli nie - trzeba będzie samemu skompilować jajko. Źródełka pakietu <code>mdadm</code> można pobrać ze strony <a href="http://www.kernel.org/pub/linux/utils/raid/mdadm/"><br>
+http://www.kernel.org/pub/linux/utils/raid/mdadm/</a><br>
+ lub w przypadku Debiana zainstalować binarki:</p>
+<blockquote><p><code># apt-get install mdadm</code></p></blockquote>
+<p>Nasz przykład oprzemy na takim przykładowym ustawieniu partycji na dysku:</p>
+<blockquote>
+<pre><code>Urządzenie Pojemność  Punkt montowania
+/dev/sda1     30MB     /boot
+/dev/sda2   9600MB     /
+/dev/sda3    512MB      swap
+/dev/sda4  67000MB     /home
+</code></pre></blockquote>
+<p>A więc mamy podłączony drugi dysk - pusty, bez partycji, więc je
+tworzymy tak by wyglądały identycznie na obu dyskach. Nasz pierwszy
+dysk wygląda tak:</p>
+<blockquote>
+<pre><code># fdisk -l /dev/sda
+
+Disk /dev/sda: 80.0 GB, 80026361856 bytes
+255 heads, 63 sectors/track, 9729 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *           1           4       32098+  83  Linux
+/dev/sda2               5        1220     9767520   82  Linux
+/dev/sda3            1221        1342      979965   83  Linux Swap
+/dev/sda4            1343        9729    67368577+  83  Linux
+</code></pre></blockquote>
+<p>Tworzymy partycje identycznie, z tym, że typ partycji ustawiamy na
+fd - Linux raid autodetect. Nasz drugi dysk powinien wyglądać tak:</p>
+<blockquote>
+<pre><code># fdisk -l /dev/sdb
+
+Disk /dev/sdb: 80.0 GB, 80026361856 bytes
+255 heads, 63 sectors/track, 9729 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1   *           1           4       32098+  fd  Linux raid autodetect
+/dev/sdb2               5        1220     9767520   fd  Linux raid autodetect
+/dev/sdb3            1221        1342      979965   fd  Linux raid autodetect
+/dev/sdb4            1343        9729    67368577+  fd  Linux raid autodetect
+</code></pre></blockquote>
+<p>Teraz możemy przystąpić do tworzenia macierzy raid:</p>
+<blockquote>
+<pre><code>mdadm --create /dev/md0 --level 1 --raid-devices=2 missing /dev/sdb1
+</code></pre></blockquote>
+<p>a to oznacza, że tworzymy (--create) partycję macierzy /dev/md0 typu
+--level 1 (mirroring) składającą się z --raid-devices=2 (dwóch dysków)
+i niestety pierwszy dysk missing (brakuje, ponieważ na razie istnieje
+na nim nasz system - nie chcemy go uszkodzić), a drugi to /dev/sdb1.
+Warto tu zauważyć, że partycje macierzy raid numerujemy od zera, a więc
+partycja /dev/md0 będzie odpowiadała połączonym partycjom /dev/sda1 i
+/dev/sdb1 (tak będzie w naszym przykładzie).<br>A więc jedziemy dalej:</p>
+<blockquote>
+<pre><code>mdadm --create /dev/md1 --level 1 --raid-devices=2 missing /dev/sdb2
+mdadm --create /dev/md2 --level 1 --raid-devices=2 missing /dev/sdb3
+mdadm --create /dev/md3 --level 1 --raid-devices=2 missing /dev/sdb4
+</code></pre></blockquote>
+<p>Hurra! Powołaliśmy nasz raid do istnienia! Ale na razie niestety nie
+pomoże nam w razie awarii dysku. Więc dalej do pracy. Jak możemy
+obejrzeć w jakim stanie jest nasz mirroring? Zawsze w ten sam sposób:</p>
+<blockquote>
+<pre><code># cat /proc/mdstat
+
+Personalities : [raid1]
+md0 : active raid1 sdb1[1]
+      32000 blocks [2/1] [_U]
+
+md1 : active raid1 sdb2[1]
+      9767424 blocks [2/1] [_U]
+
+md2 : active raid1 sdb3[1]
+      979840 blocks [2/1] [_U]
+
+md3 : active raid1 sdb4[1]
+      67534912 blocks [2/1] [_U]
+</code></pre></blockquote>
+<p>Powyższy wynik należy czytać tak: <code>Personalities : [raid1]</code> - utworzyliśmy raid1! Pierwsza partycja to <code>md0 : active raid1 sdb1[1]</code> - aktywny raid na partycji sdb1 na razie jednej, jest to dysk drugi [1] (pierwszy to [0] - który jest na razie <code>missing</code>). Partycja ma <code>32000 blocks</code> pojemności, <code>[2/1]</code> jeden z dwóch dysków jest czynny i jest to dysk <code>[_U]</code> drugi ("_" oznacza brak dysku, "U" oznacza "<b>U</b>p and running" - czyli podniesiony i chodzi).</p>
+<p>No to partycje mamy, teraz trzeba utworzyć na nich system plików i podmontować je. A więc do dzieła:</p>
+<blockquote>
+<pre><code># mkfs.ext3 /dev/md0
+# mkfs.ext3 /dev/md1
+# mkswap /dev/md2
+# mkfs.ext3 /dev/md3
+# mkdir /mntroot
+# mkdir /mntboot
+# mkdir /mnthome
+# mount /dev/md0 /mntboot
+# mount /dev/md1 /mntroot
+# mount /dev/md3 /mnthome
+</code></pre></blockquote>
+<p>Teraz poprawiamy initrd (UWAGA!!! jeśli używasz initramfs - w nowszych dystrybucjach - zobacz uwagi p. Artura Skrzypczyńskiego <a href="#initramfs">tutaj</a>)
+- jeśli używamy go przy starcie systemu (w grubie - /boot/grub/menu.lst
+będziemy mieli wpis w naszej sekcji uruchomieniowej podobny do tego: <code>initrd /initrd.img-2.6.8</code>). Jest to szczególnie ważne gdy używamy dysków SATA, a chcemy, by komputer wstał po restarcie ;). A więc w pliku <code>/etc/mkinitrd/mkinitrd.conf</code> dokonujemy następujących zmian: <code>MODULES=most</code> zamieniamy na <code>MODULES=dep</code> i <code>ROOT=probe</code> na <code>ROOT="/dev/md1 ext3"</code>. Po tych zmianach wydajemy polecenie:</p>
+<blockquote>
+<pre><code>#mkinitrd -o /boot/initrd.img-2.6.8-md 2.6.8
+</code></pre></blockquote>
+<p>Czyli tworzymy plik initrd.img. Teraz musimy trochę pozmieniać w konfiguracji GRUB-a. Edytujemy <code>/boot/grub/menu.lst</code> i kopiujemy nasz domyślny listing uruchomieniowy i wklejamy poniżej:</p>
+<blockquote>
+<pre><code>
+title Debian GNU/Linux, kernel 2.6.8
+root (hd0,0)
+kernel /vmlinuz-2.6.8 root=/dev/sda2 ro 
+initrd /initrd.img-2.6.8
+savedefault
+boot
+</code></pre></blockquote>
+<p>i zmieniamy, jak poniżej - zgodnie z wcześniejszą konfiguracją:</p>
+<blockquote>
+<pre><code>
+title Debian GNU/Linux, <b>kernel 2.6.8-md Disk1</b>
+root (hd0,0)
+kernel /vmlinuz-2.6.8 root=<b>/dev/md1</b> ro 
+initrd <b>/initrd.img-2.6.8-md</b>
+savedefault
+boot
+</code></pre></blockquote>
+<p>Jeśli nie korzystamy z dysków SATA i nie mamy linii rozpoczynającej
+się od initrd, to je pomijamy. Teraz kopiujemy jeszcze raz powyższy
+fragment, wklejamy poniżej i ustawiamy tak by w razie awarii mieć
+możliwość wyboru dysku z którego chcemy odpalić system:</p>
+<blockquote>
+<pre><code>
+title Debian GNU/Linux, kernel 2.6.8-md <b>Disk2</b>
+root (hd<b>1</b>,0)
+kernel /vmlinuz-2.6.8 root=/dev/md1 ro 
+initrd /initrd.img-2.6.8-md
+savedefault
+boot
+</code></pre></blockquote>
+<p>Teraz jeszcze musimy stworzyć plik konfiguracyjny macierzy - edytujemy <code>/etc/mdadm/mdadm.conf</code> i wpisujemy do pustego pliku:</p>
+<blockquote>
+<pre><code>DEVICE /dev/sda* /dev/sdb*
+</code></pre></blockquote>
+<p>Resztę pliku konfiguracynego dopisze za nas polecenie <code>mdadm</code>. Musimy tylko wydać poniższe polecenie:</p>
+<blockquote>
+<pre><code># mdadm --detail --scan &gt;&gt; /etc/mdadm/mdadm.conf
+</code></pre></blockquote>
+<p>No to wszystko mamy przygotowane. Teraz trzeba przekopiować nasz
+system z aktualnego dysku na macierz (która narazie składa się z
+jednego dysku - /dev/sdb). Świetnym narzędziem do kopiowania w tym
+wypadku będzie <code>rsync</code> - polecam. Jeżeli go nie mamy, a mamy Debiana, to wiemy co zrobić (<code> apt-get install rsync</code>). Kopiujemy po kolei wszystko na podmontowane partycje:</p>
+<blockquote>
+<pre><code># rsync -auHx --exclude=/proc/* --exclude=/sys/* --exclude=/boot/* 
+        --exclude=/home/* --exclude=/mntboot --exclude=/mntroot/ /* /mntroot/
+# mkdir /mntroot/proc /mntroot/boot /mntroot/sys 
+# chmod 555 /mntroot/proc
+# rsync -auHx   /boot/ /mntboot/
+# rsync -auHx   /home/ /mnthome/
+</code></pre></blockquote>
+<p>Jeszcze nie restartujmy systemu. Ważna sprawa - zmiany w <b>fstab</b> na macierzy (jak słusznie zauważył Artur S.) czyli <code>/mntroot/etc/fstab</code>. Po restarcie system będzie musiał wiedzieć jak ma zamontować partycje. A więc zamieniamy odpowiednio <code>/dev/sda1</code> na <code>/dev/md0</code>, <code>/dev/sda2</code> na <code>/dev/md1</code>, <code>/dev/sda3</code> na <code>/dev/md2</code> i <code>/dev/sda4</code> na <code>/dev/md3</code>.</p>
+<p><b>No i wreszcie możemy zrestartować system.</b> Po restarcie system
+powinien uruchomić się na uszkodzonym RAID1 (bez pierwszego dysku) - w
+tym celu trzeba będzie wybrać z gruba <b>Disk2</b> naszego RAID-a. Jeśli się udało - GRATULACJE!</p>
+<p>Teraz, zanim przystąpimy do dodania pierwszego dysku do naszej
+macierzy warto by sprawdzić, czy system faktycznie uruchomił się na
+RAID-zie. Najprościej chyba tak:</p>
+<blockquote>
+<pre><code># df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/md1               7692840   6432572    869492  89% /
+tmpfs                   257360         0    257360   0% /dev/shm
+/dev/md0                 15429      8100      6533  56% /boot
+/dev/md3              31190444   3263284  26342756  12% /home
+</code></pre></blockquote>
+<p>Widzimy powyżej, że poszczególne partycje zostały zamontowane na
+urządzeniach RAID (/dev/md*), a więc jest OK. No więc trzeba
+przygotować teraz dysk pierwszy. Za pomocą <code>fdisk</code> zmieniamy typy partycji na <code>fd</code> (linux raid autodetect) - spowoduje to utratę danych na tym dysku. Powinno to wyglądać tak:</p>
+<blockquote>
+<pre><code># fdisk -l /dev/sda
+
+Disk /dev/sda: 80.0 GB, 80026361856 bytes
+255 heads, 63 sectors/track, 9729 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *           1           4       32098+  fd  Linux raid autodetect
+/dev/sda2               5        1220     9767520   fd  Linux raid autodetect
+/dev/sda3            1221        1342      979965   fd  Linux raid autodetect
+/dev/sda4            1343        9729    67368577+  fd  Linux raid autodetect
+</code></pre></blockquote>
+<p>Mamy dysk przygotowany, więc trzeba go teraz dodać (wszystkie poszczególne partycje) do naszego matrix-a:</p>
+<blockquote>
+<pre><code># mdadm /dev/md0 -a /dev/sda1
+# mdadm /dev/md1 -a /dev/sda2
+# mdadm /dev/md2 -a /dev/sda3
+# mdadm /dev/md3 -a /dev/sda4
+</code></pre></blockquote>
+<p>Teraz możemy sprawdzić jak odbudowuje się system na dodanym dysku:</p>
+<blockquote>
+<pre><code># cat /proc/mdstat
+
+
+Personalities : [raid1]
+md0 : active raid1 sda1[0] sdb1[1]
+      32000 blocks [2/2] [UU]
+
+md1 : active raid1 sda2[0] sdb2[1]
+      9767424 blocks [2/1] [_U]
+      [======&gt;..............]  recovery = 28.9% (2767468/9767424) 
+                                               finish=12.4min speed=x
+
+md2 : active raid1 sda3[0] sdb3[1]
+      979840 blocks [2/2] [UU]
+
+md3 : active raid1 sda4[0] sdb4[1]
+      67534912 blocks [2/2] [UU]
+unused devices: <none>
+</none></code></pre></blockquote>
+<p>Teraz musimy utworzyć na nowo plik konfiguracyjny <code>/etc/mdadm/mdadm.conf</code>. Kasujemy więc w nim wszystko oprócz <code>DEVICE /dev/sda* /dev/sdb*<br>
+</code> i wykonujemy:</p>
+<blockquote>
+<pre><code># mdadm --detail --scan &gt;&gt; /etc/mdadm/mdadm.conf
+</code></pre></blockquote>
+<p>Teraz pozostało nam jeszcze zainstalować GRUB-a na obu dyskach w MBR by w razie awarii każdy z nich mógł wystartować:</p>
+<blockquote>
+<pre><code>#grub --device-map=/boot/grub/device.map
+
+        &gt;&gt; root (hd0,0)
+        &gt;&gt; setup (hd0)
+        &gt;&gt; root (hd1,0)
+        &gt;&gt; setup (hd1)
+        &gt;&gt; quit 
+</code></pre></blockquote>
+<p>Gdyby GRUB krzyczał, że nie zna takiego dysku jak hd1, zajrzyjmy do pliku <code>/boot/grub/device.map</code>. Jeśli brakuje aliasu (hd1) dodajmy go:</p>
+<blockquote>
+<pre><code>(hd1)    /dev/sdb
+</code></pre></blockquote>
+<p>i powtórzmy jeszcze raz instalację GRUBa do MBR. Wyedytujmy jeszcze <code>/boot/grub/menu.lst</code> i wskażmy (zmieńmy na) właściwą partycję głównego katalogu:</p>
+<blockquote>
+<pre><code># kopt=root=/dev/md1 ro
+</code></pre></blockquote>
+<p>Ten # na początku też musi zostać (nie wiedzieć czemu). <b>No i THAT'S ALL!</b></p>
+<p>Zawsze stan macierzy (naszego RAID1) możemy sprawdzić poleceniem <code>cat /proc/mdstat</code>.
+Pakiet mdadm można również skonfigurować tak, by wysyłał nam maila w
+razie jakiejkolwiek awarii. W przypadku Debiana wystarczy:</p>
+<blockquote>
+<pre><code># dpkg-reconfigure mdadm
+</code></pre></blockquote>
+<p>jeśli nie zrobiliśmy tego już przy instalacji.</p>
+<p><br><br><br><br><br>
+<b>Uwagi Pana Artura Skrzypczyńskiego dotyczące <a name="initramfs">initramfs</a> za które bardzo dziękuję:</b><br><br><br>
+<b><i>[cytat]</i></b>(...) przy kolejnym serwerze, który robiłem nawet
+zostawienie wpisu =most nie zadziałało więc odkryłem pewien drobiazg. Z
+jakiegoś powodu mkinitramfs (czy też update-initramfs) nie zawsze
+poprawnie wkompilowuje moduły (zła kolejność lub coś innego) co
+powoduje standardowy błąd podczas startu - czyli nie widać macierzy md<i>x</i>.  Otóż najlepszą metodą jest PRZED wykonaniem mkinitramfs zrobić coś takiego:</p>
+<blockquote>
+<pre><code># depmod
+# lsmod &gt;&gt; /etc/initramfs-tools/initramfs.conf</code></pre></blockquote>
+<p> (to spowoduje wpisanie listy modułów do pliku konfiguracyjnego, z którego korzysta mkinitramfs)</p>
+<blockquote>
+<pre><code># vim /etc/initramfs-tools/initramfs.conf </code></pre></blockquote>
+<p> (edytujemy plik żeby zostawić tylko pierwszą kolumnę wpisów - z
+nazwami modułów - resztę kasujemy. Ponadto moduły scsi lub sata należy
+umieścić na szczycie listy).</p>
+<p>Teraz uzupełniamy plik mdadm.conf w/g Pana instrukcji i UWAGA -
+usuwamy wpisy METADATA=xxxxxx. Dopiero teraz uruchamiamy mkinitramfs.
+To działa w 100% - przynajmniej na nowych Debianach, w których mkinitrd
+zostało zastąpione przez mkinitramfs.<br><br>
+<b><i>[koniec cytatu]</i></b></p>
+<p><br><br><br><br>
+W razie pytań odnośnie artykułu, lub jakichś sugestii, proszę pisać: <a href="mailto:info@ladogorski.com">info@ladogorski.com</a></p>
+</div>
+    <div class="links">» <ul class="links inline"><li class="comment_forbidden first last"><span><a href="http://www.ladogorski.com/user/login?destination=comment/reply/1%2523comment-form">Zaloguj się</a> lub <a href="http://www.ladogorski.com/user/register?destination=comment/reply/1%2523comment-form">utwórz konto</a>, by odpowiadać</span></li>
+</ul></div>  </div>
+              </div>
+    </td>
+      </tr>
+</tbody></table>
+
+<div id="footer">
+      <div class="block block-block" id="block-block-1">
+    <h2 class="title"></h2>
+    <div class="content"><p style="text-align: center;">© ladogorski.com</p>
+</div>
+ </div>
+</div>
+</body></html>

@@ -1,0 +1,546 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="win firefox firefox3 gecko gecko1" dir="ltr" xml:lang="pl" xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head>
+
+
+<title>C/Więcej o kompilowaniu - Wikibooks, biblioteka wolnych podręczników</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="generator" content="MediaWiki 1.16alpha-wmf">
+<link rel="alternate" type="application/x-wiki" title="Edytuj" href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit">
+<link rel="edit" title="Edytuj" href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit">
+<link rel="stylesheet" type="text/css" href="Wi%C4%99cej_o_kompilowaniu_pliki/combined.css">
+<link rel="stylesheet" type="text/css" href="Wi%C4%99cej_o_kompilowaniu_pliki/jquery-ui-1.css">
+<link rel="shortcut icon" href="http://pl.wikibooks.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://pl.wikibooks.org/w/opensearch_desc.php" title="Wikibooks (pl)">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/rss+xml" title="Kanał RSS Wikibooks" href="http://pl.wikibooks.org/w/index.php?title=Specjalna:Ostatnie_zmiany&amp;feed=rss">
+<link rel="alternate" type="application/atom+xml" title="Kanał Atom Wikibooks" href="http://pl.wikibooks.org/w/index.php?title=Specjalna:Ostatnie_zmiany&amp;feed=atom">
+<link rel="stylesheet" href="Wi%C4%99cej_o_kompilowaniu_pliki/shared.css" type="text/css" media="screen">
+<link rel="stylesheet" href="Wi%C4%99cej_o_kompilowaniu_pliki/commonPrint.css" type="text/css" media="print">
+<link rel="stylesheet" href="Wi%C4%99cej_o_kompilowaniu_pliki/main.css" type="text/css" media="screen">
+<link rel="stylesheet" href="Wi%C4%99cej_o_kompilowaniu_pliki/main_002.css" type="text/css" media="handheld">
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins-1.5/monobook/IE50Fixes.css?248z2" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="/skins-1.5/monobook/IE55Fixes.css?248z2" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="/skins-1.5/monobook/IE60Fixes.css?248z2" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins-1.5/monobook/IE70Fixes.css?248z2" type="text/css" media="screen" /><![endif]-->
+<link rel="stylesheet" href="Wi%C4%99cej_o_kompilowaniu_pliki/index_004.css" type="text/css" media="all">
+<link rel="stylesheet" href="Wi%C4%99cej_o_kompilowaniu_pliki/index.css" type="text/css" media="print">
+<link rel="stylesheet" href="Wi%C4%99cej_o_kompilowaniu_pliki/index_002.css" type="text/css" media="handheld">
+<link rel="stylesheet" href="Wi%C4%99cej_o_kompilowaniu_pliki/index_003.css" type="text/css" media="all">
+<link rel="stylesheet" href="Wi%C4%99cej_o_kompilowaniu_pliki/index_005.css" type="text/css" media="all">
+<script type="text/javascript">
+var skin="monobook",
+stylepath="/skins-1.5",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/w",
+wgScriptExtension=".php",
+wgScript="/w/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://pl.wikibooks.org",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="C/Więcej_o_kompilowaniu",
+wgTitle="C/Więcej o kompilowaniu",
+wgAction="view",
+wgArticleId=4769,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="pl",
+wgContentLanguage="pl",
+wgBreakFrames=false,
+wgCurRevisionId=102854,
+wgVersion="1.16alpha-wmf",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=[",	.", " 	,"],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Strona główna",
+wgFormattedNamespaces={"-2": "Media", "-1": "Specjalna", "0": "", "1": "Dyskusja", "2": "Wikipedysta", "3": "Dyskusja Wikipedysty", "4": "Wikibooks", "5": "Dyskusja Wikibooks", "6": "Plik", "7": "Dyskusja pliku", "8": "MediaWiki", "9": "Dyskusja MediaWiki", "10": "Szablon", "11": "Dyskusja szablonu", "12": "Pomoc", "13": "Dyskusja pomocy", "14": "Kategoria", "15": "Dyskusja kategorii", "104": "Wikijunior", "105": "Dyskusja Wikijuniora"},
+wgNamespaceIds={"media": -2, "specjalna": -1, "": 0, "dyskusja": 1, "wikipedysta": 2, "dyskusja_wikipedysty": 3, "wikibooks": 4, "dyskusja_wikibooks": 5, "plik": 6, "dyskusja_pliku": 7, "mediawiki": 8, "dyskusja_mediawiki": 9, "szablon": 10, "dyskusja_szablonu": 11, "pomoc": 12, "dyskusja_pomocy": 13, "kategoria": 14, "dyskusja_kategorii": 15, "wikijunior": 104, "dyskusja_wikijuniora": 105, "grafika": 6, "dyskusja_grafiki": 7, "image": 6, "image_talk": 7},
+wgMWSuggestTemplate="http://pl.wikibooks.org/w/api.php?action=opensearch\x26search={searchTerms}\x26namespace={namespaces}\x26suggest",
+wgDBname="plwikibooks",
+wgSearchNamespaces=[0],
+wgMWSuggestMessages=["z dynamicznymi propozycjami", "bez dynamicznych propozycji"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[],
+wgTrackingToken="ed8e63e6635b1fb75b75c529cde95347",
+wgClickTrackingIsThrottled=true,
+wgNotice="",
+wgNoticeLocal="";
+</script>
+<script src="Wi%C4%99cej_o_kompilowaniu_pliki/wikibits.js" type="text/javascript"></script>
+<script src="Wi%C4%99cej_o_kompilowaniu_pliki/ajax.js" type="text/javascript"></script>
+<script src="Wi%C4%99cej_o_kompilowaniu_pliki/mwsuggest.js" type="text/javascript"></script>
+<script type="text/javascript" src="Wi%C4%99cej_o_kompilowaniu_pliki/js2.js"></script>
+<script type="text/javascript" src="Wi%C4%99cej_o_kompilowaniu_pliki/plugins.js"></script>
+<script type="text/javascript" src="Wi%C4%99cej_o_kompilowaniu_pliki/CollapsibleTabs.js"></script>
+<script type="text/javascript" src="Wi%C4%99cej_o_kompilowaniu_pliki/ClickTracking.js"></script>
+<script type="text/javascript" src="Wi%C4%99cej_o_kompilowaniu_pliki/centralnotice.js"></script><style type="text/css">
+#centralNotice .siteNoticeSmall{display:none;}
+#centralNotice .siteNoticeSmallAnon{display:none;}
+#centralNotice .siteNoticeSmallUser{display:none;}
+#centralNotice.collapsed .siteNoticeBig{display:none;}
+#centralNotice.collapsed .siteNoticeSmall{display:block;}
+#centralNotice.collapsed .siteNoticeSmallUser{display:block;}
+#centralNotice.collapsed .siteNoticeSmallAnon{display:block;}
+#centralNotice.anonnotice .siteNoticeSmallUser{display:none !important;}
+#centralNotice.usernotice .siteNoticeSmallAnon{display:none !important;}
+</style>
+
+
+<!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js?248z2"></script>
+	<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+<script src="Wi%C4%99cej_o_kompilowaniu_pliki/index_002.php" type="text/javascript"></script>
+
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li, .source-c pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.c.source-c .de1, .c.source-c .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.c.source-c  {font-family:monospace;}
+.c.source-c .imp {font-weight: bold; color: red;}
+.c.source-c li, .c.source-c .li1 {font-weight: normal; vertical-align:top;}
+.c.source-c .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.c.source-c .li2 {font-weight: bold; vertical-align:top;}
+.c.source-c .kw1 {color: #b1b100;}
+.c.source-c .kw2 {color: #000000; font-weight: bold;}
+.c.source-c .kw3 {color: #000066;}
+.c.source-c .kw4 {color: #993333;}
+.c.source-c .co1 {color: #666666; font-style: italic;}
+.c.source-c .co2 {color: #339933;}
+.c.source-c .coMULTI {color: #808080; font-style: italic;}
+.c.source-c .es0 {color: #000099; font-weight: bold;}
+.c.source-c .es1 {color: #000099; font-weight: bold;}
+.c.source-c .es2 {color: #660099; font-weight: bold;}
+.c.source-c .es3 {color: #660099; font-weight: bold;}
+.c.source-c .es4 {color: #660099; font-weight: bold;}
+.c.source-c .es5 {color: #006699; font-weight: bold;}
+.c.source-c .br0 {color: #009900;}
+.c.source-c .sy0 {color: #339933;}
+.c.source-c .st0 {color: #ff0000;}
+.c.source-c .nu0 {color: #0000dd;}
+.c.source-c .nu6 {color: #208080;}
+.c.source-c .nu8 {color: #208080;}
+.c.source-c .nu12 {color: #208080;}
+.c.source-c .nu16 {color:#800080;}
+.c.source-c .nu17 {color:#800080;}
+.c.source-c .nu18 {color:#800080;}
+.c.source-c .nu19 {color:#800080;}
+.c.source-c .me1 {color: #202020;}
+.c.source-c .me2 {color: #202020;}
+.c.source-c .ln-xtra, .c.source-c li.ln-xtra, .c.source-c div.ln-xtra {background-color: #ffc;}
+.c.source-c span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style></head><body class="mediawiki ltr ns-0 ns-subject page-C_Więcej_o_kompilowaniu skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a id="top"></a>
+		<div id="siteNotice"><script type="text/javascript">if (wgNotice != '') document.writeln(wgNotice);</script></div>		<div id="pwFHButtonDiv">[<a href="javascript:pathway.toggleFirstHeading()" id="pwFHButton">rozwiń</a>]</div><h1 id="firstHeading" class="firstHeading">Więcej o kompilowaniu</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">Z Wikibooks, biblioteki wolnych podręczników.</h3>
+			<div id="contentSub"><div id="pwContent"><div id="pwPathway"> &gt; <a href="http://pl.wikibooks.org/wiki/C">C</a> &gt; Więcej o kompilowaniu<a href="javascript:pathway.toggleNavigation()" id="pwNavToggle"> »</a></div><div style="display: none;" id="pwNav"><input value="C/Więcej o kompilowaniu" id="pwNavInput" type="text"><span id="pwNavButtons"> <a href="http://pl.wikibooks.org/wiki/C/Wi%C4%99cej%20o%20kompilowaniu" id="pwNavGo">Przejdź</a> | <a href="http://pl.wikibooks.org/w/index.php?action=edit&amp;title=C/Wi%C4%99cej%20o%20kompilowaniu" id="pwNavEdit">Edytuj</a></span></div></div><span class="subpages">&lt; <a href="http://pl.wikibooks.org/wiki/C" title="C">C</a></span></div>
+									<div id="jump-to-nav">Skocz do: <a href="#column-one">nawigacji</a>, <a href="#searchInput">wyszukiwania</a></div>			<!-- start content -->
+			<table id="toc" class="toc">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Spis treści</h2>
+ <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">ukryj</a>]</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Ciekawe_opcje_kompilatora_GCC"><span class="tocnumber">1</span> <span class="toctext">Ciekawe opcje kompilatora GCC</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Program_make"><span class="tocnumber">2</span> <span class="toctext">Program make</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Budowa_pliku_Makefile"><span class="tocnumber">2.1</span> <span class="toctext">Budowa pliku Makefile</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Przyk.C5.82adowy_plik_Makefile"><span class="tocnumber">2.2</span> <span class="toctext">Przykładowy plik Makefile</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Optymalizacje"><span class="tocnumber">3</span> <span class="toctext">Optymalizacje</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Wyr.C3.B3wnywanie"><span class="tocnumber">3.1</span> <span class="toctext">Wyrównywanie</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Kompilacja_skro.C5.9Bna"><span class="tocnumber">4</span> <span class="toctext">Kompilacja skrośna</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Inne_narz.C4.99dzia"><span class="tocnumber">5</span> <span class="toctext">Inne narzędzia</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<script type="text/javascript">
+//<![CDATA[
+if (window.showTocToggle) { var tocShowText = "pokaż"; var tocHideText = "ukryj"; showTocToggle(); } 
+//]]>
+</script>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit&amp;section=1" title="Edytuj sekcję: Ciekawe opcje kompilatora GCC">edytuj</a>]</span> <span class="mw-headline" id="Ciekawe_opcje_kompilatora_GCC">Ciekawe opcje kompilatora GCC</span></h2>
+<ul>
+<li>-E - powoduje wygenerowanie kodu programu ze zmianami, wprowadzonymi przez preprocesor</li>
+<li>-S - zamiana kodu w języku C na kod asemblera (komenda: gcc -S
+plik.c spowoduje utworzenie pliku o nazwie plik.s, w którym znajdzie
+się kod asemblera)</li>
+<li>-c - kompilacja bez łączenia z bibliotekami</li>
+<li>-Ikatalog - ustawienie domyślnego katalogu z plikami nagłówkowymi na <i>katalog</i></li>
+<li>-lbiblioteka - wymusza łączenie programu z podaną biblioteką (np. -lGL)</li>
+</ul>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit&amp;section=2" title="Edytuj sekcję: Program make">edytuj</a>]</span> <span class="mw-headline" id="Program_make">Program make</span></h2>
+<p>Dość często może się zdarzyć, że nasz program składa się z kilku
+plików źródłowych. Jeśli tych plików jest mało (np. 3-5) możemy jeszcze
+próbować ręcznie kompilować każdy z nich. Jednak jeśli tych plików jest
+dużo, lub chcemy pokazać nasz program innym użytkownikom musimy
+stworzyć elegancki sposób kompilacji naszego programu. Właśnie po to,
+aby zautomatyzować proces kompilacji powstał program <b>make</b>. Program make analizuje pliki Makefile i na ich podstawie wykonuje określone czynności.</p>
+<h3><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit&amp;section=3" title="Edytuj sekcję: Budowa pliku Makefile">edytuj</a>]</span> <span class="mw-headline" id="Budowa_pliku_Makefile">Budowa pliku Makefile</span></h3>
+<table style="border: 1px solid rgb(255, 201, 201); margin: 1em auto; padding: 6pt; background-color: rgb(255, 244, 244); width: 87.5%;">
+<tbody><tr>
+<td style="width: 47px;"><a href="http://pl.wikibooks.org/wiki/Plik:Nuvola_apps_important.svg" class="image" title="Uwaga!"><img alt="Uwaga!" src="Wi%C4%99cej_o_kompilowaniu_pliki/40px-Nuvola_apps_important.png" height="33" width="40"></a></td>
+<td><span style="color: red;"><b>Uwaga!</b></span><br>
+Poniżej został omówiony Makefile dla GNU Make. Istnieją inne programy
+make i mogą używać innej składni. Na Wikibooks został też obszernie
+opisany <a href="http://pl.wikibooks.org/wiki/Borland_C%2B%2B_Compiler/MAKE" title="Borland C++ Compiler/MAKE">program make firmy Borland</a></td>
+</tr>
+</tbody></table>
+<p><br>
+Najważniejszym elementem pliku Makefile są <b>zależności</b> oraz <b>reguły</b>
+przetwarzania. Zależności polegają na tym, że np. jeśli nasz program ma
+być zbudowany z 4 plików, to najpierw należy skompilować każdy z tych 4
+plików, a dopiero później połączyć je w jeden cały program. Zatem
+zależności określają kolejność wykonywanych czynności. Natomiast reguły
+określają <b>jak</b> skompilować dany plik. Zależności tworzy się tak:</p>
+<pre>co: od_czego
+  reguły...
+</pre>
+<p>Dzięki temu program make zna już kolejność wykonywanych działań oraz
+czynności, jakie ma wykonać. Aby zbudować "co" należy wykonać
+polecenie: <tt>make co</tt>. Pierwsza reguła w pliku Makefile jest regułą domyślną. Jeśli wydamy polecenie <tt>make</tt>
+bez parametrów, zostanie zbudowana właśnie reguła domyślna. Tak więc
+dobrze jest jako pierwszą regułę wstawić regułę budującą końcowy plik
+wykonywalny; zwyczajowo regułę tą nazywa się <tt>all</tt>.</p>
+<p>Należy pamiętać, by sekcji "co" nie wcinać, natomiast "reguły" wcinać tabulatorem. Część "od_czego" może być pusta.</p>
+<p><br>
+Plik Makefile umożliwia też definiowanie pewnych zmiennych. Nie trzeba
+tutaj się już troszczyć o typ zmiennej, wystarczy napisać:</p>
+<pre>nazwa_zmiennej = wartość
+</pre>
+<p>W ten sposób możemy zadeklarować dowolnie dużo zmiennych. Zmienne
+mogą być różne - nazwa kompilatora, jego parametry i wiele innych.
+Zmiennej używamy w następujący sposób: <tt>$(nazwa_zmiennej)</tt>.</p>
+<p>Komentarze w pliku Makefile tworzymy zaczynając linię od znaku hash (#).</p>
+<h3><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit&amp;section=4" title="Edytuj sekcję: Przykładowy plik Makefile">edytuj</a>]</span> <span class="mw-headline" id="Przyk.C5.82adowy_plik_Makefile">Przykładowy plik Makefile</span></h3>
+<p>Dość tej teorii, teraz zajmiemy się działającym przykładem. Załóżmy,
+że nasz przykładowy program nazywa się test oraz składa się z czterech
+plików:</p>
+<dl>
+<dd>pierwszy.c</dd>
+<dd>drugi.c</dd>
+<dd>trzeci.c</dd>
+<dd>czwarty.c</dd>
+</dl>
+<p>Odpowiedni plik Makefile powinien wyglądać mniej więcej tak:</p>
+<pre># Mój plik makefile - wpisz 'make all' aby skompilować cały program
+CC = gcc  
+
+all: pierwszy.o drugi.o trzeci.o czwarty.o
+  $(CC) pierwszy.o drugi.o trzeci.o czwarty.o -o test
+
+pierwszy.o: pierwszy.c
+  $(CC) pierwszy.c -c -o pierwszy.o
+
+drugi.o: drugi.c
+  $(CC) drugi.c -c -o drugi.o
+
+trzeci.o: trzeci.c
+  $(CC) trzeci.c -c -o trzeci.o
+
+czwarty.o: czwarty.c
+  $(CC) czwarty.c -c -o czwarty.o
+</pre>
+<p>Widzimy, że nasz program zależy od 4 plików z rozszerzeniem .o
+(pierwszy.o itd.), potem każdy z tych plików zależy od plików .c, które
+program make skompiluje w pierwszej kolejności, a następnie połączy w
+jeden program (test). Nazwę kompilatora zapisaliśmy jako zmienną,
+ponieważ powtarza się i zmienna jest sposobem, by zmienić ją wszędzie
+za jednym zamachem.</p>
+<p>Zatem jak widać używanie pliku Makefile jest bardzo proste. Warto na
+koniec naszego przykładu dodać regułę, która wyczyści katalog z plików
+.o:</p>
+<pre>clean:
+  rm -f *.o test
+</pre>
+<p>Ta reguła spowoduje usunięcie wszystkich plików .o oraz naszego programu jeśli napiszemy <tt>make clean</tt>.</p>
+<p>Możemy też ukryć wykonywane komendy albo dopisać własny opis czynności:</p>
+<pre>clean:
+  @echo Usuwam gotowe pliki
+  @rm -f *.o test
+</pre>
+<p>Ten sam plik Makefile mógłby wyglądać inaczej:</p>
+<pre>CFLAGS = -g -O # tutaj można dodawać inne flagi kompilatora
+LIBS = -lm # tutaj można dodawać biblioteki
+
+OBJ =\
+    pierwszy.o \
+    drugi.o \
+    trzeci.o \
+    czwarty.o
+
+all: main
+
+clean:
+       rm -f *.o test
+.c.o:
+       $(CC) -c $(INCLUDES) $(CFLAGS) $&lt;
+
+main: $(OBJ)
+       $(CC) $(OBJ) $(LIBS) -o test
+</pre>
+<p><br>
+Tak naprawdę jest to dopiero bardzo podstawowe wprowadzenie do używania
+programu make, jednak jest ono wystarczające, byś zaczął z niego
+korzystać. Wyczerpujące omówienie całego programu niestety przekracza
+zakres tego podręcznika.</p>
+<p><br></p>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit&amp;section=5" title="Edytuj sekcję: Optymalizacje">edytuj</a>]</span> <span class="mw-headline" id="Optymalizacje">Optymalizacje</span></h2>
+<p>Kompilator GCC umożliwia generację kodu zoptymalizowanego dla konkretnej architektury. Służą do tego opcje <b>-march=</b> i <b>-mtune=</b>. Stopień optymalizacji ustalamy za pomocą opcji <b>-Ox</b>, gdzie x jest numerem stopnia optymalizacji (od 1 do 3). Możliwe jest też użycie opcji <b>-Os</b>,
+która powoduje generowanie kodu o jak najmniejszym rozmiarze. Aby
+skompilować dany plik z optymalizacjami dla procesora Athlon XP, należy
+napisać tak:</p>
+<pre>gcc program.c -o program -march=athlon-xp -O3
+</pre>
+<p>Z optymalizacjami należy uważać, gdyż często zdarza się, że kod
+skompilowany bez optymalizacji działa zupełnie inaczej, niż ten, który
+został skompilowany z optymalizacjami.</p>
+<h3><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit&amp;section=6" title="Edytuj sekcję: Wyrównywanie">edytuj</a>]</span> <span class="mw-headline" id="Wyr.C3.B3wnywanie">Wyrównywanie</span></h3>
+<p>Wyrównywanie jest pewnym zjawiskiem, na które w bardzo wielu
+podręcznikach, mówiących o C w ogóle się nie wspomina. Ten rozdział ma
+za zadanie wyjaśnienie tego zjawiska oraz uprzedzenie programisty o
+pewnych faktach, które w późniejszej jego "twórczości" mogą
+zminimalizować czas na znalezienie pewnych informacji, które mogą
+wpływać na to, że jego program nie będzie działał poprawnie.</p>
+<p>Często zdarza się, że kompilator w ramach optymalizacji "wyrównuje"
+elementy struktury tak, aby procesor mógł łatwiej odczytać i
+przetworzyć dane. Przyjrzyjmy się bliżej następującemu fragmentowi kodu:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c" style="font-family: monospace;">
+<pre class="de1"> <span class="kw4">typedef</span> <span class="kw4">struct</span> <span class="br0">{</span>
+   <span class="kw4">unsigned</span> <span class="kw4">char</span> wiek<span class="sy0">;</span> <span class="coMULTI">/* 8 bitów */</span>
+   <span class="kw4">unsigned</span> <span class="kw4">short</span> dochod<span class="sy0">;</span> <span class="coMULTI">/* 16 bitów */</span>
+   <span class="kw4">unsigned</span> <span class="kw4">char</span> plec<span class="sy0">;</span> <span class="coMULTI">/* 8 bitów */</span>
+ <span class="br0">}</span> nasza_str<span class="sy0">;</span>
+</pre></div>
+</div>
+<p>Aby procesor mógł łatwiej przetworzyć dane kompilator może dodać do
+tej struktury jedno, ośmiobitowe pole. Wtedy struktura będzie wyglądała
+tak:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c" style="font-family: monospace;">
+<pre class="de1"> <span class="kw4">typedef</span> <span class="kw4">struct</span> <span class="br0">{</span>
+   <span class="kw4">unsigned</span> <span class="kw4">char</span> wiek<span class="sy0">;</span> <span class="coMULTI">/*8 bitów */</span>
+   <span class="kw4">unsigned</span> <span class="kw4">char</span> fill<span class="br0">[</span>1<span class="br0">]</span><span class="sy0">;</span> <span class="coMULTI">/* 8 bitów */</span>
+   <span class="kw4">unsigned</span> <span class="kw4">short</span> dochod<span class="sy0">;</span> <span class="coMULTI">/* 16 bitów */</span>
+   <span class="kw4">unsigned</span> <span class="kw4">char</span> plec<span class="sy0">;</span> <span class="coMULTI">/* 8 bitów */</span>
+ <span class="br0">}</span> nasza_str<span class="sy0">;</span>
+</pre></div>
+</div>
+<p>Wtedy rozmiar zmiennych przechowujących wiek, płeć, oraz dochód
+będzie wynosił 64 bity - będzie zatem potęgą liczby dwa i procesorowi
+dużo łatwiej będzie tak ułożoną strukturę przechowywać w pamięci cache.
+Jednak taka sytuacja nie zawsze jest pożądana. Może się okazać, że
+nasza struktura musi odzwierciedlać np. pojedynczy pakiet danych,
+przesyłanych przez sieć. Nie może być w niej zatem żadnych innych pól,
+poza tymi, które są istotne do transmisji. Aby wymusić na kompilatorze
+wyrównanie 1-bajtowe (co w praktyce wyłącza je) należy przed definicją
+struktury dodać dwie linijki. Ten kod działa pod Visual C++:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c" style="font-family: monospace;">
+<pre class="de1"> <span class="co2">#pragma pack(push)</span>
+ <span class="co2">#pragma pack(1)</span>
+ 
+ <span class="kw4">struct</span> struktura <span class="br0">{</span> <span class="coMULTI">/*...*/</span> <span class="br0">}</span><span class="sy0">;</span>
+ 
+ <span class="co2">#pragma pack(pop)</span>
+</pre></div>
+</div>
+<p>W kompilatorze GCC należy po deklaracji struktury dodajemy przed średnikiem kończącym jedną linijkę:</p>
+<pre>__attribute__ ((packed))
+</pre>
+<p>Działa ona dokładnie tak samo, jak makra #pragma, jednak jest ona obecna tylko w kompilatorze GCC.</p>
+<p>Dzięki użyciu tego atrybutu, kompilator zostanie "zmuszony" do braku
+ingerencji w naszą strukturę. Jest jednak jeszcze jeden, być może
+bardziej elegancki sposób na obejście dopełniania. Zauważyłeś, że
+dopełnienie, dodane przez kompilator pojawiło się między polem o
+długości 8 bitów (plec) oraz polem o długości 32 bitów (dochod).
+Wyrównywanie polega na tym, że dana zmienna powinna być umieszczona pod
+adresem będącym wielokrotnością jej rozmiaru. Oznacza to, że jeśli np.
+mamy w strukturze na początku dwie zmienne, o rozmiarze jednego bajta,
+a potem jedną zmienną, o rozmiarze 4 bajtów, to pomiędzy polami o
+rozmiarze 2 bajtów, a polem czterobajtowym pojawi się dwubajtowe
+dopełnienie. Może Ci się wydawać, że jest to tylko niepotrzebne mącenie
+w głowie, jednak niektóre architektury (zwłaszcza typu <a href="http://pl.wikipedia.org/wiki/RISC" class="extiw" title="w:RISC">RISC</a>) mogą nie wykonać kodu, który nie został wyrównany. Dlatego, naszą strukturę powinniśmy zapisać mniej więcej tak:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c" style="font-family: monospace;">
+<pre class="de1"> <span class="kw4">typedef</span> <span class="kw4">struct</span> <span class="br0">{</span>
+   <span class="kw4">unsigned</span> <span class="kw4">short</span> dochod<span class="sy0">;</span> <span class="coMULTI">/* 16 bitów */</span>
+   <span class="kw4">unsigned</span> <span class="kw4">char</span> wiek<span class="sy0">;</span> <span class="coMULTI">/* 8 bitów */</span>
+   <span class="kw4">unsigned</span> <span class="kw4">char</span> plec<span class="sy0">;</span> <span class="coMULTI">/* 8 bitów */</span>
+ <span class="br0">}</span> nasza_str<span class="sy0">;</span>
+</pre></div>
+</div>
+<p>W ten sposób wyrównana struktura nie będzie podlegała modyfikacjom
+przez kompilator oraz będzie przenośna pomiędzy różnymi kompilatorami.</p>
+<p>Wyrównywanie działa także na pojedynczych zmiennych w programie,
+jednak ten problem nie powoduje tyle zamieszania, co ingerencja
+kompilatora w układ pól struktury. Wyrównywanie zmiennych polega tylko
+na tym, że kompilator umieszcza je pod adresami, które są
+wielokrotnością ich rozmiaru</p>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit&amp;section=7" title="Edytuj sekcję: Kompilacja skrośna">edytuj</a>]</span> <span class="mw-headline" id="Kompilacja_skro.C5.9Bna">Kompilacja skrośna</span></h2>
+<p>Mając w domu dwa komputery, o odmiennych architekturach (np. i386
+oraz Sparc) możemy potrzebować stworzyć program dla jednej maszyny,
+mając do dyspozycji tylko drugi komputer. Nie musimy wtedy latać do
+znajomego, posiadającego odpowiedni sprzęt. Możemy skorzystać z tzw. <b>kompilacji skrośnej</b>
+(ang. cross-compile). Polega ona na tym, że program nie jest
+kompilowany pod procesor, na którym działa kompilator, lecz na inną,
+zdefiniowaną wcześniej maszynę. Efekt będzie taki sam, a skompilowany
+program możemy bez problemu uruchomić na drugim komputerze.</p>
+<h2><span class="editsection">[<a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit&amp;section=8" title="Edytuj sekcję: Inne narzędzia">edytuj</a>]</span> <span class="mw-headline" id="Inne_narz.C4.99dzia">Inne narzędzia</span></h2>
+<p>Wśród przydatnych narzędzi, warto wymienić również program objdump
+(zarówno pod Unix jak i pod Windows) oraz readelf (tylko Unix). Objdump
+służy do deasemblacji i analizy skompilowanych programów. Readelf służy
+do analizy pliku wykonywalnego w formacie ELF (używanego w większości
+systemów z rodziny Unix). Więcej informacji możesz uzyskać, pisząc (w
+systemach Unix):</p>
+<pre>man 1 objdump
+man 1 readelf
+</pre>
+<div class="noprint" style="clear: both; margin-top: 2em;">
+<hr>
+<table width="100%">
+<tbody><tr>
+<td style="width: 40%; text-align: left;">
+<div>« <a href="http://pl.wikibooks.org/wiki/C/Biblioteki" title="C/Biblioteki">Tworzenie bibliotek</a></div>
+</td>
+<td style="width: 20%; text-align: center;"><b><a href="http://pl.wikibooks.org/wiki/C" title="C">Spis treści</a></b></td>
+<td style="width: 40%; text-align: right;">
+<div><a href="http://pl.wikibooks.org/wiki/C/Zaawansowane_operacje_matematyczne" title="C/Zaawansowane operacje matematyczne">Zaawansowane operacje matematyczne</a> »</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 99/1000000
+Post-expand include size: 1860/2048000 bytes
+Template argument size: 566/2048000 bytes
+Expensive parser function count: 1/500
+-->
+
+<!-- Saved in parser cache with key plwikibooks:pcache:idhash:4769-0!1!0!!pl!2 and timestamp 20091122180737 -->
+<div class="printfooter">
+Źródło „<a href="http://pl.wikibooks.org/wiki/C/Wi%C4%99cej_o_kompilowaniu">http://pl.wikibooks.org/wiki/C/Wi%C4%99cej_o_kompilowaniu</a>”</div>
+			<div id="catlinks" class="catlinks catlinks-allhidden"></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Widok</h5>
+		<div class="pBody">
+			<ul xml:lang="pl" lang="pl">
+	
+				 <li id="ca-nstab-main" class="selected"><a href="http://pl.wikibooks.org/wiki/C/Wi%C4%99cej_o_kompilowaniu" title="Zobacz stronę treści [alt-shift-c]" accesskey="c">moduł</a></li>
+				 <li id="ca-talk" class="new"><a href="http://pl.wikibooks.org/w/index.php?title=Dyskusja:C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit&amp;redlink=1" title="Dyskusja o zawartości tej strony. [alt-shift-t]" accesskey="t">Dyskusja</a></li>
+				 <li id="ca-edit"><a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=edit" title="Możesz edytować tę stronę. Przed zapisaniem zmian użyj przycisku podgląd. [alt-shift-e]" accesskey="e">Edytuj</a></li>
+				 <li id="ca-history"><a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;action=history" title="Starsze wersje tej strony. [alt-shift-h]" accesskey="h">Historia i autorzy</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Osobiste</h5>
+		<div class="pBody">
+			<ul xml:lang="pl" lang="pl">
+				<li id="pt-optin-try"><a href="http://pl.wikibooks.org/w/index.php?title=Specjalna:W%C5%82%C4%85czenie_Inicjatywy_U%C5%BCyteczno%C5%9Bci&amp;from=C%2FWi%C4%99cej_o_kompilowaniu" title="Wypróbuj nowe funkcje" class="no-text-transform">Wypróbuj wersję testową</a></li>
+				<li id="pt-login"><a href="http://pl.wikibooks.org/w/index.php?title=Specjalna:Zaloguj&amp;returnto=C/Wi%C4%99cej_o_kompilowaniu" title="Zachęcamy do zalogowania się, choć nie jest to obowiązkowe. [alt-shift-o]" accesskey="o">Logowanie i rejestracja</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://upload.wikimedia.org/wikipedia/commons/4/49/Wikibooks-logo-en-noslogan.png);" href="http://pl.wikibooks.org/wiki/Strona_g%C5%82%C3%B3wna" title="Strona główna"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5 xml:lang="pl" lang="pl">Nawigacja</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Strona-g.C5.82.C3.B3wna"><a href="http://pl.wikibooks.org/wiki/Strona_g%C5%82%C3%B3wna">Strona główna</a></li>
+				<li id="n-Wikijunior"><a href="http://pl.wikibooks.org/wiki/Wikijunior">Wikijunior</a></li>
+				<li id="n-Ksi.C4.99gozbi.C3.B3r"><a href="http://pl.wikibooks.org/wiki/Wikibooks:Ksi%C4%99gozbi%C3%B3r">Księgozbiór</a></li>
+				<li id="n-Ksi.C4.85.C5.BCka-kucharska"><a href="http://pl.wikibooks.org/wiki/Ksi%C4%85%C5%BCka_kucharska">Książka kucharska</a></li>
+				<li id="n-portal"><a href="http://pl.wikibooks.org/wiki/Wikibooks:Portal_wikipedyst%C3%B3w" title="O projekcie, co możesz zrobić, gdzie możesz znaleźć informacje">Portal użytkowników</a></li>
+				<li id="n-recentchanges"><a href="http://pl.wikibooks.org/wiki/Specjalna:Ostatnie_zmiany" title="Lista ostatnich zmian na Wikibooks. [alt-shift-r]" accesskey="r">Ostatnie zmiany</a></li>
+				<li id="n-randompage"><a href="http://pl.wikibooks.org/wiki/Specjalna:Losowa_strona" title="Pokaż stronę wybraną losowo [alt-shift-x]" accesskey="x">Losuj stronę</a></li>
+				<li id="n-help"><a href="http://pl.wikibooks.org/wiki/Pomoc:Spis_tre%C5%9Bci" title="Tutaj możesz się wielu rzeczy dowiedzieć.">Pomoc</a></li>
+				<li id="n-Kontakt"><a href="http://pl.wikibooks.org/wiki/Wikibooks:Kontakt">Kontakt</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-coll-print_export">
+		<h5 xml:lang="pl" lang="pl">Drukuj lub eksportuj</h5>
+		<div class="pBody">
+<ul id="collectionPortletList"><li id="coll-create_a_book"><a href="http://pl.wikibooks.org/w/index.php?title=Specjalna:Ksi%C4%85%C5%BCka&amp;bookcmd=book_creator&amp;referer=C%2FWi%C4%99cej+o+kompilowaniu" title="Tworzenie książki lub kolekcji stron" rel="nofollow">Utwórz książkę</a></li><li id="coll-download-as-rl"><a href="http://pl.wikibooks.org/w/index.php?title=Specjalna:Ksi%C4%85%C5%BCka&amp;bookcmd=render_article&amp;arttitle=C%2FWi%C4%99cej+o+kompilowaniu&amp;oldid=102854&amp;writer=rl" title="Pobierz wersję PDF tej strony wiki" rel="nofollow">Pobierz jako PDF</a></li><li id="t-print"><a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;printable=yes" title="Wersja do wydruku [alt-shift-p]" accesskey="p">Wersja do druku</a></li></ul>		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5 xml:lang="pl" lang="pl"><label for="searchInput">Szukaj</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/w/index.php" id="searchform">
+				<input name="title" value="Specjalna:Szukaj" type="hidden">
+				<input autocomplete="off" id="searchInput" title="Przeszukaj Wikibooks" accesskey="f" name="search">
+				<input name="go" class="searchButton" id="searchGoButton" value="Przejdź" title="Przejdź do strony o dokładnie takim tytule, o ile istnieje" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Szukaj" title="Szukaj wprowadzonego tekstu w treści stron" type="submit">
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5 xml:lang="pl" lang="pl">Narzędzia</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://pl.wikibooks.org/wiki/Specjalna:Linkuj%C4%85ce/C/Wi%C4%99cej_o_kompilowaniu" title="Pokaż listę wszystkich stron linkujących do tej strony [alt-shift-j]" accesskey="j">Linkujące</a></li>
+				<li id="t-recentchangeslinked"><a href="http://pl.wikibooks.org/wiki/Specjalna:Zmiany_w_linkuj%C4%85cych/C/Wi%C4%99cej_o_kompilowaniu" title="Ostatnie zmiany w stronach, do których ta strona linkuje [alt-shift-k]" accesskey="k">Zmiany w dolinkowanych</a></li>
+<li id="t-specialpages"><a href="http://pl.wikibooks.org/wiki/Specjalna:Strony_specjalne" title="Lista wszystkich specjalnych stron [alt-shift-q]" accesskey="q">Strony specjalne</a></li>
+				<li id="t-permalink"><a href="http://pl.wikibooks.org/w/index.php?title=C/Wi%C4%99cej_o_kompilowaniu&amp;oldid=102854" title="Stały link do tej wersji strony">Link do tej wersji</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="Wi%C4%99cej_o_kompilowaniu_pliki/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" height="31" width="88"></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="Wi%C4%99cej_o_kompilowaniu_pliki/wikimedia-button.png" alt="Wikimedia Foundation" height="31" width="88"></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> Tę stronę ostatnio zmodyfikowano 08:31, 23 cze 2009.</li>
+					<li id="copyright">Tekst udostępniany na <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.pl">licencji Creative Commons: uznanie autorstwa, na tych samych warunkach</a>, z możliwością obowiązywania dodatkowych ograniczeń.
+Zobacz szczegółowe informacje o <a href="http://wikimediafoundation.org/wiki/Terms_of_Use">warunkach korzystania</a>.</li>
+					<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Zasady_ochrony_prywatno%C5%9Bci" title="wikimedia:Zasady ochrony prywatności">Zasady ochrony prywatności</a></li>
+					<li id="about"><a href="http://pl.wikibooks.org/wiki/Wikibooks:O_Wikibooks" title="Wikibooks:O Wikibooks">O Wikibooks</a></li>
+					<li id="disclaimer"><a href="http://pl.wikibooks.org/wiki/Wikibooks:Informacje_prawne" title="Wikibooks:Informacje prawne">Informacje prawne</a></li>
+			</ul>
+		</div>
+</div>
+
+<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script><script type="text/javascript" src="Wi%C4%99cej_o_kompilowaniu_pliki/index.php"><!-- include --></script>
+<!-- Served by srv253 in 0.048 secs. --></body></html>

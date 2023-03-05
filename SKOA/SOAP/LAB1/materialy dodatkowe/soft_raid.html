@@ -1,0 +1,668 @@
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>RAID programowy</title>
+<style type="text/css">
+body {
+        font-family: sans-serif,Helvetica;
+        font-size: 16px;
+        color: #5e5e5e;
+        background-color: #fff;
+}
+div.small {
+        font-family: sans-serif,Helvetica;
+        font-size: 12px;
+        color: #000;
+}
+
+div.screen {
+        font-family: console, terminal, monospace;
+        font-size: 12px;
+        color: #000;
+	border: 1pt solid #ffe2ab;
+	background: #fff8eb;
+	padding: 0.5em;
+	-moz-border-radius: 10px;
+}
+h1{
+        font-size: 14px;
+        color: #003dea;
+}
+h2, h3 {
+  text-align: left;
+  color: #003dea;
+  background-color: #fff;
+  border-bottom: 1px solid #5e5e5e;
+  color: #003dea;
+  margin: 2em 0 0 0; 
+}
+
+h2{
+  width: 97%;
+  font-size: 20px;
+  margin: 0 0 0 3%;
+  border-bottom: 2px solid #5e5e5e;
+  
+}
+h3{
+  font-size: 18px;
+}
+p,h2
+{
+  margin: 1.5em 0 0.5em 0;
+}
+td table
+{
+	border-collapse: collapse;
+}
+
+div.example {
+  background-color: #eee;
+  padding: 3px;
+}
+div.example pre {
+
+
+}
+div.example h6.example {
+  width: 100%;
+  text-align: center;
+  margin: 0px;
+  padding: 2px;
+}
+.index-field{
+  background: #fff;
+}
+.index-field-slected{
+  background: #fff;
+ 
+}
+.index-field-main{
+  background: #fff8eb;
+  test-align: center;
+}
+.tab-norm-field{
+  background: #eee;
+  border:	1px solid #555;
+  font-size:	0.8em;
+}
+table thead tr td{
+font-weight: bold;
+}
+
+
+a {
+        text-decoration: none;
+        color: #003dea;
+}
+a:hover {
+        text-decoration: none;
+        color: #003dea;
+}</style>
+</head><body><table cellpadding="0" cellspacing="5" width="100%"><tbody><tr>
+<td valign="top" width="15%">
+<table cellpadding="0" width="100%"><tbody><tr><td align="center" bgcolor="#ffffff"><a href="http://pl.docs.pld-linux.org/index.html"><img alt="Bociek PLD - Pisarz" src="soft_raid_pliki/pld-pisarz.png" border="0" height="124" width="130"></a></td></tr></tbody></table>
+<table cellpadding="3" cellspacing="4">
+<tbody><tr><td class="index-field-main"><div class="small"><b>I. Informacje podstawowe</b></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/wstep_streszczenie.html">
+		Wprowadzenie
+	</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/linki_podstawowe.html">Zasoby sieciowe PLD</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/wstep_logo.html">
+  Historia powstania naszego logo
+  </a></div></td></tr>
+<tr><td class="index-field-main"><div class="small"><b>II. Instalacja</b></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/instalacja_wymagania.html">Instalacja systemu</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/instalacja_chroot_wstep.html">Instalacja przy użyciu chroota</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/instalacja_upgrade.html">Aktualizacje</a></div></td></tr>
+<tr><td class="index-field-main"><div class="small"><b>III. Podręcznik użytkownika </b></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/podstawy_wstep.html">Podstawy</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/podstawy_ilosc_miejsca.html">Zasoby systemu</a></div></td></tr>
+<tr><td class="index-field-main"><div class="small"><b>IV. Podręcznik administratora</b></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/pakiety_wprowadzenie.html">Zarządzanie pakietami</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/bootloader_wstep.html">Bootloader</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/kernel-urzadzenia_kernel.html">Kernel i urządzenia</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/konfiguracja_sysconfig_system.html">Konfiguracja systemu</a></div></td></tr>
+<tr><td class=".index-field-slected">Pamięci masowe</td></tr>
+<tr><td><table>
+<tbody><tr>
+<td align="right" valign="top" width="20"></td>
+<td><div class="small"><a href="http://pl.docs.pld-linux.org/pl_dysk_wstep.html">Wstęp</a></div></td>
+</tr>
+<tr>
+<td align="right" valign="top" width="20"></td>
+<td><div class="small"><a href="http://pl.docs.pld-linux.org/pl_dysk_nazwy.html">Nazewnictwo urządzeń masowych</a></div></td>
+</tr>
+<tr>
+<td align="right" valign="top" width="20"></td>
+<td><div class="small"><a href="http://pl.docs.pld-linux.org/pl_dysk_partycje.html">Podział na partycje</a></div></td>
+</tr>
+<tr>
+<td align="right" valign="top" width="20"></td>
+<td><div class="small"><a href="http://pl.docs.pld-linux.org/pl_dysk_fs.html">Systemy plików</a></div></td>
+</tr>
+<tr>
+<td align="right" valign="top" width="20"></td>
+<td><div class="small"><a href="http://pl.docs.pld-linux.org/pl_dysk_formatowanie.html">Formatowanie</a></div></td>
+</tr>
+<tr>
+<td align="right" valign="top" width="20"></td>
+<td><div class="small">RAID programowy</div></td>
+</tr>
+<tr>
+<td align="right" valign="top" width="20"></td>
+<td><div class="small"><a href="http://pl.docs.pld-linux.org/lvm2.html">LVM</a></div></td>
+</tr>
+<tr>
+<td align="right" valign="top" width="20"></td>
+<td><div class="small"><a href="http://pl.docs.pld-linux.org/pl_dysk_naprawa.html">Naprawa</a></div></td>
+</tr>
+</tbody></table></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/administracja_rescue.html">Administracja</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/pl_siec_wstep.html">Interfejsy sieciowe</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/siec_routing_statyczny.html">Zastosowania sieciowe</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/uslugi_wstep.html">Usługi dostępne w PLD</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/x_wstep.html">X-Window</a></div></td></tr>
+<tr><td class="index-field-main"><div class="small"><b>V. Tworzenie PLD - Praktyczny poradnik</b></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/devel_potrzeby.html">Możliwa droga do zostania szeregowym developerem PLD</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/devel_cvs_wstep.html">W krainie CVS - czyli wielki kocioł</a></div></td></tr>
+<tr><td class="index-field-main"><div class="small"><b>VI. O podręczniku</b></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/autorzy_polskich_docow.html">
+		O podręczniku
+	</a></div></td></tr>
+<tr><td class="index-field"><div class="small"><a href="http://pl.docs.pld-linux.org/licencja_1_1.html">
+		Licencja i prawa autorskie
+	</a></div></td></tr>
+<tr><td class="index-field-selected" align="left"><small><a href="http://pl.docs.pld-linux.org/bookinfo.html">O tej książce</a></small></td></tr>
+<tr><td class="index-field-main" align="left"><small><a href="http://pl.docs.pld-linux.org/toc.html">Spis treści</a></small></td></tr>
+<tr><td class="index-field-main"><table>
+<tbody><tr><td><b>Inne wersje tego dokumentu</b></td></tr>
+<tr><td><small><a href="http://pl.docs.pld-linux.org/pld_dok.pdf">PDF</a></small></td></tr>
+<tr><td><small><a href="http://pl.docs.pld-linux.org/pld_dok.html">HTML (jeden plik)</a></small></td></tr>
+<tr><td><small><a href="http://pl.docs.pld-linux.org/pld_dok.txt">TXT</a></small></td></tr>
+</tbody></table></td></tr>
+<tr><td class="index-field-main"><table>
+<tbody><tr><td><b>Odnośniki</b></td></tr>
+<tr><td><small><a href="http://pl.docs.pld-linux.org/devel_howto.html">Tworzymy dokumentację PLD</a></small></td></tr>
+<tr><td><small><a href="http://pld-linux.org/">Strona PLD</a></small></td></tr>
+<tr><td><small><a href="http://lists.pld-linux.org/mailman/listinfo">Listy dyskusyjne PLD</a></small></td></tr>
+</tbody></table></td></tr>
+</tbody></table>
+</td>
+<td valign="top">
+<h2>RAID programowy</h2>
+<div align="right"><table cellpadding="2"><tbody><tr>
+<td><a href="http://pl.docs.pld-linux.org/pl_dysk_formatowanie.html"><img src="soft_raid_pliki/prev-small.png" alt="&amp;lt;-" border="0" height="30" width="30"></a></td>
+<td><a href="http://pl.docs.pld-linux.org/lvm2.html"><img src="soft_raid_pliki/next-small.png" alt="-&gt;" border="0" height="30" width="30"></a></td>
+</tr></tbody></table></div>
+<table><tbody><tr>
+<td width="3%">&nbsp;</td>
+<td>
+	
+	<p>
+		W systemie Linux istnieje możliwość tworzenia na dyskach programowych
+		macierzy <em>RAID</em> poziomów 0, 1, 4, 5, 6, 10, 01. Służy do tego
+		celu usługa <strong>mdadm</strong>. W przeciwieństwie do
+		macierzy RAID sprzętowych które wymagają specjalnego kontrolera dysków
+		(dość drogiego), macierze RAID programowe zakłada się na dyskach
+		podłączonych do zwykłego kontrolera <strong>IDE</strong>,
+		<strong>SATA</strong> lub <strong>SCSI</strong> i całą
+		obsługę przekazuje do odpowiedniego oprogramowania
+		(np: <strong>mdadm</strong>).
+	</p>
+	
+	<p>
+		Macierze możemy zakładać zarówno na całych dyskach, jak i na
+		odpowiednio przygotowanych partycjach, przy czym zakładanie na
+		partycjach daje więcej możliwości konfiguracji. Zarówno korzystając
+		z całych dysków jak i partycji należy pamiętać o tym że najmniejsza
+		partycja lub dysk decyduje o wielkości zakładanej macierzy (miejsce
+		ponad jest tracone), dlatego też należy raczej korzystać z takich
+		samych rozmiarów dysków lub partycji.
+	</p>
+	
+	<p>
+		Poniżej zamieszczono listę i opis dostępnych rodzajów macierzy dla
+		<strong>mdadm</strong>, w nawiasach podano nazwy parametrów
+		programu:
+		</p><ul>
+			<li>
+				<p>
+					RAID 0 (<tt>raid0</tt>, <tt>0</tt>,
+					<tt>stripe</tt>) - striping czyli
+					połączenie dwóch dysków (partycji) z przeplotem
+					danych, zwiększa się wydajność w porównaniu z
+					pojedynczym dyskiem, obniża odporność na awarie
+					dysków - awaria jednego dysku to utrata
+					wszystkich danych.
+				</p>
+			</li>
+			<li>
+				<p>
+					RAID 1 (<tt>raid1</tt>, <tt>1</tt>,
+					<tt>mirror</tt>) - kopie lustrzane, dyski
+					są w dwóch jednakowych kopiach, w przypadku awarii
+					jednego drugi przejmuje role pierwszego. Wydajność
+					tak jak pojedynczy dysk, duże bezpieczeństwo, wadą
+					jest duża strata pojemności (n/2 - n-liczba dysków w
+					macierzy)
+				</p>
+			</li>
+			<li>
+				<p>
+					RAID 4 (<tt>raid4</tt>, <tt>4</tt>)
+					- dane są rozpraszane na kolejnych
+					dyskach a na ostatnim zapisywane są dane parzystości,
+					zwiększone bezpieczeństwo danych przy zachowaniu
+					dużej pojemności (n-1). Wymaga przynajmniej trzech
+					dysków, wydajność ograniczona przez dysk parzystości 
+				</p>
+			</li>
+			<li>
+				<p>
+					RAID 5 (<tt>raid5</tt>, <tt>5</tt>)
+					- rozpraszane są zarówno dane jak i informacje o
+					parzystości na wszystkich dyskach, dzięki czemu
+					wydajność jest wyższa niż w RAID 4; pojemność n-1,
+					wymaga przynajmniej trzech dysków.
+				</p>
+			</li>
+			<li>
+				<p>
+					RAID 6 (<tt>raid6</tt>, <tt>6</tt>)
+					- jest to rzadko stosowana, rozbudowana macierz
+					typu 5. Jedyną różnicą jest dwukrotne zapisanie sum
+					kontrolnych. Dzięki temu macierz może bez utraty
+					danych przetrwać awarię dwóch dysków. Wymaga
+					minimum czterech dysków, jej pojemność to n-2.
+				</p>
+			</li>
+			<li>
+				<p>
+					Tryb liniowy (<tt>linear</tt>) - czyli
+					połączenie dwóch
+					dysków w jeden w ten sposób że koniec pierwszego
+					jest początkiem drugiego, nie zapewnia absolutnie
+					żadnego bezpieczeństwa a wręcz obniża odporność na
+					awarie dysków.
+				</p>
+			</li>
+		</ul>
+		Najczęściej stosuje się macierze RAID1 i RAID5, do specyficznych
+		zastosowań używa się RAID0, pozostałe są rzadziej spotykane.
+	<p></p>
+	
+	<h3>Instalacja</h3>
+		
+		<p>
+			Instalujemy następujące pakiety:
+			</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># poldek -i mdadm</pre></div></td></tr></tbody></table></p>
+			A jeśli zaplanowaliśmy umieszczenie głównego systemu plików
+			(/) na macierzy, musimy dodatkowo zainstalować pakiet
+			mdadm-initrd:
+			
+			<p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># poldek -i mdadm-initrd</pre></div></td></tr></tbody></table></p>
+			
+			oraz możemy opcjonalnie dla dysków ATA przy korzystaniu z
+			device-mapera zainstalować dodatkowo:
+			
+			<p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># poldek -i dmraid</pre></div></td></tr></tbody></table></p>
+		<p></p>
+	
+
+	<h3>Planowanie macierzy</h3>
+		
+		<p>
+			Dosyć popularnym rozwiązaniem jest utworzenie identycznego zestawu
+			partycji na każdym z dysków, a następnie spięcie odpowiednich partycji
+			w macierze. Aby ułatwić sobie zadanie możemy najpierw podzielić jeden z dysków,
+			a na następne urządzenia skopiować układ tablicy partycji np.:
+			</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># sfdisk -d /dev/sdc | sfdisk /dev/sdd</pre></div></td></tr></tbody></table></p>
+			jak się łatwo domyśleć w powyższym przykładzie kopiujemy z dysku
+			<i><tt>/dev/sdc</tt></i> na <i><tt>/dev/sdd</tt></i>.
+		<p></p>
+		<p>
+			Garść porad:
+		</p>
+		<ul>
+			<li>
+				<p>
+					Kernel może być ładowany wyłącznie z macierzy RAID 1, jeśli więc będziemy
+					chcieli używać np. RAID5 na głównym systemie plików to musimy umieścić
+					gałąź <i><tt>/boot</tt></i> na osobnej,  niewielkiej macierzy RAID1.
+					Opis konfiguracji bootloadera do obsługi macierzy znajduje się w dalszej
+					części artykułu.
+				</p>
+			</li>
+			<li>
+				<p>
+					Należy oprzeć się pokusie umieszczenia obszaru wymiany (swap) na RAID0,
+					gdyż awaria jednego z dysków może doprowadzić do załamania systemu.
+				</p>
+			</li>
+			<li>
+				<p>
+					Urządzenia, z
+					których składamy macierz powinny być równej wielkości,
+					w przeciwnym razie wielkość macierzy będzie
+					wyznaczana przez najmniejszą partycję. 
+				</p>
+			</li>
+		</ul>
+		<p>
+			Więcej informacji o podziale na partycje i planowaniu miejsca na dysku
+			zdobędziemy w <a href="http://pl.docs.pld-linux.org/pl_dysk_partycje.html"> tym dokumencie</a>.
+		</p>
+	
+		
+	<h3>Tworzenie macierzy RAID</h3>
+		
+		<p>
+			Przystępujemy do zakładania macierzy na partycjach za pomocą
+			polecenia mdadm:
+		</p>
+		<p>
+			<em>mdadm -C {$dev_RAID} --level={$rodzaj} --raid-devices={$ilość_urzadzen} 				{$urzadzenia}</em>
+		</p>
+		<p>
+		</p><ul>
+			<li><p><tt><b>-C, --create</b></tt> - utwórz nową macierz.</p></li>
+			<li><p><tt><b>-l, --level</b></tt> - ustaw poziom RAID np: linear,
+			raid0, 0, stripe, raid1, 1, mirror, raid4, 4, raid5, 5, raid6,
+			6; Jak możemy zauważyć niektóre opcje są synonimami.
+			Przy opcji Building pierwsze mogą być użyte: raid0, raid1, raid4, raid5.
+			</p></li>
+			<li><p><tt><b>-n, --raid-devices</b></tt> - liczba aktywnych
+				urządzeń (dysków) w macierzy
+			</p></li>
+			<li><p><tt><b>-x, --spare-devices</b></tt> - liczba zapasowych (eXtra)
+			urządzeń w tworzonej macierzy. Zapasowe dyski można dodawać i
+			usuwać także później.</p></li>
+			<li><p><tt><b>-v --verbose</b></tt> - tryb "gadatliwy"</p></li>
+			<li>
+				<p>
+					<tt><b>--auto=yes</b></tt> - automatyczne tworzenie urządzeń w
+					<i><tt>/dev/</tt></i> przez mdadm (stosowane zwykle przy
+					użyciu UDEVa), więcej w Poradach na końcu rozdziału.
+				</p>
+			</li>
+		</ul>
+		<p></p>
+		<p>
+			Przykłady tworzenia macierzy różnego typu:
+			</p><ul>
+				<li>
+					<p>
+						RAID0 na dwóch partycjach -
+						<i><tt>/dev/sda1</tt></i> i
+						<i><tt>/dev/sdb1</tt></i> jako
+						<i><tt>/dev/md0</tt></i>
+						</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># mdadm -C -v /dev/md0 --level=0 -n 2 /dev/sda1 /dev/sdb1</pre></div></td></tr></tbody></table></p>
+				<p></p>
+			</li>
+			<li>
+				<p>
+					RAID1 na dwóch partycjach - <i><tt>/dev/sdc1</tt></i>
+					i <i><tt>/dev/sdd1</tt></i> jako <i><tt>/dev/md1</tt></i>
+					</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># mdadm -C -v /dev/md1 --level=1 -n 2 /dev/sdc1 /dev/sdd1</pre></div></td></tr></tbody></table></p>
+				<p></p>
+			</li>
+			<li>
+				<p>
+					RAID5 na 4 partycjach w tym jedna jako zapasowa
+					(hot spare), jeśli nie podasz ile ma być zapasowych
+					partycji domyślnie 1 zostanie zarezerwowana na
+					zapasową
+					</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># mdadm -C -v /dev/md2 --level=5 -n 4 --spare-devices=1 \
+/dev/sda3 /dev/sdb3 /dev/sdc3 /dev/sdd3</pre></div></td></tr></tbody></table></p>
+				<p></p>
+			</li>
+		</ul>
+		<p></p>
+	
+	<h3>Konfiguracja</h3>
+		
+		<p>
+			Po utworzeniu macierzy postępujemy z nią dalej jak z partycją,
+			czyli zakładamy system plików i odwołujemy się do niej np: jako
+			<i><tt>/dev/md0</tt></i> np.:
+			</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># mkfs.xfs /dev/md0</pre></div></td></tr></tbody></table></p>
+			Teraz możemy dokonać odpowiednich wpisów w pliku
+			<i><tt>/etc/fstab</tt></i>.
+		<p></p>
+		<p>
+			Aby macierz była automatycznie składana przy starcie systemu
+			musimy dodać odpowiednie wpisy do pliku
+			<i><tt>/etc/mdadm.conf</tt></i>. Na początek dodajemy wiersz, w którym
+			wymieniamy listę urządzeń z których budowane są macierze (można używać
+			wyrażeń regularnych):
+			</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre>DEVICE /dev/sd[abcd][123]</pre></div></td></tr></tbody></table></p>
+			Następnie dodajemy definicje macierzy, możemy to zrobić automatem:
+			<p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># mdadm --detail --scan &gt;&gt; /etc/mdadm.conf:</pre></div></td></tr></tbody></table></p>
+			lub samodzielnie, poprzez dodanie następujących wierszy:
+<p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre>ARRAY /dev/md0 devices=/dev/sda1,/dev/sdb1
+ARRAY /dev/md1 devices=/dev/sdc1,/dev/sdd1
+ARRAY /dev/md2 devices=/dev/sda3,/dev/sdb3,/dev/sdc3,/dev/sdd3</pre></div></td></tr></tbody></table></p>
+		<p></p>
+		<p>
+			Macierze (inne niż rootfs) są składane przez
+			rc-skrypt <i><tt>/etc/rc.d/rc.sysinit</tt></i>,
+			na podstawie powyższych wpisów konfiguracyjnych, zatem po restarcie
+			maszyny będziemy już z nich korzystać.
+			Jeśli mamy macierz z głównym systemem plików, to musimy
+			jeszcze przygotować initrd i bootloader (poniżej).
+		</p>
+		<p>
+			Przy ręcznym składaniu macierzy przydane może być polecenie
+			skanujące urządzenia blokowe w poszukiwaniu istniejących macierzy:
+			</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># mdadm --examine --scan -v</pre></div></td></tr></tbody></table></p>
+		<p></p>
+	
+	<h3>Initrd</h3>
+		
+		<p>
+			Jeśli główny system plików ma być na macierzy to musimy 
+			wygenerować obraz <em>initrd</em> z modułami,
+			które pozwolą na złożenie macierzy.
+			Na początek musimy mieć zainstalowany
+			pakiet mdadm-initrd. Generowanie takiego initrd przebiega
+			dokładnie tak samo jak dla zwykłego urządzenia blokowego,
+			musimy się tylko upewnić, że do obrazu trafiły dodatkowo
+			moduły: md-mod, odpowiednio raid0, raid1... i ewentualnie
+			xor. Generowanie obrazu initrd szczegółowo zostało opisane
+			w <a href="http://pl.docs.pld-linux.org/kernel-urzadzenia_geninitrd.html"> tym dokumencie</a>.
+		</p>
+	
+
+
+	<h3>Bootloader</h3>
+		
+		<p>
+			Jeśli na raidzie ma się znaleźć główny system plików (bez
+			<i><tt>/boot</tt></i>), to konfiguracja jest identyczna
+			jak w przypadku klasycznych urządzeń blokowych.
+		</p>
+		<p>
+			Jeśli gałąź <i><tt>/boot</tt></i>
+			ma się znaleźć na macierzy (wyłącznie RAID1) to powinniśmy
+			zainstalować bootloader na każdym z dysków wchodzących w
+			skład macierzy, dzięki czemu będziemy mogli
+			uruchomić system mimo awarii jednego z dysków. 
+			RAID0 i RAID2-5 nie są obsługiwane przez 
+			<strong>LILO\GRUB</strong>
+		</p>
+		<p>
+			W <strong>LILO</strong> w pliku <i><tt>/etc/lilo.conf</tt></i>
+			należy podać odpowiednie
+			urządzenie dla opcji <tt><b>root</b></tt> i <tt><b>boot</b></tt>:
+</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre>boot=/dev/md0
+ raid-extra-boot=mbr-only
+ 
+ image=/boot/vmlinuz
+     label=pld
+     root=/dev/md0
+     initrd=/boot/initrd</pre></div></td></tr></tbody></table></p>
+			Opcja w opcji <tt><b>raid-extra-boot</b></tt> wskazuje urządzenia
+			na których ma zostać zainstalowany bootloader (urządzenia wchodzące
+			w skład <i><tt>/dev/md0</tt></i>). Po zmodyfikowaniu
+			konfiguracji musimy zaktualizować bootloader
+			poleceniem <tt><b>lilo</b></tt>.
+		<p></p>
+		
+		<p>
+			Jeśli używamy <strong>Grub-a</strong> wywołujemy
+			z powłoki:
+
+</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># grub
+grub&gt;</pre></div></td></tr></tbody></table></p>
+
+			następnie szukamy gdzie znajdują sie pliki bootloadera,
+			<p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre>grub&gt;find /boot/grub/stage1</pre></div></td></tr></tbody></table></p> jeśli
+			<i><tt>/boot</tt></i> jest oddzielną partycją to
+			<i><tt>/grub/stage1</tt></i> i otrzymujemy wynik, np:
+
+<p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre>(hd0,0)
+(hd1,0)
+
+
+Now you want to make sure that grub gets installed into the master boot
+record of your additional raid drives so that if id0 is gone then the next
+drive has a mbr loaded with grub ready to go.  Systems will automatically go
+in drive order for both ide and scsi and use the first mbr and active
+partitions it finds so you can have multiple drives that have mbr's as well
+as active partitions and it won't affect your system booting at all.
+
+So using what was shown with the find above and already knowing that hd0
+already has grub in mbr, we then run:
+
+Grub&gt;device (hd0)/dev/sda (/dev/hda for ide)
+Grub&gt;root (hd0,0)
+Grub&gt;setup (hd0)</pre></div></td></tr></tbody></table></p>
+
+			i to samo dla dysku drugiego czyli:
+
+
+<p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre>Grub&gt;device (hd1) /dev/sdb (/dev/hdb for ide)
+Grub&gt;root (hd1,0)
+Grub&gt;setup (hd1)
+
+Grub will then spit out all the commands it runs in the background of setup
+and will end with a successful embed command and then install command and
+end with .. succeeded on both of these commands and then Done returning to
+the grub&gt; prompt.
+
+Notice that we made the second drive device 0.  Why is that you ask?
+Because device 0 is going to be the one with mbr on the drive so passing
+these commands to grub temporarily puts the 2nd mirror drive as 0 and will
+put a bootable mbr on the drive and when you quit grub you still have the
+original mbr on sda and will still boot to it till it is missing from the
+system.
+
+You have then just succeeded in installing grub to the mbr of your other
+mirrored drive and marked the boot partition on it active as well.  This
+will insure that if id0 fails that you can still boot to the os with id0
+pulled and not have to have an emergency boot floppy.</pre></div></td></tr></tbody></table></p>
+
+			Bootloadery szczegółowo opisaliśmy w <a href="http://pl.docs.pld-linux.org/bootloader_wstep.html"> tym dokumencie</a>.
+		<p></p>
+	
+	<h3>Diagnostyka</h3>
+		
+		<p>
+			Skrócone informacje o macierzy:		
+			</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># mdadm --query /dev/md0</pre></div></td></tr></tbody></table></p>
+			Poniżej podałem przykłady dwóch poleceń, które pozwalają odczytać
+			dokładne dane macierzy i jej stan:
+			<p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># mdadm --detail /dev/md0</pre></div></td></tr></tbody></table></p>
+			<p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># cat /proc/mdstat</pre></div></td></tr></tbody></table></p>
+		<p></p>
+	
+
+	<h3>Porady</h3>
+		
+		<ul>
+			<li>
+				<p>
+					Mając dwie macierze RAID1 np: <i><tt>/dev/md0</tt></i> i
+					<i><tt>/dev/md1</tt></i>, możemy utworzyć macierz RAID10 (strip dwóch mirrorów)
+					jako <i><tt>/dev/md2</tt></i>
+					</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># mdadm -C -v /dev/md2 --level=1 -n 2 /dev/md0 /dev/md1</pre></div></td></tr></tbody></table></p>
+					analogicznie RAID01 tworzymy mając dwie macierze RAID0.
+				<p></p>
+			</li>
+			<li>
+				<p>
+					Aby samemu złożyć macierz (z np: <strong>PLD Live CD</strong>)
+					wydajemy polecenie, które może wyglądać następująco:
+					</p><p align="left"><table bgcolor="#ffffff" cellpadding="5" cellspacing="2"><tbody><tr><td><div class="screen"><pre># mdadm -A /dev/md0 /dev/hda /dev/hdb</pre></div></td></tr></tbody></table></p>
+				<p></p>
+			</li>
+			<li>
+				<p>
+					Jeśli macierz jest składana w trakcie startu systemu
+					to automatycznie tworzony jest plik urządzenia <i><tt>/dev/mdX</tt></i>.
+					W trakcie tworzenia macierzy, lub gdy macierz nie startuje wraz z systemem,
+					możemy skorzystać z gotowych urządzeń w <i><tt>/dev</tt></i> (pakiet dev)
+					lub samemu je utworzyć (pakiet udev).
+					Udev nie tworzy urządzeń <i><tt>/dev/md0</tt></i>,
+					więc musimy w tym celu użyć parametru <tt><b>--auto=yes</b></tt>
+					w wywołaniach programu mdadm, lub utworzyć je poleceniem
+					<tt><b>mknod</b></tt>. Urządzeniu nadajemy
+					<tt>major</tt> o wartości 9 i kolejny, niepowtarzalny
+					numer <tt>minor</tt>. 
+					Nie musimy się martwić o moduły, są on ładowane automatycznie przez mdadm lub
+					initrd. Więcej o UDEV w <a href="http://pl.docs.pld-linux.org/kernel-urzadzenia_moduly_udev.html"> tym dokumencie</a>.
+				</p>
+			</li>
+			<li>
+				<p>
+					Wraz z pakietem mdadm dostarczany jest rc-skrypt uruchamiający mdadm
+					w trybie monitorowania (jako demona). Więcej szczegółów w dokumentacji
+					programu mdadm.
+				</p>
+			</li>
+			<li>
+				<p>
+					<a href="http://andrzej.dopierala.name/2007-04-11_Migracja_serwera_na_RAID1">Migracja z pojedynczego dysku na RAID1</a>
+				</p>
+				<p>
+					<a href="http://andrzej.dopierala.name/2007-04-09_Instalacja_linuksa_na_raid1">Instalacja linuksa na raid1</a>
+				</p>
+				<p>
+					<a href="http://wolvverine.jogger.pl/2007/02/20/degradedarray-fail-event-on-md-device-repair/">Naprawa zdegradowanej macierzy</a>
+				</p>
+				</li>
+
+		</ul>
+
+	
+
+	<h3>Dodatki</h3>
+		
+		<p>
+			Literatura:
+			</p><ul>
+				<li>
+					<p><a href="http://www.eioba.com/a70652/konfiguracja_i_objasnienie_raid_oraz_lvm">http://www.eioba.com/a70652/konfiguracja_i_objasnienie_raid_oraz_lvm</a></p>
+				</li>
+				<li>
+					<p><a href="http://lists.us.dell.com/pipermail/linux-poweredge/2003-July/008898.html">http://lists.us.dell.com/pipermail/linux-poweredge/2003-July/008898.html</a></p>
+				</li>
+				<li>
+					<p><a href="http://www.linuxsa.org.au/mailing-list/2003-07/1270.html">http://www.linuxsa.org.au/mailing-list/2003-07/1270.html</a></p>
+				</li>
+				<li>
+					<p><a href="http://gentoo-wiki.com/HOWTO_Gentoo_Install_on_Software_RAID">http://gentoo-wiki.com/HOWTO_Gentoo_Install_on_Software_RAID</a></p>
+				</li>
+			</ul>
+		<p></p>
+	
+</td>
+<td width="3%">&nbsp;</td>
+</tr></tbody></table>
+<div align="right"><table cellpadding="2"><tbody><tr>
+<td><a href="http://pl.docs.pld-linux.org/pl_dysk_formatowanie.html"><img src="soft_raid_pliki/prev-small.png" alt="&amp;lt;-" border="0" height="30" width="30"></a></td>
+<td><a href="http://pl.docs.pld-linux.org/lvm2.html"><img src="soft_raid_pliki/next-small.png" alt="-&gt;" border="0" height="30" width="30"></a></td>
+</tr></tbody></table></div>
+</td>
+</tr></tbody></table></body></html>

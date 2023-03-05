@@ -1,0 +1,7 @@
+gcc plik_zrodlowy.c -o plik_wykonywalny
+chmod 700 plik_wykonywalny    [opcjonalnie]  
+./plik_wykonywalny
+
+make clean - czyszczenie projektu
+make all - kompilacja wszystkich plików źródłow
+

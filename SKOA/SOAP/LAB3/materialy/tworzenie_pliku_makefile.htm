@@ -1,0 +1,864 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="pl" xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+<title>Tworzenie pliku Makefile</title>
+<meta name="Keywords" content="programowanie,technologia,Technologia">
+<meta name="Description" content="Do czego służy plik Makefile? Otóż jest to zbiór reguł dla kompilatora, wykorzystywanych podczas kompilacji programu z użyciem polecenia 'make'. Pliki Makefile zostały stworzone, żeby ułatwić pracę przy kompilacji programów ze źródłami w wielu plikach i wielu ...">
+
+<!-- base href="http://www.eioba.pl/index.php?page=Articles.ShowArticle&articleID=72344&requestArticleTopic=tworzenie_pliku_makefile&lang=pl" -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-language" content="pl">
+<meta name="robots" content="all">
+<meta name="googlebot" content="index,follow,all">
+	
+<link rel="stylesheet" type="text/css" href="tworzenie_pliku_makefile_pliki/css_common_105.css">
+
+<link rel="shortcut icon" href="http://www.eioba.pl/lay/favicon.ico">
+<link title="eioba" type="application/opensearchdescription+xml" rel="search" href="http://www.eioba.pl/search_pl.xml">
+
+<script type="text/javascript">
+/*<![CDATA[*/
+ 
+	function getSearchField()
+	{
+		return 'ctl0_SearchText';
+	}
+	function setSearch()
+	{
+		if($(getSearchField()).style.color!='black')
+			$(getSearchField()).value = 'szukaj';
+	}
+	function getTranslatedString(name)
+	{
+		if(name=='find')
+			return 'szukaj';
+	}
+	function showLoginForm()
+	{
+	   $('mainPageTableTop_Background_Top_UserBox_Actions').style.display = 'none';
+	   $('mainPageTableTop_Background_Top_UserBox_Login').style.display = 'block';
+	}
+    function mustLogin()
+    {
+    	alert('Ta funkcja wymaga zalogowania. Jeżeli jeszcze nie posiadasz konta, załóż je korzystając z przycisku przy formularzu logowania w górnym panelu.');
+    }
+
+/*]]>*/
+</script>
+
+
+<script src="tworzenie_pliku_makefile_pliki/bSfrhp2QGqdiFb9.js" type="text/javascript"></script></head><body leftmargin="0" topmargin="0" onload="setSearch();" bgcolor="#efefef" marginheight="0" marginwidth="0">
+
+<form id="ctl0_ctl1" method="post" action="/a72344/tworzenie_pliku_makefile"><input name="SSID" value="3ja014gulkki5qc25o8oheb3thpve551" type="hidden"><div style="visibility: hidden;">
+<input name="PRADO_PAGESTATE" id="PRADO_PAGESTATE" value="399922" type="hidden">
+<input name="PRADO_POSTBACK_TARGET" id="PRADO_POSTBACK_TARGET" value="" type="hidden">
+<input name="PRADO_POSTBACK_PARAMETER" id="PRADO_POSTBACK_PARAMETER" value="" type="hidden">
+</div>
+<script type="text/javascript" src="tworzenie_pliku_makefile_pliki/clientscript_prado_v2.gz"></script>
+
+<script type="text/javascript" src="tworzenie_pliku_makefile_pliki/clientscript_showarticle_v5.gz" id="ctl0_ClientScriptLoader"></script>
+
+<input id="activePanelCounter" value="0" type="hidden">
+<table id="mainPageTable" align="center" cellpadding="0" cellspacing="0" width="990">
+<tbody><tr>
+<td id="mainPageTableTDTop" valign="middle">
+	 <table border="0" cellpadding="0" cellspacing="0" width="100%">
+	 	<tbody><tr>
+	 		<td id="mainPageTableTop_Logo"><a id="ctl0_LogoLink" href="http://www.eioba.pl/"><img src="tworzenie_pliku_makefile_pliki/logo_v1.jpg" alt="" id="ctl0_LogoImg" style="width: 156px; height: 51px;"></a></td>
+	 		<td id="mainPageTableTop_Background" valign="middle">
+            	<table id="mainPageTableTop_Background_TableTop" border="0" cellpadding="0" cellspacing="0" width="100%">
+                 <tbody><tr>
+                     <td id="mainPageTableTop_Background_Top_Search">
+	                     <div id="ctl0_ctl4">
+	                     	<span id="ctl0_ctl5" style="display: none; color: red;"></span>
+		                     <span id="ctl0_ctl6" style="display: none; color: red;"></span>
+							<span id="ctl0_ctl7" style="display: none; color: red;"></span>
+							<input value="szukaj" name="ctl0$SearchText" id="ctl0_SearchText" class="searchField" onclick="showSearchLangSelect()" type="text">
+	                     		<input name="ctl0$SearchButton" id="ctl0_SearchButton" src="tworzenie_pliku_makefile_pliki/search_v1.jpg" alt="" title="Szukaj" class="searchButton" type="image">
+	                     </div>
+                     </td>
+                     <td id="mainPageTableTop_Background_Top_UserBox">   
+                     	 
+	                     		<div id="mainPageTableTop_Background_Top_UserBox_Login">
+		                     		<div id="ctl0_LoginPanel">
+									<span id="ctl0_ctl13" style="display: none; color: red;"></span>
+									<span id="ctl0_ctl14" style="display: none; color: red;">pole 'EMail' jest wymagane</span>
+									<span id="ctl0_ctl15" style="display: none; color: red;">pole 'Hasło' jest wymagane</span>	
+									
+									Login lub e-mail <input name="ctl0$LoginTextBox" id="ctl0_LoginTextBox" class="userPanelTextBox" type="text">
+									Hasło <input name="ctl0$PasswordTextBox" id="ctl0_PasswordTextBox" class="userPanelTextBox" type="password">
+									<span class="loginRememberCheckboxInput" id="ctl0_Remember_parent"><input id="ctl0_Remember" name="ctl0$Remember" checked="checked" type="checkbox"><label for="ctl0_Remember">zapamiętaj</label></span>
+									&nbsp;&nbsp;
+									<input name="ctl0$LoginButton" value="Zaloguj" id="ctl0_LoginButton" class="loginButton" type="submit">
+									
+											
+									</div>
+		                     	</div>
+		                     	<div id="mainPageTableTop_Background_Top_UserBox_Actions">
+		                            <a class="mainPageTableTop_Background_Top_UserBox_Actions_Button" href="javascript:showLoginForm()">Zaloguj</a> |
+		                            <a id="ctl0_RegisterUserLink" class="mainPageTableTop_Background_Top_UserBox_Actions_Button" href="http://www.eioba.pl/register/article">Załóż konto</a>
+		                     	</div>
+	                     	
+                     </td>
+                  </tr>
+          </tbody></table>
+     	</td>
+	</tr>
+	</tbody></table>
+</td>
+</tr>
+
+<tr>
+	<td id="mainPageTableTDTop2" valign="middle">
+			    <div id="h">
+				  <div id="h-sec">
+				    <ul>
+					  <li class="h-round"><a id="ctl0_SubMenu_AllCategoriesLink" href="http://www.eioba.pl/"><strong>Wszystkie kategorie</strong><span>&nbsp;</span></a></li>
+					  <li class="h-round"><a id="ctl0_SubMenu_TechCategoryLink" class="subMenuItemSelected" href="http://www.eioba.pl/c/technologia"><strong>Technologia</strong><span>&nbsp;</span></a></li>
+					  <li class="h-round"><a id="ctl0_SubMenu_ScienceCategoryLink" href="http://www.eioba.pl/c/nauka"><strong>Nauka</strong><span>&nbsp;</span></a></li>
+					  <li class="h-round"><a id="ctl0_SubMenu_MoneyCategoryLink" href="http://www.eioba.pl/c/finanse"><strong>Finanse</strong><span>&nbsp;</span></a></li>
+					  <li class="h-round"><a id="ctl0_SubMenu_LifeCategoryLink" href="http://www.eioba.pl/c/zycie"><strong>Życie</strong><span>&nbsp;</span></a></li>
+					  <li class="h-round"><a id="ctl0_SubMenu_InterestsCategoryLink" href="http://www.eioba.pl/c/zainteresowania"><strong>Zainteresowania</strong><span>&nbsp;</span></a></li>
+					  <li class="h-round"><a id="ctl0_SubMenu_SocietyCategoryLink" href="http://www.eioba.pl/c/spoleczenstwo"><strong>Społeczeństwo</strong><span>&nbsp;</span></a></li>
+					  <li class="h-round"><a id="ctl0_SubMenu_FunCategoryLink" href="http://www.eioba.pl/c/rozrywka"><strong>Rozrywka</strong><span>&nbsp;</span></a></li>
+					  <li class="h-round"><a id="ctl0_SubMenu_OtherCategoryLink" href="http://www.eioba.pl/c/rozne"><strong>Różne</strong><span>&nbsp;</span></a></li>
+					</ul>
+				  </div>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td id="mainPageTableTDTop3" valign="middle">
+		<div id="mainPageTableTop3_Container">
+			<table style="height: 28px;" border="0" cellpadding="0" cellspacing="0" width="100%">
+                 <tbody><tr>
+                     <td valign="middle" width="380px">
+                     		<div id="top3Tabs">
+								<ul>
+								<li><a id="ctl0_PopularTabLink" href="http://www.eioba.pl/">Popularne</a></li>
+								<li class="active"><a id="ctl0_NewTabLink" href="http://www.eioba.pl/new">Oczekujące</a></li>
+								<li><a id="ctl0_RecommendedTabLink" href="http://www.eioba.pl/recommended">Rekomendowane</a></li>
+								</ul>
+							</div>
+                     </td>
+                     <td align="left" valign="middle">
+							    <div id="h2">
+								  <div id="h-sec2">
+								    <ul>
+									  <li class="h-round2"><a id="ctl0_Top3SublinksGroups" href="http://www.eioba.pl/groups"><strong>Grupy</strong><span>&nbsp;</span></a></li>
+									  <li class="h-round2"><a id="ctl0_Top3SublinksCommunity" href="http://www.eioba.pl/community"><strong>Społeczność</strong><span>&nbsp;</span></a></li>
+									  <li class="h-round2"><a id="ctl0_Top3SublinksLastComments" href="http://www.eioba.pl/lastcomments"><strong>Aktywność w serwisie</strong><span>&nbsp;</span></a></li>
+									</ul>
+								  </div>
+								</div>
+                     </td>
+                     <td id="mainPageTableTop_Background_Bottom_AddArticle" align="right" width="150px">
+                         <a id="ctl0_LayAddArticleButton" class="addArticleLink" href="http://www.eioba.pl/index.php/page,User.Login?SSID=3ja014gulkki5qc25o8oheb3thpve551&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">Dodaj artykuł</a>
+                     </td>
+                  </tr>
+          	</tbody></table>
+		</div>
+	</td>
+</tr>
+
+<tr>
+	<td id="mainPageTableTDTopBorder">
+		<div id="mainPageTableTopBorder_Container">
+		</div>
+	</td>
+</tr>
+<tr>
+		<td id="mainPageTableTDMiddle">
+			<!-- content td -->
+			<span id="ctl0_Path"></span>
+			
+
+
+
+
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+   
+    function mustLogin()
+    {
+    	alert('Ta funkcja wymaga zalogowania. Jeżeli jeszcze nie posiadasz konta, załóż je korzystając z przycisku przy formularzu logowania w górnym panelu.');
+    }
+    function adminInfo()
+    {
+    	alert('Aby móc używać tej opcji, musisz posiadać conamniej 2 poziom');
+    }
+    function wasError()
+    {
+    	alert('Wystąpił nieoczekiwany błąd');
+    }
+	function getLangSign()
+	{
+		return 'pl';
+	}
+	function scrollUserToPos(position)
+	{
+		var newLocation = parent.location.href;
+		parent.location.href = 'http://www.eioba.pl/a72344/tworzenie_pliku_makefile#' + position;
+	}
+	function deleteTag(tagNb)
+	{
+	    $('tag'+tagNb).style.display='none';
+	    var request = new Prado.CallbackRequest('ctl0$body$DeleteTagCallback',{'CallbackParameter':tagNb});
+	 	request.dispatch();
+	}
+	function getKeywordsPropositionsTextBoxName()
+	{
+		return 'ctl0_body_KeywordsPropositionTextBox';
+	}
+	function getAdminURL(type)
+    {
+    	if(type=='chooseCategory')
+			return '/index.php/page,dtree/articleID,72344/cID,1/lang,pl?SSID=3ja014gulkki5qc25o8oheb3thpve551';
+    }
+
+    function getCategorySelectIDID()
+	{
+		return 'ctl0_body_CategorySelectedID';
+	}
+	function getEmbedCodeID()
+	{
+		return 'ctl0_body_EmbedCode';
+	}
+	function afterGrade(response)
+	{
+		if(response=='')
+			return;
+	
+		var responseArray = response.split('|');
+		
+		if(responseArray[0]=='ip')
+		{
+			alert("Głosowałeś już na ten artykuł");
+			doArticlesBoxUserVote(0,responseArray[1],0);
+		}
+		else if(responseArray[0]=='similar')
+		{
+			alert("W trosce o wiarygodność głosowania ten głos nie został zaliczony");
+			doArticlesBoxUserVote(0,responseArray[1],0);
+		}
+		else if(responseArray[0]=='reported')
+		{
+			alert("Nie możesz głosować na odrzucony artykuł");
+			doArticlesBoxUserVote(0,responseArray[1],0);
+		}
+	}
+	function afterReport(response)
+	{
+		if(response=='similar')
+			alert("W trosce o wiarygodność głosowania ten głos nie został zaliczony");
+		else if(response=='ip')
+			alert("Głosowałeś już na ten artykuł");
+	}
+
+/*]]>*/
+</script>
+
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+    function getArticlesBoxUserVoteCallbackName()
+    {
+    	return 'ctl0$body$ArticlesBoxUserVoteCallback';
+    }
+
+/*]]>*/
+</script>
+
+
+<table width="100%">
+<tbody><tr>
+<td id="ArticleMainTableLeft" align="left" valign="top">
+
+
+
+<div class="articleCaptionPanel">
+<div style="padding-bottom: 5px;">
+	<h1><span id="ctl0_body_Topic"><!-- google_ad_section_start -->Tworzenie pliku Makefile<!-- google_ad_section_end --></span></h1>
+</div>
+
+<div id="ctl0_body_LinkToOryginalArticlePanel" class="linkToOryginalAritcle">
+Odnośnik do oryginalnej publikacji: <a id="ctl0_body_LinkToOryginalArticle" rel="nofollow" href="http://www.antylameriada.net/pmakefile/">http://www.antylameriada.net/pmakefile/</a>
+<br>
+</div>
+
+<div id="ctl0_body_ArticleDescriptionPanel" class="articleDescriptionPanel">
+<table width="100%">
+<tbody><tr>
+<td style="padding-right: 5px;" align="left" valign="top" width="65px">
+	<div id="vote_72344"><table class="votingBox"><tbody><tr><td valing="top" align="center"><span id="ctl0_body_VoteButtonCount" class="votingBoxCount">2</span></td></tr><tr style="height: 21px;"><td class="votingBoxButton"><a id="ctl0_body_VoteButton" href="http://www.eioba.pl/index.php/page,User.Login?SSID=3ja014gulkki5qc25o8oheb3thpve551&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551"><span id="ctl0_body_VoteButtonText" class="votingBoxButton">głosuj</span></a></td></tr></tbody></table></div>
+	
+</td>
+<td align="left" valign="top" width="75px">
+	
+</td>
+<td align="left" valign="middle">
+	<span id="ctl0_body_ArticleDescription" class="normalBold">Do
+czego służy plik Makefile? Otóż jest to zbiór reguł dla kompilatora,
+wykorzystywanych podczas kompilacji programu z użyciem polecenia
+'make'. Pliki Mak...</span>
+</td>
+</tr></tbody></table>
+</div>
+
+<div style="border-top: 0.3mm dotted silver; padding: 5px;">
+<table width="100%">
+<tbody><tr>
+<td width="250">
+	<span style="font-size: 120%;"><strong>Wyświetlenia:</strong> 1.434</span>
+</td>
+<td align="right">
+	<span style="font-size: 120%;"><strong>Utworzony:</strong> 22/04/2007</span>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div style="border-top: 0.3mm dotted silver; padding: 5px;">
+<table class="articleBottomPanel" width="100%">
+<tbody><tr>
+<td class="articleBottomPanelLeft" align="left">
+	<a id="ctl0_body_SendEmailButton" class="articleSendEmailButton" href="javascript:showSendEmailFormPanel()">Wyślij</a>
+	<div class="articleBottomPanelHR">&nbsp;</div>
+	<a id="ctl0_body_AddToFavorites" class="articleFavoriteAddButton" href="javascript:;//ctl0_body_AddToFavorites">Rekomenduj</a>
+	<div class="articleBottomPanelHR">&nbsp;</div>
+	<a id="ctl0_body_GroupsButton" class="articleGroupsAddButton" href="javascript:showGuestFormPanel()">Grupy</a>
+	<div class="articleBottomPanelHR">&nbsp;</div>
+	<a id="ctl0_body_EmbedArticle" class="articleEmbedButton" href="javascript:showEmbedCodeFormPanel()">Umieść u siebie</a>
+	<div class="articleBottomPanelHR">&nbsp;</div>
+	<a id="ctl0_body_AddToRead" class="articleClockAddButton" href="javascript:;//ctl0_body_AddToRead">Zapamietaj</a>
+	<div class="articleBottomPanelHR">&nbsp;</div>
+	<a id="ctl0_body_PrintVersion" class="articlePrintButton" href="javascript:showPrintFormPanel()">Drukuj / PDF</a>
+</td>
+<td class="articleBottomPanelRight" align="right">
+	<div id="ctl0_body_ReportArticleButtonPanel">
+		<table width="100%">
+		<tbody><tr>
+		<td align="right">
+			<div id="reportArticlePanel">
+				<a id="ctl0_body_ReportArticle" class="articleReportButton" href="javascript:showGuestFormPanel()">Odrzuć</a>
+				
+			</div>
+		</td>
+		<td align="right" width="25px">
+			<div class="reportsCounter">(0)</div>
+		</td>
+		</tr>
+		</tbody></table>
+	</div>
+	
+</td>
+</tr>
+</tbody></table>
+</div>
+<div id="articleBottomFormPanel" class="articleBottomFormPanel" style="display: none;">
+<div align="right"><a href="javascript:hideArticleBottomFormPanel()" style="font-size: 11px;">zamknij</a></div>
+
+<div id="guestBottomPanel" style="display: none;" align="center">
+		<strong>Ta
+funkcja wymaga zalogowania. Jeżeli jeszcze nie posiadasz konta, załóż
+je korzystając z przycisku przy formularzu logowania w górnym panelu.</strong>
+</div>
+
+
+
+
+
+
+
+<div id="sendEmailBottomPanel" style="display: none;" align="left">
+		<div style="margin-left: 205px;">
+			<strong>Do (e-mail odbiorcy):</strong>
+			<div style="margin-top: 3px; margin-bottom: 3px;">
+				<input name="ctl0$body$SendEmailReceiver" id="ctl0_body_SendEmailReceiver" style="width: 250px;" type="text">
+				<span id="ctl0_body_ctl7" style="display: none; color: red;">Pole wymagane</span>
+				<span id="ctl0_body_ctl8" style="display: none; color: red;">Niepoprawny adres e-mail</span>
+			</div>
+			<strong>Wiadomość (opcjonalnie):</strong>
+			<div style="margin-top: 3px;">
+				<textarea name="ctl0$body$SendEmailMessage" rows="4" cols="20" id="ctl0_body_SendEmailMessage" style="width: 250px; height: 80px;"></textarea>
+			</div>
+		</div>
+		<div style="margin-top: 5px;" align="center">
+			<input name="ctl0$body$ctl9" value="Wyślij" id="ctl0_body_ctl9" style="font-size: 105%; font-weight: bold;" type="submit">
+		</div>
+</div>
+
+<div id="ctl0_body_EmbedCodeBottomPanelOwner">
+<div id="embedCodeBottomPanel" style="display: none;" align="left">
+
+	<div>Wstaw poniższy kod na swoją stronę, a odwiedzający będą mogli przeczytać ten artykuł bezpośrednio na niej.</div>
+	<br>
+	<div><strong>Kod:</strong></div>
+	<div align="center">
+	<textarea name="ctl0$body$EmbedCode" rows="3" cols="20" readonly="readonly" id="ctl0_body_EmbedCode" onclick="javascript:selectCode()" style="width: 570px;">&lt;script
+src="http://www.eioba.pl/embed/articleID:72344/width:600/height:500"
+type="text/javascript"&gt;&lt;/script&gt;&lt;noscript&gt;&lt;a
+href="http://www.eioba.pl/a72344/tworzenie_pliku_makefile"&gt;Tworzenie
+pliku Makefile&lt;/a&gt;&lt;/noscript&gt;</textarea>
+	</div>
+	<div style="margin: 3px;"><a id="ctl0_body_EmbedExampleLink" href="http://www.eioba.pl/embed-example/72344">Sprawdź jak kod będzie wyglądał po umieszczeniu</a></div>
+		
+</div>
+</div>
+
+<div id="ctl0_body_PrintBottomPanelOwner">
+<div id="printBottomPanel" style="display: none;" align="left">
+	
+	<div style="margin: 3px;">1. <a id="ctl0_body_PrintLink" class="normalBold" rel="nofollow" href="http://www.eioba.pl/print/72344" target="_new">Wersja do druku</a></div>
+	<div style="margin: 3px;">2. <a id="ctl0_body_PDFLink" class="normalBold" rel="nofollow" href="http://www.eioba.pl/pdf/72344" target="_new">Pobierz w formacie PDF</a></div>	
+		
+</div>
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+<div id="articleInnerPanel">
+
+
+
+
+
+
+
+<div style="height: 15px;"></div>
+
+<div id="articleContent" class="articleContent">
+
+<!-- google_ad_section_start -->Do czego służy plik Makefile? Otóż jest
+to zbiór reguł dla kompilatora, wykorzystywanych podczas kompilacji
+programu z użyciem polecenia 'make'. Pliki Makefile zostały stworzone,
+żeby ułatwić pracę przy kompilacji programów ze źródłami w wielu
+plikach i wielu nagłówkach. Każdy, kto miał do czynienia z takim
+programem, wie jaka żmudna jest praca przy wpisywaniu ciągłego 'gcc -o
+program plik1.o plik2.o ...'. Narzędzie 'make' razem z odpowiednim
+plikiem Makefile bardzo ułatwia tą sprawę. Zapewne każdy, kto
+kiedykolwiek kompilował jądro zauważył, że po zmianie konfiguracji
+tylko nowododane i zmodyfikowane źródła było ponownie
+przekompilowywane. To właśnie dzięki plikom Makefile.<br><br>Najprościej nauczyć się na przykładzie, więc wyobraźmy sobie taki przykład:<br><br>Program
+składa się z trzech plików 1.c, 2.c, 3.c i trzech nagłówków a.h, b.h,
+c.h. Do pliku 1.c włączane są pliki a.h i b.h, do pliku 2.c pliki b.h i
+c.h, a do pliku 3.c wszystkie trzy nagłówki. Funkcja main() znajduje
+się w pliku 1.c. Ręcznym sposobem stworzenia programu byłoby:<br><span class="code">gcc -c 1.c<br><br>gcc -c 2.c<br><br>gcc -c 3.c<br><br>gcc -o program 1.o 2.o 3.o</span><br><br>Nie
+jest to sposób zły, ale wysoce męczący. Co jeśli zmieni się zawartość
+pliku b.h, który jest włączany do wszystkich trzech plików .c? Trzeba
+wszystkie te pliki przekompilować i zlinkować, czyli znowu trzeba wydać
+te cztery polecenia. Inny przykład. Zmieniamy zawartość pliku 3.c. Żeby
+program ponownie stworzyć trzeba wykonać dwa ostatnie z wyżej
+wymienionych poleceń. To jest naprawdę męczące. Przy pomocy narzędzia
+make można stworzyć program, niezależnie od wcześniej wprowadzonych
+zmian, używając tylko jednego polecenia, konkretnie polecenia 'make'.<br><br>Do
+stworzenia pliku Makefile musimy znać zależności między plikami. W
+naszym przypadku cały program zależy od plików 1.o, 2.o i 3.o. Plik 1.o
+zależy od 1.c, a.h i b.h. Plik 2.o zależy od 2.c, b.h i c.h, a plik 3.o
+zależy od 3.c, a.h, b.h i c.h. Jak to zapisać w pliku Makefile? Bardzo
+prosto:<br><br><span class="code">#To jest linia komentarza, nie będzie ona brana pod uwagę przez make.<br>program: 1.o 2.o 3.o<br>#Obiekt "program" zależny jest od plików 1.o, 2.o i 3.o<br>&nbsp;&nbsp; &nbsp;gcc -o program 1.o 2.o 3.o<br>#Do stworzenia tego obiektu używa się wyżej napisanego polecenia<br>1.o: 1.c a.h b.h<br>&nbsp;&nbsp; &nbsp;gcc -c 1.c<br>2.o: 2.c b.h c.h<br>&nbsp;&nbsp; &nbsp;gcc -c 2.c<br>3.o 3.c a.h b.h c.h<br>&nbsp;&nbsp; &nbsp;gcc -c 3.c</span><br><br><br>Te
+kilka linijek opisuje zależności w naszym programie. Po ich zapisaniu w
+pliku Makefile będziemy mogli kompilować program przy pomocy komendy
+'make'.<br><br>Jednak 'make' jest bardzo rozbudowanym programem. Można
+w nim stosować naprawdę skomplikowane reguły. Nie będę ich tutaj
+omawiał, bo szczegóły na ich temat zawarte są w dokumentacji, ale
+napiszę jeszcze o makrach. Mianowicie często chcemy, aby wszystkie
+pliki zostały skompilowane z pewnymi opcjami lub zlinkowane z
+konkretnymi bibliotekami. Wpisywanie tego linijka po linicje może być
+bardzo męczące, dlatego można używać makr. Czym jest makro? Makro po
+prostu jest krótszym tekstowym zamiennikiem jakiegoś dłuższego ciągu, w
+naszym przypadku polecenia. Ale najlepiej wytłumaczyć na przykładzie:<br><br><span class="code">CC=gcc<br>#Makro CC zawiera nazwę kompilatora<br>CFLAGS=-Wall -ansi -pedantic<br>#Makro CFLAGS zawiera parametry kompilatora<br>CLINK=-lm<br>#Makro CLINK zawiera opcje linkera.<br>program: 1.o 2.o 3.o<br>&nbsp;&nbsp; &nbsp;$(CC) -o program 1.o 2.o 3.o $(CLINK)<br>#Wykorzystanie kompilatora gcc (makro CC) do zlinkowania <br>#programu z opcją -lm (CLINK)<br>1.o: 1.c a.h b.h<br>&nbsp;&nbsp; &nbsp;$(CC) -c&nbsp; $(CFLAGS) 1.c<br>2.o: 2.c b.h c.h<br>&nbsp;&nbsp; &nbsp;$(CC) -c&nbsp; $(CFLAGS) 2.c<br>3.o: 3.c a.h b.h c.h<br>&nbsp;&nbsp; &nbsp;$(CC) -c&nbsp; $(CFLAGS) 3.c</span><br><br><br>Wykorzystanie
+makr ułatwia zmiany w pliku reguł. Jeśli chcemy skompilować program z
+nową opcją wystarczy dopisać ją do odpowiedniej linijki, a nie w każdej
+linijce zawierającej polecenia.<!-- google_ad_section_end -->
+</div>
+
+<br clear="both">
+
+<div style="margin-top: 3px;" align="right"><script type="text/javascript">var nk_wg = ({"image":"http:\/\/www.eioba.org\/lay\/sledzik.png","host":"http:\/\/nasza-klasa.pl\/","content":"Tworzenie pliku Makefile"}); document.write('<a target="_blank" href="'+nk_wg.host+'sledzik?shout='+encodeURIComponent(nk_wg.content||document.location.href)+'&SSID=3ja014gulkki5qc25o8oheb3thpve551"><img src="'+nk_wg.image+'" style="border: 0px"></a>'); </script><a target="_blank" href="http://nasza-klasa.pl/sledzik?shout=Tworzenie%20pliku%20Makefile&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551"><img src="tworzenie_pliku_makefile_pliki/sledzik.png" style="border: 0px none ;"></a></div>
+
+
+<div id="ctl0_body_RelatedArticlesPanel" style="margin-top: 10px;">
+<span class="articleSeeAlso"><img id="relatedListCaptionImage_related" src="tworzenie_pliku_makefile_pliki/list_open_v1.gif" height="13px" width="15px"> Podobne artykuły</span>
+
+<div id="relatedArticlesList">
+	<div style="width: 640px;">
+	<script>function afterGrade(response){if(response=='')return;var responseArray = response.split('|');if(responseArray[0]=='ip') {	alert("Głosowałeś już na ten artykuł");	doArticlesBoxUserVote(0,responseArray[1],0);}else if(responseArray[0]=='similar') {alert("W trosce o wiarygodność głosowania ten głos nie został zaliczony");doArticlesBoxUserVote(0,responseArray[1],0);}else if(responseArray[0]=='reported') {alert("Nie możesz głosować na odrzucony artykuł");doArticlesBoxUserVote(0,responseArray[1],0);}}</script>
+<div align="left"><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">28</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,711?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551"><img src="tworzenie_pliku_makefile_pliki/thumb_711.jpg" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style="font-size: 115%;"><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,711?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">PESEL - wszystko, co o nim możesz wiedzieć</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 20410   </div></td></tr></tbody></table></div><div class="singleRelatedArticleHRSmall"></div><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">5</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,2149?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551"><img src="tworzenie_pliku_makefile_pliki/thumb_2149.jpg" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style="font-size: 115%;"><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,2149?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">Naturalny system dwójkowy</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 18837   </div></td></tr></tbody></table></div><div class="singleRelatedArticleHRSmall"></div><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">7</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,2190?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551"><img src="tworzenie_pliku_makefile_pliki/thumb_2190.jpg" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style="font-size: 115%;"><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,2190?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">Podstawy tworzenia zapytań SQL (mySQL)</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 23303   </div></td></tr></tbody></table></div><div class="singleRelatedArticleHRSmall"></div><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">7</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,67?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551"><img src="tworzenie_pliku_makefile_pliki/thumb_67.jpg" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style="font-size: 115%;"><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,67?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">Generowanie plików PDF</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 12731   </div></td></tr></tbody></table></div><div class="singleRelatedArticleHRSmall"></div><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">6</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,2218?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551"><img src="tworzenie_pliku_makefile_pliki/thumb_2218.jpg" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style="font-size: 115%;"><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,2218?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">Zapis uzupełnień do 2 - U2</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 13704   </div></td></tr></tbody></table></div><div class="singleRelatedArticleHRSmall"></div><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">6</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,130?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551"><img src="tworzenie_pliku_makefile_pliki/thumb_130.jpg" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style="font-size: 115%;"><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,130?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">Drzewa w PHP i MySQL</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 12043   </div></td></tr></tbody></table></div><div class="singleRelatedArticleHRSmall"></div><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">4</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,61?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551"><img src="tworzenie_pliku_makefile_pliki/thumb_61.jpg" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style="font-size: 115%;"><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,61?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">Mini tutorial SQL Część 1</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 13506   </div></td></tr></tbody></table></div><div class="singleRelatedArticleHRSmall"></div><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">9</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,40560?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551"><img src="tworzenie_pliku_makefile_pliki/thumb_40560.jpg" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style="font-size: 115%;"><a href="http://www.eioba.pl/index.php/page,Articles.GoToRelated/sourceID,72344/targetID,40560?SSID=rfg4tif0lmvukai2e4m2njvl4dp7veej&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">Cracking - zasada działania</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 9564   </div></td></tr></tbody></table></div></div>
+	</div>
+</div>
+
+</div>
+
+<div id="ctl0_body_KeywordsOwner" style="margin-top: 10px;">
+<span class="articleSeeAlso"><img id="relatedListCaptionImage_related" src="tworzenie_pliku_makefile_pliki/list_open_v1.gif" height="13px" width="15px"> Powiązane tematy</span>
+<div>
+	<!-- google_ad_section_start --><a href="http://www.eioba.pl/t/programowanie" title="programowanie" class="tagButton4">programowanie</a>, <a href="http://www.eioba.pl/t/technologia" title="technologia" class="tagButton4">technologia</a><!-- google_ad_section_end -->
+</div>
+</div>
+
+<br clear="both">
+
+
+<br clear="both">
+<a name="bottom"></a>
+<div id="ctl0_body_ArticleBottomPanel">
+<div id="articleBottomView">
+	<ul>
+	<li id="articleBottomCommentsLi" class="active"><a id="ctl0_body_ArticleBottomCommentsLink" href="javascript:;//ctl0_body_ArticleBottomCommentsLink">Dyskusja o artykule (0) </a></li>
+	<li id="articleBottomVotesLi"><a id="ctl0_body_ArticleBottomVoteLink" href="javascript:;//ctl0_body_ArticleBottomVoteLink">Głosowali na artykuł (2) </a></li>
+	</ul>
+	<br>
+</div>
+
+
+	<br clear="both">
+	<a name="forumPostsStart"></a>
+	<div id="articleBottomCommentsBody">
+		
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+	function getReplayText()
+	{
+		return 'Odpowiadasz na komentarz: _name_';
+	}
+	function aboutLogin()
+	{
+	    	alert('Aby móc skorzystać z tej opcji musisz się zalogować lub zarejestrować.');
+	}
+	function doVoteYes(postID)
+	{
+		forumSwitchVoting('yes',postID);
+	 	var request = new Prado.CallbackRequest('ctl0$body$SimpleForumBox$VoteYesCallback',{'CallbackParameter':postID,'EnablePageStateUpdate':false});
+	 	request.dispatch();
+	}
+	function doVoteNo(postID)
+	{
+	    forumSwitchVoting('no',postID);
+	 	var request = new Prado.CallbackRequest('ctl0$body$SimpleForumBox$VoteNoCallback',{'CallbackParameter':postID,'EnablePageStateUpdate':false});
+	 	request.dispatch();
+	}
+	function getReplayTextAreaID()
+	{
+		return 'ctl0_body_SimpleForumBox_ReplayTextArea';
+	}
+	function getWrongInterpuctionID()
+	{
+		return 'ctl0_body_SimpleForumBox_WrongInterpunctionPanel';
+	}
+	function getPointsBoxID()
+	{
+		return 'ctl0_body_SimpleForumBox_PointsCount';
+	}
+	function getReplyIDFieldID()
+	{
+		return 'ctl0_body_SimpleForumBox_ReplyID';
+	}
+
+/*]]>*/
+</script>
+
+
+<input id="afterCommentsLoadScrollID" value="" type="hidden">
+
+<div id="ctl0_body_SimpleForumBox_CommentsPanel">
+		<br><div class="disabledText" align="center">Brak wiadomości</div>
+	<br>
+</div>
+
+<table width="100%"><tbody><tr><td align="center"> 
+
+
+<br>
+<div class="simplePostReplayPanelOwner" align="center">
+<a name="reply"></a>
+<input name="ctl0$body$SimpleForumBox$ReplyID" id="ctl0_body_SimpleForumBox_ReplyID" value="0" type="hidden">
+</div>
+
+<div style="margin-top: 15px;">
+<div class="prettyPanelCaption">Dodaj swoją opinię</div><div class="prettyPanel"><div class="prettyPanelBody"><div>
+<div id="ctl0_body_SimpleForumBox_AddCommentsPanel">
+
+		<div align="left">
+			<span id="ctl0_body_SimpleForumBox_GuestMustLoginLabel">W
+trosce o jakość komentarzy wymagamy od użytkowników, aby zalogowali się
+przed dodaniem komentarza. Jeżeli nie posiadasz jeszcze swojego konta, <a href="http://www.eioba.pl/register">zarejestruj się</a>. To tylko chwila, a uzyskasz dostęp do <a href="http://www.eioba.pl/about">dodatkowych możliwości</a>!</span>
+		</div>
+	
+</div>
+</div></div></div>
+</div>
+
+</td></tr></tbody></table>
+	</div>
+
+</div>
+
+<div id="articleBottomLoader" style="margin: 50px; display: none;" align="center"><img src="tworzenie_pliku_makefile_pliki/loader.gif"> Proszę czekać...</div>
+
+</div> <!-- articleInnerPanel -->
+
+
+
+</td>
+<td id="ArticleMainTableSep">&nbsp;</td>
+<td id="ArticleMainTableRight" style="width: 295px;">
+<div style="width: 291px; height: 1px;"></div>
+
+<div class="articleRightPanelCaption">Autor</div>
+<div class="articleRightPanelBody">
+
+
+
+		<div class="menuBody" align="center">
+<table width="100%"><tbody><tr>
+
+<td align="left" valign="top">
+<div class="authorNameLink"><a id="ctl0_body_ArticleAuthorPanel_UserName" class="normalBold" href="http://www.eioba.pl/antylameriada/articles">Krzysztof Sawicki</a></div>
+
+
+</td>
+</tr>
+</tbody></table>
+
+
+<div align="left">
+<div id="ctl0_body_ArticleAuthorPanel_ShortDescPanel" class="shortDesc" style="margin-top: 7px;">
+<span id="ctl0_body_ArticleAuthorPanel_ShortDesc"><a href="http://www.antylameriada.net/">http://www.antylameriada.net</a></span>
+</div>
+
+</div>
+
+
+</div>
+	
+</div>
+
+<div id="ctl0_body_TopAdtailyPanel"><div style="overflow: hidden; position: relative; display: block; z-index: 1; width: 292px;" id="AdTaily_Widget_Container"><div style="border: 1px solid rgb(255, 255, 255); margin: 0pt; padding: 0pt; background: rgb(255, 255, 255) none repeat scroll 0% 0%; position: relative; display: block; font-weight: normal; text-align: left; width: 288px; height: auto; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; visibility: visible;"><span class="AdTaily_Widget_Title" style="margin: 10px 0pt 0px 10px; padding: 0pt; background: transparent none repeat scroll 0% 0%; overflow: hidden; position: relative; display: block; font-weight: normal; text-align: left; width: auto; height: 18px; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; color: rgb(47, 47, 43); font-family: &quot;Lucida Grande&quot;,verdana,arial,helvetica,sans-serif; font-size: 13px;">&nbsp;Polecamy</span><div style="margin: 10px 0pt 0pt; padding: 0pt; background: transparent none repeat scroll 0% 0%; overflow: hidden; position: relative; display: block; font-weight: normal; text-align: left; width: auto; height: 125px; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; clear: left;"><div style="border: 0pt none ; margin: 0pt 0pt 0pt 13px; padding: 0pt; background: transparent none repeat scroll 0% 0%; position: relative; display: inline; font-weight: normal; text-align: left; width: 125px; height: 125px; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; float: left;"><a target="_blank" rel="nofollow" title="WklejTekst i pokaż go znajomym!" href="http://www.wklejtekst.pl/" style="margin: 0pt 0pt 10px; padding: 0pt; background: transparent none repeat scroll 0% 0%; position: relative; display: block; font-weight: normal; text-align: left; width: 125px; height: 125px; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;"><img src="tworzenie_pliku_makefile_pliki/creation_1597.jpg" alt="WklejTekst i pokaż go znajomym!" style="border: medium none ; margin: 0pt; padding: 0pt; background: transparent none repeat scroll 0% 0%; position: relative; display: block; font-weight: normal; text-align: left; width: 125px; height: 125px; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;"></a></div><div style="border: 0pt none ; margin: 0pt 0pt 0pt 13px; padding: 0pt; background: transparent none repeat scroll 0% 0%; position: relative; display: inline; font-weight: normal; text-align: left; width: 125px; height: 125px; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; float: left;"><a target="_blank" rel="nofollow" title="Wykup reklamę w eioba.pl" href="http://www.adtaily.com/widget/campaigns/new?key=bSfrhp2QGqdiFb9&amp;url=http://www.eioba.pl/a112865/pamietnik_papieza" style="margin: 0pt 0pt 10px; padding: 0pt; background: transparent none repeat scroll 0% 0%; position: relative; display: block; font-weight: normal; text-align: left; width: 125px; height: 125px; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;"><img src="tworzenie_pliku_makefile_pliki/creation_1211.png" alt="Wykup reklamę w eioba.pl" style="border: medium none ; margin: 0pt; padding: 0pt; background: transparent none repeat scroll 0% 0%; position: relative; display: block; font-weight: normal; text-align: left; width: 125px; height: 125px; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;"></a></div></div><a href="http://www.adtaily.com/widget/campaigns/new?key=bSfrhp2QGqdiFb9&amp;url=http://www.eioba.pl/a72344/tworzenie_pliku_makefile" class="AdTaily_Widget_Buy" style="margin: 0pt 8px 5px; padding: 8px 6px 6px 3px; background: transparent none repeat scroll 0% 0%; overflow: hidden; position: relative; display: block; font-weight: normal; text-align: left; width: 187px; height: auto; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; font-family: &quot;Lucida Grande&quot;,verdana,arial,helvetica,sans-serif; font-size: 13px;">Wykup reklamę</a><a title="Pobierz taki widget z AdTaily.com" rel="nofollow" href="http://www.adtaily.com/" class="AdTaily_Widget_Logo" style="margin: 0pt; padding: 4px; background: transparent none repeat scroll 0% 0%; position: absolute; display: block; font-weight: normal; text-align: left; width: auto; height: auto; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; font-size: 11px; font-family: Arial,sans-serif; color: black; text-decoration: none; opacity: 0.4; right: 10px; bottom: 6px;">AdTaily.com</a></div></div>
+	
+				<script type="text/javascript" id="AdTaily_Widget" key="bSfrhp2QGqdiFb9" src="tworzenie_pliku_makefile_pliki/widget.js"></script><script src="tworzenie_pliku_makefile_pliki/ga.js" type="text/javascript"></script><noscript>Reklamy na tej stronie  sprzedawane s� przez widget z AdTaily.com (PLBLOADTAILY0001)</noscript>
+				
+</div>
+
+
+
+<div id="ctl0_body_AuthorArticlesPanel" style="margin-top: 2px;">
+
+<div class="articleRightPanelCaption"><a id="ctl0_body_RelatedAuthorArticlesCaption" href="javascript:switchAuthorArticlesPanel()">Inne teksty autora</a></div>
+<div class="articleRightPanelBody" style="padding: 0px;">
+	<div id="authorArticlesPanel" style="padding: 3px 3px 7px; width: 266px;">
+	<script>function afterGrade(response){if(response=='')return;var responseArray = response.split('|');if(responseArray[0]=='ip') {	alert("Głosowałeś już na ten artykuł");	doArticlesBoxUserVote(0,responseArray[1],0);}else if(responseArray[0]=='similar') {alert("W trosce o wiarygodność głosowania ten głos nie został zaliczony");doArticlesBoxUserVote(0,responseArray[1],0);}else if(responseArray[0]=='reported') {alert("Nie możesz głosować na odrzucony artykuł");doArticlesBoxUserVote(0,responseArray[1],0);}}</script>
+<div align="left"><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">0</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/a72343/iconv_na_bolaczki_z_kodowaniem"><img src="tworzenie_pliku_makefile_pliki/empty_thumb.gif" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style=""><a href="http://www.eioba.pl/a72343/iconv_na_bolaczki_z_kodowaniem">Iconv - na bolączki z kodowaniem</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 761   </div></td></tr></tbody></table></div><div class="singleRelatedArticleHRSmall"></div><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">0</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/a72342/rejestracja_wlasnej_strony_w_wyszukiwarkach"><img src="tworzenie_pliku_makefile_pliki/empty_thumb.gif" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style=""><a href="http://www.eioba.pl/a72342/rejestracja_wlasnej_strony_w_wyszukiwarkach">Rejestracja własnej strony w wyszukiwarkach</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 749   </div></td></tr></tbody></table></div><div class="singleRelatedArticleHRSmall"></div><div class="singleRelatedArticleSmall"><table class="singleRelatedArticleTable"><tbody><tr><td class="singleRelatedArticleVoting" style="width: 32px; padding-right: 2px;" valign="top"><table class="smallVotingBox"><tbody><tr><td valing="top" class="votingBoxButton" align="center"><a href="javascript:void(0)"><span class="smallVotingBoxCount">0</span></a></td></tr></tbody></table></td><td class="singleRelatedArticleImg" style="width: 32px;" valign="top"><table class="avatarBorder"><tbody><tr><td><a href="http://www.eioba.pl/a72341/adresy_referencyjne_w_php"><img src="tworzenie_pliku_makefile_pliki/empty_thumb.gif" height="30px" width="30px"></a></td></tr></tbody></table></td><td class="singleRelatedArticleRightSide" valign="top"><div class="singleRelatedArticleRightSideTopicSmall" style=""><a href="http://www.eioba.pl/a72341/adresy_referencyjne_w_php">Adresy referencyjne w PHP</a></div><div class="singleRelatedArticleRightSideSubTopicSmall"> wyświetlenia: 440   </div></td></tr></tbody></table></div></div>
+	
+	</div>
+</div>
+
+</div>
+
+<div class="articleRightPanelCaption">Artykuł</div>
+<div class="articleRightPanelBody">
+
+<div id="ctl0_body_ArticleFunctionsPanel_ArticleFuntionsPanelOwner">
+<div id="articleFunctionsButtons">
+	<a id="ctl0_body_ArticleFunctionsPanel_ReportPlagiarism" class="normalBold" href="http://www.eioba.pl/index.php/page,Articles.Copyright.Report/articleID,72344?SSID=3ja014gulkki5qc25o8oheb3thpve551&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">Zgłoś plagiat</a>
+</div>
+</div>
+<div class="articleRightPanelHR"></div>
+<span class="articleInfoBloc">
+
+
+
+Ulubiony: 0 razy
+<br>
+
+Czytający on-line: 1
+
+
+
+<div id="ctl0_body_LicensePanel">
+Licencja: 
+<span id="ctl0_body_LicenseText">Wszelkie prawa zastrzeżone</span> 
+</div>
+
+</span>
+</div>
+
+
+
+
+
+
+<div class="articleRightPanelCaption"><a href="http://www.eioba.pl/about">Czym jest EIOBA?</a></div>
+	<div class="articleRightPanelBody">
+	<img src="tworzenie_pliku_makefile_pliki/writelogo_v1.png" alt="" id="ctl0_body_WriteLogo" style="margin: 3px 3px 5px 5px;" align="right">
+	<div class="articleInfoService"><a href="http://www.eioba.pl/about">Opublikuj swój tekst i zdobądź wielu czytelników.</a></div>
+	<div class="articleInfoService"><strong>Odwiedza nas 1.000.000 osób miesięcznie!</strong></div>
+	<div style="margin-top: 7px;" align="center"><a id="ctl0_body_MoreAboutEIOBALink" class="articleInfoServiceFooter" href="http://www.eioba.pl/about">Więcej o serwisie</a></div>
+</div>
+	
+
+
+<div id="ctl0_body_NaszaKlasaPanel">
+<div class="articleRightPanelCaption">Wersja mobilna</div>
+<div class="articleRightPanelBody" align="center">
+	<div align="center">
+		<img src="tworzenie_pliku_makefile_pliki/mobile_info.gif" alt="" style="width: 270px; height: 120px;">
+	</div>
+</div>
+</div>
+
+</td>
+</tr>
+</tbody></table>
+
+
+			<!-- end: content td -->
+			<br>
+		</td>
+</tr>
+<tr>
+<td id="mainPageTableTDBottom" align="center">
+<!-- footer td -->
+
+
+<div class="layFooterPart">
+<div class="footer"> 
+<div class="copyright">
+	Za treść i jakość artykułu odpowiada jego autor. Licencja artykułu: 
+<span id="ctl0_ArticleLicenseLabel_LabelObj">Wszelkie prawa zastrzeżone</span>
+</div>
+</div>
+</div>
+
+<div class="layFooterPart">
+<br>
+<table class="layFooterPartTable" width="100%">
+<tbody><tr>
+<td style="padding-left: 10px;" align="left" valign="top" width="145px">
+	<div class="layFooterPartTableHeader">O EIOBA</div>
+	<div><a href="http://www.eioba.pl/about">O serwisie</a></div>
+	<div><a href="http://www.eioba.pl/regulations">Regulamin</a></div>
+	<div><a href="http://www.eioba.pl/adspanel">Reklama</a></div>
+	<div><a href="http://eioba.wordpress.com/">Blog</a></div>
+	<div><a href="http://www.eioba.pl/sitemap_categories_1">Mapa strony</a></div>
+</td>
+<td class="layFooterPartTableBorderCell" align="left" valign="top" width="155px">
+	<div class="layFooterPartTableHeader">Artykuły</div>
+	<div><a href="http://www.eioba.pl/top100">Top 100 artykułów</a></div>
+	<div><a href="http://www.eioba.pl/promoted">Redakcja poleca</a></div>
+	<div><a href="http://www.eioba.pl/">Popularne artykuły</a></div>
+	<div><a href="http://www.eioba.pl/new">Najnowsze</a></div>
+</td>
+<td class="layFooterPartTableBorderCell" align="left" valign="top" width="145px">
+	<div class="layFooterPartTableHeader">Odkrywaj</div>
+	<div><a href="http://www.eioba.pl/spy">Szpieg</a></div>
+	
+	<div class="layFooterPartTableHeader" style="margin-top: 5px;">Publikuj</div>
+	<div><a href="http://www.eioba.pl/index.php/page,User.Login?SSID=3ja014gulkki5qc25o8oheb3thpve551&amp;SSID=3ja014gulkki5qc25o8oheb3thpve551">Dodaj artykuł</a></div>
+	<div><a href="http://wiki.eioba.pl/">Poradnik dla autorów</a></div>	
+</td>
+<td class="layFooterPartTableBorderCell" align="left" valign="top" width="155px">
+	<div class="layFooterPartTableHeader">Społeczność</div>
+	<div><a href="http://www.eioba.pl/community">Forum</a></div>
+	<div><a href="http://www.eioba.pl/groups">Grupy tematyczne</a></div>
+	<div><a href="http://www.eioba.pl/topusers">Ranking autorów</a></div>
+	<div><a href="http://www.eioba.pl/lastcomments">Ostatnie komentarze</a></div>
+</td>
+<td class="layFooterPartTableBorderCell" align="left" valign="top" width="145px">
+	<div class="layFooterPartTableHeader">Statystyki</div>
+	<div>Użytkownicy online: 344<br> Zarejestrowani: 15.920 <br> Komentarze: 31.136 <br> Artykuły: 8.236</div>
+	<div>
+		<div class="layFooterPartTableHeader" style="margin-top: 5px;">Książki</div>
+		<div><a href="http://eioba.wordpress.com/2008/06/23/ksiazka-od-eioba-%e2%80%93-odwaznie-o-seksie/">Odważnie o seksie</a></div>
+	</div>
+</td>
+<td class="layFooterPartTableBorderCell" align="left" valign="top">
+	<div class="layFooterPartTableHeader">EIOBA Świat</div>
+	<div><a href="http://www.eioba.net/">EIOBA.net</a></div>
+	<div><a href="http://www.eioba.com/">EIOBA.com</a></div>
+	<div><a href="http://www.eioba.pl/">EIOBA.pl</a></div>
+	<div style="margin-top: 5px;"><a href="http://www.eioba.pl/contact">Kontakt</a></div>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<br>
+<div align="left">
+<span class="copyright" style="font-size: 11px;">© 2005 grupa EIOBA.</span>
+</div>
+
+<br><br>
+
+<!-- end: footer td -->
+
+</td>
+</tr>
+</tbody></table>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+new Prado.WebUI.DefaultButton({'Panel':'ctl0_ctl4','Target':'ctl0_SearchButton','EventTarget':'ctl0$SearchButton','Event':'click'});
+new Prado.ValidationManager({'FormID':'ctl0_ctl1'});
+new Prado.WebUI.TValidationSummary({'ID':'ctl0_ctl5','FormID':'ctl0_ctl1','ShowMessageBox':true,'ShowSummary':false,'HeaderText':'Pole wymagane!','DisplayMode':'BulletList','Refresh':false,'ValidationGroup':'Search','Display':'None'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_ctl6','FormID':'ctl0_ctl1','Display':'None','FocusOnError':true,'FocusElementID':'ctl0_SearchText','ValidationGroup':'Search','ControlToValidate':'ctl0_SearchText','ControlType':'TTextBox'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_ctl7','FormID':'ctl0_ctl1','Display':'None','FocusOnError':true,'FocusElementID':'ctl0_SearchText','ValidationGroup':'Search','ControlToValidate':'ctl0_SearchText','ControlType':'TTextBox','InitialValue':'szukaj'});
+new Prado.WebUI.TTextBox({'ID':'ctl0_SearchText','EventTarget':'ctl0$SearchText','AutoPostBack':false,'CausesValidation':true,'TextMode':'SingleLine','FormID':'ctl0_ctl1'});
+new Prado.WebUI.TImageButton({'ID':'ctl0_SearchButton','CausesValidation':true,'ValidationGroup':'Search','EventTarget':'ctl0$SearchButton','FormID':'ctl0_ctl1'});
+new Prado.WebUI.DefaultButton({'Panel':'ctl0_LoginPanel','Target':'ctl0_LoginButton','EventTarget':'ctl0$LoginButton','Event':'click'});
+new Prado.WebUI.TValidationSummary({'ID':'ctl0_ctl13','FormID':'ctl0_ctl1','ShowMessageBox':true,'ShowSummary':false,'HeaderText':'Nie możesz się zalogować ponieważ','DisplayMode':'BulletList','Refresh':false,'ValidationGroup':'LoginGroup','Display':'None'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_ctl14','FormID':'ctl0_ctl1','Display':'None','ErrorMessage':'pole \'EMail\' jest wymagane','FocusOnError':true,'FocusElementID':'ctl0_LoginTextBox','ValidationGroup':'LoginGroup','ControlToValidate':'ctl0_LoginTextBox','ControlType':'TTextBox'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_ctl15','FormID':'ctl0_ctl1','Display':'None','ErrorMessage':'pole \'Hasło\' jest wymagane','FocusOnError':true,'FocusElementID':'ctl0_PasswordTextBox','ValidationGroup':'LoginGroup','ControlToValidate':'ctl0_PasswordTextBox','ControlType':'TTextBox'});
+new Prado.WebUI.TTextBox({'ID':'ctl0_LoginTextBox','EventTarget':'ctl0$LoginTextBox','AutoPostBack':false,'CausesValidation':true,'TextMode':'SingleLine','FormID':'ctl0_ctl1'});
+new Prado.WebUI.TButton({'ID':'ctl0_LoginButton','CausesValidation':true,'EventTarget':'ctl0$LoginButton','ValidationGroup':'LoginGroup','FormID':'ctl0_ctl1'});
+Prado.CallbackRequest.addPostLoaders(['ctl0$SearchText','ctl0$SearchButton','ctl0$LoginTextBox','ctl0$PasswordTextBox','ctl0$Remember','ctl0$body$SendEmailReceiver','ctl0$body$SendEmailMessage','ctl0$body$EmbedCode','ctl0$body$SimpleForumBox$ReplyID']);
+new Prado.WebUI.TActiveLinkButton({'onPreDispatch':function(sender, parameter){ showGuestFormPanel() },'ID':'ctl0_body_AddToFavorites','EventTarget':'ctl0$body$AddToFavorites','StopEvent':true});
+new Prado.WebUI.TActiveLinkButton({'onPreDispatch':function(sender, parameter){ showGuestFormPanel() },'ID':'ctl0_body_AddToRead','EventTarget':'ctl0$body$AddToRead','StopEvent':true});
+new Prado.WebUI.TActiveTextBox({'ID':'ctl0_body_SendEmailReceiver','EventTarget':'ctl0$body$SendEmailReceiver','AutoPostBack':false,'TextMode':'SingleLine'});
+new Prado.WebUI.TRequiredFieldValidator({'ID':'ctl0_body_ctl7','FormID':'ctl0_ctl1','Display':'Dynamic','ValidationGroup':'SendEmail','ControlToValidate':'ctl0_body_SendEmailReceiver','ControlType':'TActiveTextBox'});
+new Prado.WebUI.TEmailAddressValidator({'ID':'ctl0_body_ctl8','FormID':'ctl0_ctl1','Display':'Dynamic','ValidationGroup':'SendEmail','ControlToValidate':'ctl0_body_SendEmailReceiver','ControlType':'TActiveTextBox','ValidationExpression':'\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*'});
+new Prado.WebUI.TActiveTextBox({'ID':'ctl0_body_SendEmailMessage','EventTarget':'ctl0$body$SendEmailMessage','AutoPostBack':false,'TextMode':'MultiLine'});
+new Prado.WebUI.TActiveButton({'onPreDispatch':function(sender, parameter){ hideArticleBottomFormPanel() },'ValidationGroup':'SendEmail','ID':'ctl0_body_ctl9','EventTarget':'ctl0$body$ctl9'});
+new Prado.WebUI.TActiveLinkButton({'onPreDispatch':function(sender, parameter){ setArticleBottomLoadingComments() },'onComplete':function(sender, parameter){ setArticleBottomLoaded() },'ID':'ctl0_body_ArticleBottomCommentsLink','EventTarget':'ctl0$body$ArticleBottomCommentsLink','StopEvent':true});
+new Prado.WebUI.TActiveLinkButton({'onPreDispatch':function(sender, parameter){ setArticleBottomLoadingVotes() },'onComplete':function(sender, parameter){ setArticleBottomLoaded() },'ID':'ctl0_body_ArticleBottomVoteLink','EventTarget':'ctl0$body$ArticleBottomVoteLink','StopEvent':true});
+new Prado.WebUI.DefaultButton({'Panel':'ctl0_body_SimpleForumBox_AddCommentsPanel','Target':'ctl0_body_SimpleForumBox_SendReplayButton','EventTarget':'ctl0$body$SimpleForumBox$SendReplayButton','Event':'click'});
+/*]]>*/
+</script>
+</form>
+
+<!-- 1.02s -->
+
+
+<div align="Center">
+	
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-585637-2";
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="tworzenie_pliku_makefile_pliki/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-585637-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</div>
+
+
+
+
+<iframe style="visibility: hidden; display: inline; width: 0pt; height: 0pt;" src="tworzenie_pliku_makefile_pliki/stats.htm"></iframe><div style="display: none;" id="overlay"></div><div style="display: none;" id="lightbox"><div style="width: 250px; height: 250px;" id="outerImageContainer"><div id="imageContainer"><img id="lightboxImage"><div id="hoverNav"><a href="#" id="prevLink"></a><a href="#" id="nextLink"></a></div><div id="loading"><a href="#" id="loadingLink"><img src="tworzenie_pliku_makefile_pliki/loading.gif"></a></div></div></div><div id="imageDataContainer"><div id="imageData"><div id="imageDetails"><span id="caption"></span><span id="numberDisplay"></span></div><div id="bottomNav"><a href="#" id="bottomNavClose"><img src="tworzenie_pliku_makefile_pliki/closelabel.gif"></a></div></div></div></div></body></html>

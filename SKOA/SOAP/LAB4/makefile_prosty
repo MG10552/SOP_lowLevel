@@ -1,0 +1,18 @@
+CC=gcc
+
+all: program1 program2 program3
+
+program1: program1.c
+	$(CC) $(CFLAGS) $(LFLAGS) program1.c -o program1
+program2: program2.c
+	$(CC) $(CFLAGS) $(LFLAGS) program2.c -o program2
+program3: program3.c
+	$(CC) $(CFLAGS) $(LFLAGS) program3.c -o program3
+clean:
+	rm -f program1 program2 program3
+get: 
+	mkdir -p ~/SOP2014/LAB4/source
+	cp ~aadolph/SOP2014/LAB4/program*.c ~/SOP2014/LAB4/source	
+	
+    
+		

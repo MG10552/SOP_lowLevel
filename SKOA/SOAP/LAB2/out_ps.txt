@@ -1,0 +1,1719 @@
+ps -aux:
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   8356   816 ?        Ss   Mar11   0:04 init [2]  
+root         2  0.0  0.0      0     0 ?        S    Mar11   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    Mar11   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S    Mar11   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S    Mar11   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S    Mar11   0:05 [events/0]
+root         7  0.0  0.0      0     0 ?        S    Mar11   0:00 [cpuset]
+root         8  0.0  0.0      0     0 ?        S    Mar11   0:00 [khelper]
+root         9  0.0  0.0      0     0 ?        S    Mar11   0:00 [netns]
+root        10  0.0  0.0      0     0 ?        S    Mar11   0:00 [async/mgr]
+root        11  0.0  0.0      0     0 ?        S    Mar11   0:00 [pm]
+root        12  0.0  0.0      0     0 ?        S    Mar11   0:00 [sync_supers]
+root        13  0.0  0.0      0     0 ?        S    Mar11   0:00 [bdi-default]
+root        14  0.0  0.0      0     0 ?        S    Mar11   0:00 [kintegrityd/0]
+root        15  0.0  0.0      0     0 ?        S    Mar11   0:00 [kblockd/0]
+root        16  0.0  0.0      0     0 ?        S    Mar11   0:00 [kacpid]
+root        17  0.0  0.0      0     0 ?        S    Mar11   0:00 [kacpi_notify]
+root        18  0.0  0.0      0     0 ?        S    Mar11   0:00 [kacpi_hotplug]
+root        19  0.0  0.0      0     0 ?        S    Mar11   0:00 [kseriod]
+root        21  0.0  0.0      0     0 ?        S    Mar11   0:00 [kondemand/0]
+root        22  0.0  0.0      0     0 ?        S    Mar11   0:00 [khungtaskd]
+root        23  0.0  0.0      0     0 ?        S    Mar11   0:01 [kswapd0]
+root        24  0.0  0.0      0     0 ?        SN   Mar11   0:00 [ksmd]
+root        25  0.0  0.0      0     0 ?        S    Mar11   0:00 [aio/0]
+root        26  0.0  0.0      0     0 ?        S    Mar11   0:00 [crypto/0]
+root       193  0.0  0.0      0     0 ?        S    Mar11   0:00 [ata/0]
+root       194  0.0  0.0      0     0 ?        S    Mar11   0:00 [ata_aux]
+root       195  0.0  0.0      0     0 ?        S    Mar11   0:00 [scsi_eh_0]
+root       196  0.0  0.0      0     0 ?        S    Mar11   0:00 [scsi_eh_1]
+root       202  0.0  0.0      0     0 ?        S    Mar11   0:03 [mpt_poll_0]
+root       203  0.0  0.0      0     0 ?        S    Mar11   0:00 [mpt/0]
+root       208  0.0  0.0      0     0 ?        S    Mar11   0:00 [scsi_eh_2]
+root       248  0.0  0.0      0     0 ?        S    Mar11   0:00 [jbd2/sda2-8]
+root       249  0.0  0.0      0     0 ?        S    Mar11   0:00 [ext4-dio-unwrit]
+root       296  0.0  0.0  10552   856 ?        S<s  Mar11   0:00 udevd --daemon
+root       399  0.0  0.0  10548   852 ?        S<   Mar11   0:00 udevd --daemon
+root       423  0.0  0.0  10548   700 ?        S<   Mar11   0:00 udevd --daemon
+root       462  0.0  0.0      0     0 ?        S    Mar11   0:00 [kpsmoused]
+root       735  0.0  0.0      0     0 ?        S    Mar11   0:00 [jbd2/sda7-8]
+root       736  0.0  0.0      0     0 ?        S    Mar11   0:00 [ext4-dio-unwrit]
+root       737  0.0  0.0      0     0 ?        S    Mar11   0:00 [jbd2/sda6-8]
+root       738  0.0  0.0      0     0 ?        S    Mar11   0:00 [ext4-dio-unwrit]
+root       739  0.0  0.0      0     0 ?        S    Mar11   0:02 [jbd2/sda3-8]
+root       740  0.0  0.0      0     0 ?        S    Mar11   0:00 [ext4-dio-unwrit]
+daemon     823  0.0  0.0   8096   532 ?        Ss   Mar11   0:00 /sbin/portmap
+statd      829  0.0  0.0  14384   888 ?        Ss   Mar11   0:00 /sbin/rpc.statd
+root       838  0.0  0.0      0     0 ?        S    Mar11   0:00 [rpciod/0]
+root       839  0.0  0.0      0     0 ?        S<   Mar11   0:00 [kslowd000]
+root       840  0.0  0.0      0     0 ?        S<   Mar11   0:00 [kslowd001]
+root       841  0.0  0.0      0     0 ?        S    Mar11   0:00 [nfsiod]
+root       854  0.0  0.0      0     0 ?        S    Mar11   0:00 [lockd]
+root      1026  0.0  0.0 113932  1852 ?        Sl   Mar11   2:03 /usr/sbin/rsyslogd -c4
+root      1089  0.0  0.0   3920   640 ?        Ss   Mar11   0:00 /usr/sbin/acpid
+root      1095  0.0  0.1  93704  4852 ?        Ss   Mar11   0:00 /usr/sbin/smbd -D
+root      1173  0.0  0.0      0     0 ?        S    Mar11   0:03 [vmmemctl]
+root      1355  0.0  0.0  86844  3816 ?        Sl   Mar11   3:07 /usr/sbin/vmtoolsd
+root      1400  0.0  0.0  93580  1820 ?        S    Mar11   0:00 /usr/sbin/smbd -D
+daemon    1401  0.0  0.0  12400   416 ?        Ss   Mar11   0:00 /usr/sbin/atd
+root      1427  0.0  0.0  17252   960 ?        Ss   Mar11   0:00 /usr/sbin/cron
+105       1438  0.0  0.0  55188  1300 ?        Ss   Mar11   0:00 /usr/bin/dbus-daemon --system
+root      1460  0.0  0.0  10356   412 ?        S    Mar11   0:00 /usr/bin/daemon /etc/init.d/mpt-statusd check_mpt
+root      1462  0.0  0.0   3956   720 ?        S    Mar11   0:00 /bin/sh /etc/init.d/mpt-statusd check_mpt
+root      1524  0.0  0.0   3956   648 ?        S    Mar11   0:00 /bin/sh /usr/bin/mysqld_safe
+mysql     1635  0.0  0.9 205092 37140 ?        Sl   Mar11   1:29 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+root      1636  0.0  0.0   3856   628 ?        S    Mar11   0:00 logger -t mysqld -p daemon.error
+ntp       1756  0.0  0.0  63900  3104 ?        Ss   Mar11   0:12 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 107:111
+postgres  1784  0.0  0.1 100428  7440 ?        S    Mar11   0:00 /usr/lib/postgresql/8.4/bin/postgres -D /var/lib/postgresql/8.4/main -c config_file=/etc/postgresql/8.4/main/postgresql.conf
+101       2661  0.0  0.0  62416  2044 ?        Ss   Mar11   0:00 /usr/sbin/exim4 -bd -q30m
+root      3141  0.0  0.0  45004  1124 ?        Ss   Mar11   0:00 /usr/sbin/sshd
+root      3281  0.0  0.0   5932   632 tty1     Ss+  Mar11   0:00 /sbin/getty 38400 tty1
+root      3282  0.0  0.0   5932   628 tty2     Ss+  Mar11   0:00 /sbin/getty 38400 tty2
+root      3283  0.0  0.0   5932   632 tty3     Ss+  Mar11   0:00 /sbin/getty 38400 tty3
+root      3284  0.0  0.0   5932   628 tty4     Ss+  Mar11   0:00 /sbin/getty 38400 tty4
+root      3285  0.0  0.0   5932   628 tty5     Ss+  Mar11   0:00 /sbin/getty 38400 tty5
+root      3286  0.0  0.0   5932   628 tty6     Ss+  Mar11   0:00 /sbin/getty 38400 tty6
+postgres  3389  0.0  0.3 100168 14692 ?        Ss   Mar11   0:20 postgres: writer process                                                                                                    
+postgres  3390  0.0  0.0 100168  1956 ?        Ss   Mar11   0:19 postgres: wal writer process                                                                                                
+postgres  3391  0.0  0.0  73676  3248 ?        Ss   Mar11   0:03 postgres: stats collector process                                                                                           
+root      9777  0.0  0.5 229240 20908 ?        Ss   Mar14   0:05 /usr/sbin/apache2 -k start
+root     25042  0.0  0.0   3956   600 ?        S    06:27   0:00 /bin/sh -c /usr/bin/logger -t apache -p local7.info
+root     25043  0.0  0.0   3856   636 ?        S    06:27   0:00 /usr/bin/logger -t apache -p local7.info
+root     26427  0.0  0.0      0     0 ?        S    10:08   0:00 [flush-8:0]
+www-data 27603  0.0  0.5 238524 20616 ?        S    12:38   0:00 /usr/sbin/apache2 -k start
+www-data 27623  0.0  0.4 236444 17468 ?        S    12:39   0:00 /usr/sbin/apache2 -k start
+www-data 28540  0.0  0.4 235536 16488 ?        S    15:40   0:00 /usr/sbin/apache2 -k start
+www-data 28634  0.0  0.3 235464 16120 ?        S    16:26   0:00 /usr/sbin/apache2 -k start
+www-data 28780  0.0  0.3 232108 15220 ?        S    17:35   0:00 /usr/sbin/apache2 -k start
+www-data 28809  0.0  0.3 232144 14504 ?        S    17:43   0:00 /usr/sbin/apache2 -k start
+www-data 28823  0.0  0.4 234940 16324 ?        S    17:50   0:00 /usr/sbin/apache2 -k start
+www-data 28863  0.0  0.3 231948 14996 ?        S    18:13   0:00 /usr/sbin/apache2 -k start
+root     28922  0.0  0.1  86744  4620 ?        Ss   18:43   0:00 sshd: aadolph [priv]
+aadolph  28925  0.0  0.0  86880  2596 ?        S    18:43   0:00 sshd: aadolph@pts/0
+aadolph  28926  0.0  0.2  62792  9500 pts/0    Ss   18:43   0:00 -shell
+root     28962  0.0  0.1  84652  4412 ?        Ss   18:47   0:00 sshd: s10427 [priv]
+s10427   28965  0.0  0.0  84792  2572 ?        S    18:47   0:00 sshd: s10427@notty
+s10427   28966  0.0  0.0  48436  2140 ?        Ss   18:47   0:00 /usr/lib/openssh/sftp-server
+www-data 28970  0.0  0.3 231720 14196 ?        S    18:48   0:00 /usr/sbin/apache2 -k start
+root     28994  0.0  0.1  84648  4408 ?        Ss   18:50   0:00 sshd: s10428 [priv]
+s10428   28996  0.0  0.0  84808  2604 ?        S    18:50   0:00 sshd: s10428@notty
+s10428   28997  0.0  0.0  48724  2336 ?        Ss   18:50   0:00 /usr/lib/openssh/sftp-server
+root     29060  0.0  0.1  86712  4508 ?        Ss   18:56   0:00 sshd: s9918 [priv]
+s9918    29063  0.0  0.0  86860  2552 ?        S    18:56   0:00 sshd: s9918@notty
+s9918    29064  0.0  0.0  48468  2100 ?        Ss   18:56   0:00 /usr/lib/openssh/sftp-server
+root     29074  0.0  0.1  86724  4504 ?        Ss   18:58   0:00 sshd: aadolph [priv]
+aadolph  29076  0.0  0.0  87600  3348 ?        S    18:58   0:00 sshd: aadolph@notty
+aadolph  29077  0.0  0.0  48624  2268 ?        Ss   18:58   0:00 /usr/lib/openssh/sftp-server
+www-data 29079  0.0  0.3 234736 16004 ?        S    18:59   0:00 /usr/sbin/apache2 -k start
+aadolph  29115 40.2  0.0  10768   672 pts/0    R    19:05   4:08 dd if=/dev/zero of=/dev/null
+aadolph  29121 33.7  0.0  10768   672 pts/0    R    19:06   3:07 dd if=/dev/zero of=/dev/null
+aadolph  29128 32.3  0.0  10768   668 pts/0    R    19:07   2:44 dd if=/dev/zero of=/dev/null
+root     29167  0.0  0.0   3872   508 ?        S    19:10   0:00 sleep 600
+aadolph  29185 24.6  0.0  10768   672 pts/0    R    19:14   0:11 dd if=/dev/zero of=/dev/null
+root     29202  0.0  0.0      0     0 ?        S    19:15   0:00 [flush-0:17]
+aadolph  29203  0.0  0.0  11740  1364 pts/0    S+   19:15   0:00 /bin/bash ./proces2.sh
+aadolph  29205  0.0  0.0  10768   672 pts/0    R+   19:15   0:00 dd if=/dev/zero of=/dev/null
+aadolph  29207  0.0  0.0  54644  2300 pts/0    R+   19:15   0:00 ps -aux
+ps -e:
+  PID TTY          TIME CMD
+    1 ?        00:00:04 init
+    2 ?        00:00:00 kthreadd
+    3 ?        00:00:00 migration/0
+    4 ?        00:00:00 ksoftirqd/0
+    5 ?        00:00:00 watchdog/0
+    6 ?        00:00:05 events/0
+    7 ?        00:00:00 cpuset
+    8 ?        00:00:00 khelper
+    9 ?        00:00:00 netns
+   10 ?        00:00:00 async/mgr
+   11 ?        00:00:00 pm
+   12 ?        00:00:00 sync_supers
+   13 ?        00:00:00 bdi-default
+   14 ?        00:00:00 kintegrityd/0
+   15 ?        00:00:00 kblockd/0
+   16 ?        00:00:00 kacpid
+   17 ?        00:00:00 kacpi_notify
+   18 ?        00:00:00 kacpi_hotplug
+   19 ?        00:00:00 kseriod
+   21 ?        00:00:00 kondemand/0
+   22 ?        00:00:00 khungtaskd
+   23 ?        00:00:01 kswapd0
+   24 ?        00:00:00 ksmd
+   25 ?        00:00:00 aio/0
+   26 ?        00:00:00 crypto/0
+  193 ?        00:00:00 ata/0
+  194 ?        00:00:00 ata_aux
+  195 ?        00:00:00 scsi_eh_0
+  196 ?        00:00:00 scsi_eh_1
+  202 ?        00:00:03 mpt_poll_0
+  203 ?        00:00:00 mpt/0
+  208 ?        00:00:00 scsi_eh_2
+  248 ?        00:00:00 jbd2/sda2-8
+  249 ?        00:00:00 ext4-dio-unwrit
+  296 ?        00:00:00 udevd
+  399 ?        00:00:00 udevd
+  423 ?        00:00:00 udevd
+  462 ?        00:00:00 kpsmoused
+  735 ?        00:00:00 jbd2/sda7-8
+  736 ?        00:00:00 ext4-dio-unwrit
+  737 ?        00:00:00 jbd2/sda6-8
+  738 ?        00:00:00 ext4-dio-unwrit
+  739 ?        00:00:02 jbd2/sda3-8
+  740 ?        00:00:00 ext4-dio-unwrit
+  823 ?        00:00:00 portmap
+  829 ?        00:00:00 rpc.statd
+  838 ?        00:00:00 rpciod/0
+  839 ?        00:00:00 kslowd000
+  840 ?        00:00:00 kslowd001
+  841 ?        00:00:00 nfsiod
+  854 ?        00:00:00 lockd
+ 1026 ?        00:02:03 rsyslogd
+ 1089 ?        00:00:00 acpid
+ 1095 ?        00:00:00 smbd
+ 1173 ?        00:00:03 vmmemctl
+ 1355 ?        00:03:07 vmtoolsd
+ 1400 ?        00:00:00 smbd
+ 1401 ?        00:00:00 atd
+ 1427 ?        00:00:00 cron
+ 1438 ?        00:00:00 dbus-daemon
+ 1460 ?        00:00:00 daemon
+ 1462 ?        00:00:00 mpt-statusd
+ 1524 ?        00:00:00 mysqld_safe
+ 1635 ?        00:01:29 mysqld
+ 1636 ?        00:00:00 logger
+ 1756 ?        00:00:12 ntpd
+ 1784 ?        00:00:00 postgres
+ 2661 ?        00:00:00 exim4
+ 3141 ?        00:00:00 sshd
+ 3281 tty1     00:00:00 getty
+ 3282 tty2     00:00:00 getty
+ 3283 tty3     00:00:00 getty
+ 3284 tty4     00:00:00 getty
+ 3285 tty5     00:00:00 getty
+ 3286 tty6     00:00:00 getty
+ 3389 ?        00:00:20 postgres
+ 3390 ?        00:00:19 postgres
+ 3391 ?        00:00:03 postgres
+ 9777 ?        00:00:05 apache2
+25042 ?        00:00:00 sh
+25043 ?        00:00:00 logger
+26427 ?        00:00:00 flush-8:0
+27603 ?        00:00:00 apache2
+27623 ?        00:00:00 apache2
+28540 ?        00:00:00 apache2
+28634 ?        00:00:00 apache2
+28780 ?        00:00:00 apache2
+28809 ?        00:00:00 apache2
+28823 ?        00:00:00 apache2
+28863 ?        00:00:00 apache2
+28922 ?        00:00:00 sshd
+28925 ?        00:00:00 sshd
+28926 pts/0    00:00:00 shell
+28962 ?        00:00:00 sshd
+28965 ?        00:00:00 sshd
+28966 ?        00:00:00 sftp-server
+28970 ?        00:00:00 apache2
+28994 ?        00:00:00 sshd
+28996 ?        00:00:00 sshd
+28997 ?        00:00:00 sftp-server
+29060 ?        00:00:00 sshd
+29063 ?        00:00:00 sshd
+29064 ?        00:00:00 sftp-server
+29074 ?        00:00:00 sshd
+29076 ?        00:00:00 sshd
+29077 ?        00:00:00 sftp-server
+29079 ?        00:00:00 apache2
+29115 pts/0    00:04:08 dd
+29121 pts/0    00:03:07 dd
+29128 pts/0    00:02:44 dd
+29167 ?        00:00:00 sleep
+29185 pts/0    00:00:11 dd
+29202 ?        00:00:00 flush-0:17
+29203 pts/0    00:00:00 proces2.sh
+29205 pts/0    00:00:00 dd
+29208 pts/0    00:00:00 ps
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 Mar11 ?        00:00:04 init [2]  
+root         2     0  0 Mar11 ?        00:00:00 [kthreadd]
+root         3     2  0 Mar11 ?        00:00:00 [migration/0]
+root         4     2  0 Mar11 ?        00:00:00 [ksoftirqd/0]
+root         5     2  0 Mar11 ?        00:00:00 [watchdog/0]
+root         6     2  0 Mar11 ?        00:00:05 [events/0]
+root         7     2  0 Mar11 ?        00:00:00 [cpuset]
+root         8     2  0 Mar11 ?        00:00:00 [khelper]
+root         9     2  0 Mar11 ?        00:00:00 [netns]
+root        10     2  0 Mar11 ?        00:00:00 [async/mgr]
+root        11     2  0 Mar11 ?        00:00:00 [pm]
+root        12     2  0 Mar11 ?        00:00:00 [sync_supers]
+root        13     2  0 Mar11 ?        00:00:00 [bdi-default]
+root        14     2  0 Mar11 ?        00:00:00 [kintegrityd/0]
+root        15     2  0 Mar11 ?        00:00:00 [kblockd/0]
+root        16     2  0 Mar11 ?        00:00:00 [kacpid]
+root        17     2  0 Mar11 ?        00:00:00 [kacpi_notify]
+root        18     2  0 Mar11 ?        00:00:00 [kacpi_hotplug]
+root        19     2  0 Mar11 ?        00:00:00 [kseriod]
+root        21     2  0 Mar11 ?        00:00:00 [kondemand/0]
+root        22     2  0 Mar11 ?        00:00:00 [khungtaskd]
+root        23     2  0 Mar11 ?        00:00:01 [kswapd0]
+root        24     2  0 Mar11 ?        00:00:00 [ksmd]
+root        25     2  0 Mar11 ?        00:00:00 [aio/0]
+root        26     2  0 Mar11 ?        00:00:00 [crypto/0]
+root       193     2  0 Mar11 ?        00:00:00 [ata/0]
+root       194     2  0 Mar11 ?        00:00:00 [ata_aux]
+root       195     2  0 Mar11 ?        00:00:00 [scsi_eh_0]
+root       196     2  0 Mar11 ?        00:00:00 [scsi_eh_1]
+root       202     2  0 Mar11 ?        00:00:03 [mpt_poll_0]
+root       203     2  0 Mar11 ?        00:00:00 [mpt/0]
+root       208     2  0 Mar11 ?        00:00:00 [scsi_eh_2]
+root       248     2  0 Mar11 ?        00:00:00 [jbd2/sda2-8]
+root       249     2  0 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+root       296     1  0 Mar11 ?        00:00:00 udevd --daemon
+root       399   296  0 Mar11 ?        00:00:00 udevd --daemon
+root       423   296  0 Mar11 ?        00:00:00 udevd --daemon
+root       462     2  0 Mar11 ?        00:00:00 [kpsmoused]
+root       735     2  0 Mar11 ?        00:00:00 [jbd2/sda7-8]
+root       736     2  0 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+root       737     2  0 Mar11 ?        00:00:00 [jbd2/sda6-8]
+root       738     2  0 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+root       739     2  0 Mar11 ?        00:00:02 [jbd2/sda3-8]
+root       740     2  0 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+daemon     823     1  0 Mar11 ?        00:00:00 /sbin/portmap
+statd      829     1  0 Mar11 ?        00:00:00 /sbin/rpc.statd
+root       838     2  0 Mar11 ?        00:00:00 [rpciod/0]
+root       839     2  0 Mar11 ?        00:00:00 [kslowd000]
+root       840     2  0 Mar11 ?        00:00:00 [kslowd001]
+root       841     2  0 Mar11 ?        00:00:00 [nfsiod]
+root       854     2  0 Mar11 ?        00:00:00 [lockd]
+root      1026     1  0 Mar11 ?        00:02:03 /usr/sbin/rsyslogd -c4
+root      1089     1  0 Mar11 ?        00:00:00 /usr/sbin/acpid
+root      1095     1  0 Mar11 ?        00:00:00 /usr/sbin/smbd -D
+root      1173     2  0 Mar11 ?        00:00:03 [vmmemctl]
+root      1355     1  0 Mar11 ?        00:03:07 /usr/sbin/vmtoolsd
+root      1400  1095  0 Mar11 ?        00:00:00 /usr/sbin/smbd -D
+daemon    1401     1  0 Mar11 ?        00:00:00 /usr/sbin/atd
+root      1427     1  0 Mar11 ?        00:00:00 /usr/sbin/cron
+105       1438     1  0 Mar11 ?        00:00:00 /usr/bin/dbus-daemon --system
+root      1460     1  0 Mar11 ?        00:00:00 /usr/bin/daemon /etc/init.d/mpt-statusd check_mpt
+root      1462  1460  0 Mar11 ?        00:00:00 /bin/sh /etc/init.d/mpt-statusd check_mpt
+root      1524     1  0 Mar11 ?        00:00:00 /bin/sh /usr/bin/mysqld_safe
+mysql     1635  1524  0 Mar11 ?        00:01:29 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+root      1636  1524  0 Mar11 ?        00:00:00 logger -t mysqld -p daemon.error
+ntp       1756     1  0 Mar11 ?        00:00:12 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 107:111
+postgres  1784     1  0 Mar11 ?        00:00:00 /usr/lib/postgresql/8.4/bin/postgres -D /var/lib/postgresql/8.4/main -c config_file=/etc/postgresql/8.4/main/postgresql.conf
+101       2661     1  0 Mar11 ?        00:00:00 /usr/sbin/exim4 -bd -q30m
+root      3141     1  0 Mar11 ?        00:00:00 /usr/sbin/sshd
+root      3281     1  0 Mar11 tty1     00:00:00 /sbin/getty 38400 tty1
+root      3282     1  0 Mar11 tty2     00:00:00 /sbin/getty 38400 tty2
+root      3283     1  0 Mar11 tty3     00:00:00 /sbin/getty 38400 tty3
+root      3284     1  0 Mar11 tty4     00:00:00 /sbin/getty 38400 tty4
+root      3285     1  0 Mar11 tty5     00:00:00 /sbin/getty 38400 tty5
+root      3286     1  0 Mar11 tty6     00:00:00 /sbin/getty 38400 tty6
+postgres  3389  1784  0 Mar11 ?        00:00:20 postgres: writer process                                                                                                    
+postgres  3390  1784  0 Mar11 ?        00:00:19 postgres: wal writer process                                                                                                
+postgres  3391  1784  0 Mar11 ?        00:00:03 postgres: stats collector process                                                                                           
+root      9777     1  0 Mar14 ?        00:00:05 /usr/sbin/apache2 -k start
+root     25042  9777  0 06:27 ?        00:00:00 /bin/sh -c /usr/bin/logger -t apache -p local7.info
+root     25043 25042  0 06:27 ?        00:00:00 /usr/bin/logger -t apache -p local7.info
+root     26427     2  0 10:08 ?        00:00:00 [flush-8:0]
+www-data 27603  9777  0 12:38 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 27623  9777  0 12:39 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28540  9777  0 15:40 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28634  9777  0 16:26 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28780  9777  0 17:35 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28809  9777  0 17:43 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28823  9777  0 17:50 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28863  9777  0 18:13 ?        00:00:00 /usr/sbin/apache2 -k start
+root     28922  3141  0 18:43 ?        00:00:00 sshd: aadolph [priv]
+aadolph  28925 28922  0 18:43 ?        00:00:00 sshd: aadolph@pts/0
+aadolph  28926 28925  0 18:43 pts/0    00:00:00 -shell
+root     28962  3141  0 18:47 ?        00:00:00 sshd: s10427 [priv]
+s10427   28965 28962  0 18:47 ?        00:00:00 sshd: s10427@notty
+s10427   28966 28965  0 18:47 ?        00:00:00 /usr/lib/openssh/sftp-server
+www-data 28970  9777  0 18:48 ?        00:00:00 /usr/sbin/apache2 -k start
+root     28994  3141  0 18:50 ?        00:00:00 sshd: s10428 [priv]
+s10428   28996 28994  0 18:50 ?        00:00:00 sshd: s10428@notty
+s10428   28997 28996  0 18:50 ?        00:00:00 /usr/lib/openssh/sftp-server
+root     29060  3141  0 18:56 ?        00:00:00 sshd: s9918 [priv]
+s9918    29063 29060  0 18:56 ?        00:00:00 sshd: s9918@notty
+s9918    29064 29063  0 18:56 ?        00:00:00 /usr/lib/openssh/sftp-server
+root     29074  3141  0 18:58 ?        00:00:00 sshd: aadolph [priv]
+aadolph  29076 29074  0 18:58 ?        00:00:00 sshd: aadolph@notty
+aadolph  29077 29076  0 18:58 ?        00:00:00 /usr/lib/openssh/sftp-server
+www-data 29079  9777  0 18:59 ?        00:00:00 /usr/sbin/apache2 -k start
+aadolph  29115     1 40 19:05 pts/0    00:04:08 dd if=/dev/zero of=/dev/null
+aadolph  29121     1 33 19:06 pts/0    00:03:07 dd if=/dev/zero of=/dev/null
+aadolph  29128     1 32 19:07 pts/0    00:02:44 dd if=/dev/zero of=/dev/null
+root     29167  1462  0 19:10 ?        00:00:00 sleep 600
+aadolph  29185     1 24 19:14 pts/0    00:00:11 dd if=/dev/zero of=/dev/null
+root     29202     2  0 19:15 ?        00:00:00 [flush-0:17]
+aadolph  29203 28926  0 19:15 pts/0    00:00:00 /bin/bash ./proces2.sh
+aadolph  29205 29203  0 19:15 pts/0    00:00:00 dd if=/dev/zero of=/dev/null
+aadolph  29209 29203  0 19:15 pts/0    00:00:00 ps -ef
+UID        PID  PPID  C    SZ   RSS PSR STIME TTY          TIME CMD
+root         1     0  0  2089   816   0 Mar11 ?        00:00:04 init [2]  
+root         2     0  0     0     0   0 Mar11 ?        00:00:00 [kthreadd]
+root         3     2  0     0     0   0 Mar11 ?        00:00:00 [migration/0]
+root         4     2  0     0     0   0 Mar11 ?        00:00:00 [ksoftirqd/0]
+root         5     2  0     0     0   0 Mar11 ?        00:00:00 [watchdog/0]
+root         6     2  0     0     0   0 Mar11 ?        00:00:05 [events/0]
+root         7     2  0     0     0   0 Mar11 ?        00:00:00 [cpuset]
+root         8     2  0     0     0   0 Mar11 ?        00:00:00 [khelper]
+root         9     2  0     0     0   0 Mar11 ?        00:00:00 [netns]
+root        10     2  0     0     0   0 Mar11 ?        00:00:00 [async/mgr]
+root        11     2  0     0     0   0 Mar11 ?        00:00:00 [pm]
+root        12     2  0     0     0   0 Mar11 ?        00:00:00 [sync_supers]
+root        13     2  0     0     0   0 Mar11 ?        00:00:00 [bdi-default]
+root        14     2  0     0     0   0 Mar11 ?        00:00:00 [kintegrityd/0]
+root        15     2  0     0     0   0 Mar11 ?        00:00:00 [kblockd/0]
+root        16     2  0     0     0   0 Mar11 ?        00:00:00 [kacpid]
+root        17     2  0     0     0   0 Mar11 ?        00:00:00 [kacpi_notify]
+root        18     2  0     0     0   0 Mar11 ?        00:00:00 [kacpi_hotplug]
+root        19     2  0     0     0   0 Mar11 ?        00:00:00 [kseriod]
+root        21     2  0     0     0   0 Mar11 ?        00:00:00 [kondemand/0]
+root        22     2  0     0     0   0 Mar11 ?        00:00:00 [khungtaskd]
+root        23     2  0     0     0   0 Mar11 ?        00:00:01 [kswapd0]
+root        24     2  0     0     0   0 Mar11 ?        00:00:00 [ksmd]
+root        25     2  0     0     0   0 Mar11 ?        00:00:00 [aio/0]
+root        26     2  0     0     0   0 Mar11 ?        00:00:00 [crypto/0]
+root       193     2  0     0     0   0 Mar11 ?        00:00:00 [ata/0]
+root       194     2  0     0     0   0 Mar11 ?        00:00:00 [ata_aux]
+root       195     2  0     0     0   0 Mar11 ?        00:00:00 [scsi_eh_0]
+root       196     2  0     0     0   0 Mar11 ?        00:00:00 [scsi_eh_1]
+root       202     2  0     0     0   0 Mar11 ?        00:00:03 [mpt_poll_0]
+root       203     2  0     0     0   0 Mar11 ?        00:00:00 [mpt/0]
+root       208     2  0     0     0   0 Mar11 ?        00:00:00 [scsi_eh_2]
+root       248     2  0     0     0   0 Mar11 ?        00:00:00 [jbd2/sda2-8]
+root       249     2  0     0     0   0 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+root       296     1  0  2638   856   0 Mar11 ?        00:00:00 udevd --daemon
+root       399   296  0  2637   852   0 Mar11 ?        00:00:00 udevd --daemon
+root       423   296  0  2637   700   0 Mar11 ?        00:00:00 udevd --daemon
+root       462     2  0     0     0   0 Mar11 ?        00:00:00 [kpsmoused]
+root       735     2  0     0     0   0 Mar11 ?        00:00:00 [jbd2/sda7-8]
+root       736     2  0     0     0   0 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+root       737     2  0     0     0   0 Mar11 ?        00:00:00 [jbd2/sda6-8]
+root       738     2  0     0     0   0 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+root       739     2  0     0     0   0 Mar11 ?        00:00:02 [jbd2/sda3-8]
+root       740     2  0     0     0   0 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+daemon     823     1  0  2024   532   0 Mar11 ?        00:00:00 /sbin/portmap
+statd      829     1  0  3596   888   0 Mar11 ?        00:00:00 /sbin/rpc.statd
+root       838     2  0     0     0   0 Mar11 ?        00:00:00 [rpciod/0]
+root       839     2  0     0     0   0 Mar11 ?        00:00:00 [kslowd000]
+root       840     2  0     0     0   0 Mar11 ?        00:00:00 [kslowd001]
+root       841     2  0     0     0   0 Mar11 ?        00:00:00 [nfsiod]
+root       854     2  0     0     0   0 Mar11 ?        00:00:00 [lockd]
+root      1026     1  0 28483  1852   0 Mar11 ?        00:02:03 /usr/sbin/rsyslogd -c4
+root      1089     1  0   980   640   0 Mar11 ?        00:00:00 /usr/sbin/acpid
+root      1095     1  0 23426  4852   0 Mar11 ?        00:00:00 /usr/sbin/smbd -D
+root      1173     2  0     0     0   0 Mar11 ?        00:00:03 [vmmemctl]
+root      1355     1  0 21711  3816   0 Mar11 ?        00:03:07 /usr/sbin/vmtoolsd
+root      1400  1095  0 23395  1820   0 Mar11 ?        00:00:00 /usr/sbin/smbd -D
+daemon    1401     1  0  3100   416   0 Mar11 ?        00:00:00 /usr/sbin/atd
+root      1427     1  0  4313   960   0 Mar11 ?        00:00:00 /usr/sbin/cron
+105       1438     1  0 13797  1300   0 Mar11 ?        00:00:00 /usr/bin/dbus-daemon --system
+root      1460     1  0  2589   412   0 Mar11 ?        00:00:00 /usr/bin/daemon /etc/init.d/mpt-statusd check_mpt
+root      1462  1460  0   989   720   0 Mar11 ?        00:00:00 /bin/sh /etc/init.d/mpt-statusd check_mpt
+root      1524     1  0   989   648   0 Mar11 ?        00:00:00 /bin/sh /usr/bin/mysqld_safe
+mysql     1635  1524  0 51273 37140   0 Mar11 ?        00:01:29 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+root      1636  1524  0   964   628   0 Mar11 ?        00:00:00 logger -t mysqld -p daemon.error
+ntp       1756     1  0 15975  3104   0 Mar11 ?        00:00:12 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 107:111
+postgres  1784     1  0 25107  7440   0 Mar11 ?        00:00:00 /usr/lib/postgresql/8.4/bin/postgres -D /var/lib/postgresql/8.4/main -c config_file=/etc/postgresql/8.4/main/postgresql.conf
+101       2661     1  0 15604  2044   0 Mar11 ?        00:00:00 /usr/sbin/exim4 -bd -q30m
+root      3141     1  0 11251  1124   0 Mar11 ?        00:00:00 /usr/sbin/sshd
+root      3281     1  0  1483   632   0 Mar11 tty1     00:00:00 /sbin/getty 38400 tty1
+root      3282     1  0  1483   628   0 Mar11 tty2     00:00:00 /sbin/getty 38400 tty2
+root      3283     1  0  1483   632   0 Mar11 tty3     00:00:00 /sbin/getty 38400 tty3
+root      3284     1  0  1483   628   0 Mar11 tty4     00:00:00 /sbin/getty 38400 tty4
+root      3285     1  0  1483   628   0 Mar11 tty5     00:00:00 /sbin/getty 38400 tty5
+root      3286     1  0  1483   628   0 Mar11 tty6     00:00:00 /sbin/getty 38400 tty6
+postgres  3389  1784  0 25042 14692   0 Mar11 ?        00:00:20 postgres: writer process                                                                                                    
+postgres  3390  1784  0 25042  1956   0 Mar11 ?        00:00:19 postgres: wal writer process                                                                                                
+postgres  3391  1784  0 18419  3248   0 Mar11 ?        00:00:03 postgres: stats collector process                                                                                           
+root      9777     1  0 57310 20908   0 Mar14 ?        00:00:05 /usr/sbin/apache2 -k start
+root     25042  9777  0   989   600   0 06:27 ?        00:00:00 /bin/sh -c /usr/bin/logger -t apache -p local7.info
+root     25043 25042  0   964   636   0 06:27 ?        00:00:00 /usr/bin/logger -t apache -p local7.info
+root     26427     2  0     0     0   0 10:08 ?        00:00:00 [flush-8:0]
+www-data 27603  9777  0 59631 20616   0 12:38 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 27623  9777  0 59111 17468   0 12:39 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28540  9777  0 58884 16488   0 15:40 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28634  9777  0 58866 16120   0 16:26 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28780  9777  0 58027 15220   0 17:35 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28809  9777  0 58036 14504   0 17:43 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28823  9777  0 58735 16324   0 17:50 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28863  9777  0 57987 14996   0 18:13 ?        00:00:00 /usr/sbin/apache2 -k start
+root     28922  3141  0 21686  4620   0 18:43 ?        00:00:00 sshd: aadolph [priv]
+aadolph  28925 28922  0 21720  2596   0 18:43 ?        00:00:00 sshd: aadolph@pts/0
+aadolph  28926 28925  0 15698  9500   0 18:43 pts/0    00:00:00 -shell
+root     28962  3141  0 21163  4412   0 18:47 ?        00:00:00 sshd: s10427 [priv]
+s10427   28965 28962  0 21198  2572   0 18:47 ?        00:00:00 sshd: s10427@notty
+s10427   28966 28965  0 12109  2140   0 18:47 ?        00:00:00 /usr/lib/openssh/sftp-server
+www-data 28970  9777  0 57930 14196   0 18:48 ?        00:00:00 /usr/sbin/apache2 -k start
+root     28994  3141  0 21162  4408   0 18:50 ?        00:00:00 sshd: s10428 [priv]
+s10428   28996 28994  0 21202  2604   0 18:50 ?        00:00:00 sshd: s10428@notty
+s10428   28997 28996  0 12181  2336   0 18:50 ?        00:00:00 /usr/lib/openssh/sftp-server
+root     29060  3141  0 21678  4508   0 18:56 ?        00:00:00 sshd: s9918 [priv]
+s9918    29063 29060  0 21715  2552   0 18:56 ?        00:00:00 sshd: s9918@notty
+s9918    29064 29063  0 12117  2100   0 18:56 ?        00:00:00 /usr/lib/openssh/sftp-server
+root     29074  3141  0 21681  4504   0 18:58 ?        00:00:00 sshd: aadolph [priv]
+aadolph  29076 29074  0 21900  3348   0 18:58 ?        00:00:00 sshd: aadolph@notty
+aadolph  29077 29076  0 12156  2268   0 18:58 ?        00:00:00 /usr/lib/openssh/sftp-server
+www-data 29079  9777  0 58684 16004   0 18:59 ?        00:00:00 /usr/sbin/apache2 -k start
+aadolph  29115     1 40  2692   672   0 19:05 pts/0    00:04:08 dd if=/dev/zero of=/dev/null
+aadolph  29121     1 33  2692   672   0 19:06 pts/0    00:03:07 dd if=/dev/zero of=/dev/null
+aadolph  29128     1 32  2692   668   0 19:07 pts/0    00:02:44 dd if=/dev/zero of=/dev/null
+root     29167  1462  0   968   508   0 19:10 ?        00:00:00 sleep 600
+aadolph  29185     1 24  2692   672   0 19:14 pts/0    00:00:11 dd if=/dev/zero of=/dev/null
+root     29202     2  0     0     0   0 19:15 ?        00:00:00 [flush-0:17]
+aadolph  29203 28926  0  2935  1364   0 19:15 pts/0    00:00:00 /bin/bash ./proces2.sh
+aadolph  29205 29203  0  2692   672   0 19:15 pts/0    00:00:00 dd if=/dev/zero of=/dev/null
+aadolph  29210 29203  0 13661  2288   0 19:15 pts/0    00:00:00 ps -eF
+S   UID   PID  PPID  C PRI  NI   RSS    SZ WCHAN  TTY          TIME CMD
+S     0     1     0  0  80   0   816  2089 ?      ?        00:00:04 init
+S     0     2     0  0  80   0     0     0 ?      ?        00:00:00 kthreadd
+S     0     3     2  0 -40   -     0     0 ?      ?        00:00:00 migration/0
+S     0     4     2  0  80   0     0     0 ?      ?        00:00:00 ksoftirqd/0
+S     0     5     2  0 -40   -     0     0 ?      ?        00:00:00 watchdog/0
+S     0     6     2  0  80   0     0     0 ?      ?        00:00:05 events/0
+S     0     7     2  0  80   0     0     0 ?      ?        00:00:00 cpuset
+S     0     8     2  0  80   0     0     0 ?      ?        00:00:00 khelper
+S     0     9     2  0  80   0     0     0 ?      ?        00:00:00 netns
+S     0    10     2  0  80   0     0     0 ?      ?        00:00:00 async/mgr
+S     0    11     2  0  80   0     0     0 ?      ?        00:00:00 pm
+S     0    12     2  0  80   0     0     0 ?      ?        00:00:00 sync_supers
+S     0    13     2  0  80   0     0     0 ?      ?        00:00:00 bdi-default
+S     0    14     2  0  80   0     0     0 ?      ?        00:00:00 kintegrityd/0
+S     0    15     2  0  80   0     0     0 ?      ?        00:00:00 kblockd/0
+S     0    16     2  0  80   0     0     0 ?      ?        00:00:00 kacpid
+S     0    17     2  0  80   0     0     0 ?      ?        00:00:00 kacpi_notify
+S     0    18     2  0  80   0     0     0 ?      ?        00:00:00 kacpi_hotplug
+S     0    19     2  0  80   0     0     0 ?      ?        00:00:00 kseriod
+S     0    21     2  0  80   0     0     0 ?      ?        00:00:00 kondemand/0
+S     0    22     2  0  80   0     0     0 ?      ?        00:00:00 khungtaskd
+S     0    23     2  0  80   0     0     0 ?      ?        00:00:01 kswapd0
+S     0    24     2  0  85   5     0     0 ?      ?        00:00:00 ksmd
+S     0    25     2  0  80   0     0     0 ?      ?        00:00:00 aio/0
+S     0    26     2  0  80   0     0     0 ?      ?        00:00:00 crypto/0
+S     0   193     2  0  80   0     0     0 ?      ?        00:00:00 ata/0
+S     0   194     2  0  80   0     0     0 ?      ?        00:00:00 ata_aux
+S     0   195     2  0  80   0     0     0 ?      ?        00:00:00 scsi_eh_0
+S     0   196     2  0  80   0     0     0 ?      ?        00:00:00 scsi_eh_1
+S     0   202     2  0  80   0     0     0 ?      ?        00:00:03 mpt_poll_0
+S     0   203     2  0  80   0     0     0 ?      ?        00:00:00 mpt/0
+S     0   208     2  0  80   0     0     0 ?      ?        00:00:00 scsi_eh_2
+S     0   248     2  0  80   0     0     0 ?      ?        00:00:00 jbd2/sda2-8
+S     0   249     2  0  80   0     0     0 ?      ?        00:00:00 ext4-dio-unwrit
+S     0   296     1  0  76  -4   856  2638 ?      ?        00:00:00 udevd
+S     0   399   296  0  78  -2   852  2637 ?      ?        00:00:00 udevd
+S     0   423   296  0  78  -2   700  2637 ?      ?        00:00:00 udevd
+S     0   462     2  0  80   0     0     0 ?      ?        00:00:00 kpsmoused
+S     0   735     2  0  80   0     0     0 ?      ?        00:00:00 jbd2/sda7-8
+S     0   736     2  0  80   0     0     0 ?      ?        00:00:00 ext4-dio-unwrit
+S     0   737     2  0  80   0     0     0 ?      ?        00:00:00 jbd2/sda6-8
+S     0   738     2  0  80   0     0     0 ?      ?        00:00:00 ext4-dio-unwrit
+S     0   739     2  0  80   0     0     0 ?      ?        00:00:02 jbd2/sda3-8
+S     0   740     2  0  80   0     0     0 ?      ?        00:00:00 ext4-dio-unwrit
+S     1   823     1  0  80   0   532  2024 ?      ?        00:00:00 portmap
+S   102   829     1  0  80   0   888  3596 ?      ?        00:00:00 rpc.statd
+S     0   838     2  0  80   0     0     0 ?      ?        00:00:00 rpciod/0
+S     0   839     2  0  75  -5     0     0 ?      ?        00:00:00 kslowd000
+S     0   840     2  0  75  -5     0     0 ?      ?        00:00:00 kslowd001
+S     0   841     2  0  80   0     0     0 ?      ?        00:00:00 nfsiod
+S     0   854     2  0  80   0     0     0 ?      ?        00:00:00 lockd
+S     0  1026     1  0  80   0  1852 28483 ?      ?        00:02:03 rsyslogd
+S     0  1089     1  0  80   0   640   980 ?      ?        00:00:00 acpid
+S     0  1095     1  0  80   0  4852 23426 ?      ?        00:00:00 smbd
+S     0  1173     2  0  80   0     0     0 ?      ?        00:00:03 vmmemctl
+S     0  1355     1  0  80   0  3816 21711 ?      ?        00:03:07 vmtoolsd
+S     0  1400  1095  0  80   0  1820 23395 ?      ?        00:00:00 smbd
+S     1  1401     1  0  80   0   416  3100 ?      ?        00:00:00 atd
+S     0  1427     1  0  80   0   960  4313 ?      ?        00:00:00 cron
+S   105  1438     1  0  80   0  1300 13797 ?      ?        00:00:00 dbus-daemon
+S     0  1460     1  0  80   0   412  2589 ?      ?        00:00:00 daemon
+S     0  1462  1460  0  80   0   720   989 ?      ?        00:00:00 mpt-statusd
+S     0  1524     1  0  80   0   648   989 ?      ?        00:00:00 mysqld_safe
+S   106  1635  1524  0  80   0 37140 51273 ?      ?        00:01:29 mysqld
+S     0  1636  1524  0  80   0   628   964 ?      ?        00:00:00 logger
+S   107  1756     1  0  80   0  3104 15975 ?      ?        00:00:12 ntpd
+S   104  1784     1  0  80   0  7440 25107 ?      ?        00:00:00 postgres
+S   101  2661     1  0  80   0  2044 15604 ?      ?        00:00:00 exim4
+S     0  3141     1  0  80   0  1124 11251 ?      ?        00:00:00 sshd
+S     0  3281     1  0  80   0   632  1483 ?      tty1     00:00:00 getty
+S     0  3282     1  0  80   0   628  1483 ?      tty2     00:00:00 getty
+S     0  3283     1  0  80   0   632  1483 ?      tty3     00:00:00 getty
+S     0  3284     1  0  80   0   628  1483 ?      tty4     00:00:00 getty
+S     0  3285     1  0  80   0   628  1483 ?      tty5     00:00:00 getty
+S     0  3286     1  0  80   0   628  1483 ?      tty6     00:00:00 getty
+S   104  3389  1784  0  80   0 14692 25042 ?      ?        00:00:20 postgres
+S   104  3390  1784  0  80   0  1956 25042 ?      ?        00:00:19 postgres
+S   104  3391  1784  0  80   0  3248 18419 ?      ?        00:00:03 postgres
+S     0  9777     1  0  80   0 20908 57310 ?      ?        00:00:05 apache2
+S     0 25042  9777  0  80   0   600   989 ?      ?        00:00:00 sh
+S     0 25043 25042  0  80   0   636   964 ?      ?        00:00:00 logger
+S     0 26427     2  0  80   0     0     0 ?      ?        00:00:00 flush-8:0
+S    33 27603  9777  0  80   0 20616 59631 ?      ?        00:00:00 apache2
+S    33 27623  9777  0  80   0 17468 59111 ?      ?        00:00:00 apache2
+S    33 28540  9777  0  80   0 16488 58884 ?      ?        00:00:00 apache2
+S    33 28634  9777  0  80   0 16120 58866 ?      ?        00:00:00 apache2
+S    33 28780  9777  0  80   0 15220 58027 ?      ?        00:00:00 apache2
+S    33 28809  9777  0  80   0 14504 58036 ?      ?        00:00:00 apache2
+S    33 28823  9777  0  80   0 16324 58735 ?      ?        00:00:00 apache2
+S    33 28863  9777  0  80   0 14996 57987 ?      ?        00:00:00 apache2
+S     0 28922  3141  0  80   0  4620 21686 ?      ?        00:00:00 sshd
+S  8193 28925 28922  0  80   0  2596 21720 ?      ?        00:00:00 sshd
+S  8193 28926 28925  0  80   0  9500 15698 -      pts/0    00:00:00 shell
+S     0 28962  3141  0  80   0  4412 21163 ?      ?        00:00:00 sshd
+S 14350 28965 28962  0  80   0  2572 21198 ?      ?        00:00:00 sshd
+S 14350 28966 28965  0  80   0  2140 12109 ?      ?        00:00:00 sftp-server
+S    33 28970  9777  0  80   0 14196 57930 ?      ?        00:00:00 apache2
+S     0 28994  3141  0  80   0  4408 21162 ?      ?        00:00:00 sshd
+S 14349 28996 28994  0  80   0  2604 21202 ?      ?        00:00:00 sshd
+S 14349 28997 28996  0  80   0  2336 12181 ?      ?        00:00:00 sftp-server
+S     0 29060  3141  0  80   0  4508 21678 ?      ?        00:00:00 sshd
+S 13486 29063 29060  0  80   0  2552 21715 ?      ?        00:00:00 sshd
+S 13486 29064 29063  0  80   0  2100 12117 ?      ?        00:00:00 sftp-server
+S     0 29074  3141  0  80   0  4504 21681 ?      ?        00:00:00 sshd
+S  8193 29076 29074  0  80   0  3348 21900 ?      ?        00:00:00 sshd
+S  8193 29077 29076  0  80   0  2268 12156 -      ?        00:00:00 sftp-server
+S    33 29079  9777  0  80   0 16004 58684 ?      ?        00:00:00 apache2
+R  8193 29115     1 40  80   0   672  2692 -      pts/0    00:04:08 dd
+R  8193 29121     1 33  80   0   672  2692 -      pts/0    00:03:07 dd
+R  8193 29128     1 32  80   0   668  2692 -      pts/0    00:02:44 dd
+S     0 29167  1462  0  80   0   508   968 ?      ?        00:00:00 sleep
+R  8193 29185     1 24  80   0   672  2692 -      pts/0    00:00:11 dd
+S     0 29202     2  0  80   0     0     0 ?      ?        00:00:00 flush-0:17
+S  8193 29203 28926  0  80   0  1364  2935 -      pts/0    00:00:00 proces2.sh
+R  8193 29205 29203  0  80   0   672  2692 -      pts/0    00:00:00 dd
+R  8193 29211 29203  0  80   0   976  2521 -      pts/0    00:00:00 ps
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   8356   816 ?        Ss   Mar11   0:04 init [2]  
+root         2  0.0  0.0      0     0 ?        S    Mar11   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    Mar11   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S    Mar11   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S    Mar11   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S    Mar11   0:05 [events/0]
+root         7  0.0  0.0      0     0 ?        S    Mar11   0:00 [cpuset]
+root         8  0.0  0.0      0     0 ?        S    Mar11   0:00 [khelper]
+root         9  0.0  0.0      0     0 ?        S    Mar11   0:00 [netns]
+root        10  0.0  0.0      0     0 ?        S    Mar11   0:00 [async/mgr]
+root        11  0.0  0.0      0     0 ?        S    Mar11   0:00 [pm]
+root        12  0.0  0.0      0     0 ?        S    Mar11   0:00 [sync_supers]
+root        13  0.0  0.0      0     0 ?        S    Mar11   0:00 [bdi-default]
+root        14  0.0  0.0      0     0 ?        S    Mar11   0:00 [kintegrityd/0]
+root        15  0.0  0.0      0     0 ?        S    Mar11   0:00 [kblockd/0]
+root        16  0.0  0.0      0     0 ?        S    Mar11   0:00 [kacpid]
+root        17  0.0  0.0      0     0 ?        S    Mar11   0:00 [kacpi_notify]
+root        18  0.0  0.0      0     0 ?        S    Mar11   0:00 [kacpi_hotplug]
+root        19  0.0  0.0      0     0 ?        S    Mar11   0:00 [kseriod]
+root        21  0.0  0.0      0     0 ?        S    Mar11   0:00 [kondemand/0]
+root        22  0.0  0.0      0     0 ?        S    Mar11   0:00 [khungtaskd]
+root        23  0.0  0.0      0     0 ?        S    Mar11   0:01 [kswapd0]
+root        24  0.0  0.0      0     0 ?        SN   Mar11   0:00 [ksmd]
+root        25  0.0  0.0      0     0 ?        S    Mar11   0:00 [aio/0]
+root        26  0.0  0.0      0     0 ?        S    Mar11   0:00 [crypto/0]
+root       193  0.0  0.0      0     0 ?        S    Mar11   0:00 [ata/0]
+root       194  0.0  0.0      0     0 ?        S    Mar11   0:00 [ata_aux]
+root       195  0.0  0.0      0     0 ?        S    Mar11   0:00 [scsi_eh_0]
+root       196  0.0  0.0      0     0 ?        S    Mar11   0:00 [scsi_eh_1]
+root       202  0.0  0.0      0     0 ?        S    Mar11   0:03 [mpt_poll_0]
+root       203  0.0  0.0      0     0 ?        S    Mar11   0:00 [mpt/0]
+root       208  0.0  0.0      0     0 ?        S    Mar11   0:00 [scsi_eh_2]
+root       248  0.0  0.0      0     0 ?        S    Mar11   0:00 [jbd2/sda2-8]
+root       249  0.0  0.0      0     0 ?        S    Mar11   0:00 [ext4-dio-unwrit]
+root       296  0.0  0.0  10552   856 ?        S<s  Mar11   0:00 udevd --daemon
+root       399  0.0  0.0  10548   852 ?        S<   Mar11   0:00 udevd --daemon
+root       423  0.0  0.0  10548   700 ?        S<   Mar11   0:00 udevd --daemon
+root       462  0.0  0.0      0     0 ?        S    Mar11   0:00 [kpsmoused]
+root       735  0.0  0.0      0     0 ?        S    Mar11   0:00 [jbd2/sda7-8]
+root       736  0.0  0.0      0     0 ?        S    Mar11   0:00 [ext4-dio-unwrit]
+root       737  0.0  0.0      0     0 ?        S    Mar11   0:00 [jbd2/sda6-8]
+root       738  0.0  0.0      0     0 ?        S    Mar11   0:00 [ext4-dio-unwrit]
+root       739  0.0  0.0      0     0 ?        S    Mar11   0:02 [jbd2/sda3-8]
+root       740  0.0  0.0      0     0 ?        S    Mar11   0:00 [ext4-dio-unwrit]
+daemon     823  0.0  0.0   8096   532 ?        Ss   Mar11   0:00 /sbin/portmap
+statd      829  0.0  0.0  14384   888 ?        Ss   Mar11   0:00 /sbin/rpc.statd
+root       838  0.0  0.0      0     0 ?        S    Mar11   0:00 [rpciod/0]
+root       839  0.0  0.0      0     0 ?        S<   Mar11   0:00 [kslowd000]
+root       840  0.0  0.0      0     0 ?        S<   Mar11   0:00 [kslowd001]
+root       841  0.0  0.0      0     0 ?        S    Mar11   0:00 [nfsiod]
+root       854  0.0  0.0      0     0 ?        S    Mar11   0:00 [lockd]
+root      1026  0.0  0.0 113932  1852 ?        Sl   Mar11   2:03 /usr/sbin/rsyslogd -c4
+root      1089  0.0  0.0   3920   640 ?        Ss   Mar11   0:00 /usr/sbin/acpid
+root      1095  0.0  0.1  93704  4852 ?        Ss   Mar11   0:00 /usr/sbin/smbd -D
+root      1173  0.0  0.0      0     0 ?        S    Mar11   0:03 [vmmemctl]
+root      1355  0.0  0.0  86844  3816 ?        Sl   Mar11   3:07 /usr/sbin/vmtoolsd
+root      1400  0.0  0.0  93580  1820 ?        S    Mar11   0:00 /usr/sbin/smbd -D
+daemon    1401  0.0  0.0  12400   416 ?        Ss   Mar11   0:00 /usr/sbin/atd
+root      1427  0.0  0.0  17252   960 ?        Ss   Mar11   0:00 /usr/sbin/cron
+105       1438  0.0  0.0  55188  1300 ?        Ss   Mar11   0:00 /usr/bin/dbus-daemon --system
+root      1460  0.0  0.0  10356   412 ?        S    Mar11   0:00 /usr/bin/daemon /etc/init.d/mpt-statusd check_mpt
+root      1462  0.0  0.0   3956   720 ?        S    Mar11   0:00 /bin/sh /etc/init.d/mpt-statusd check_mpt
+root      1524  0.0  0.0   3956   648 ?        S    Mar11   0:00 /bin/sh /usr/bin/mysqld_safe
+mysql     1635  0.0  0.9 205092 37140 ?        Sl   Mar11   1:29 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+root      1636  0.0  0.0   3856   628 ?        S    Mar11   0:00 logger -t mysqld -p daemon.error
+ntp       1756  0.0  0.0  63900  3104 ?        Ss   Mar11   0:12 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 107:111
+postgres  1784  0.0  0.1 100428  7440 ?        S    Mar11   0:00 /usr/lib/postgresql/8.4/bin/postgres -D /var/lib/postgresql/8.4/main -c config_file=/etc/postgresql/8.4/main/postgresql.conf
+101       2661  0.0  0.0  62416  2044 ?        Ss   Mar11   0:00 /usr/sbin/exim4 -bd -q30m
+root      3141  0.0  0.0  45004  1124 ?        Ss   Mar11   0:00 /usr/sbin/sshd
+root      3281  0.0  0.0   5932   632 tty1     Ss+  Mar11   0:00 /sbin/getty 38400 tty1
+root      3282  0.0  0.0   5932   628 tty2     Ss+  Mar11   0:00 /sbin/getty 38400 tty2
+root      3283  0.0  0.0   5932   632 tty3     Ss+  Mar11   0:00 /sbin/getty 38400 tty3
+root      3284  0.0  0.0   5932   628 tty4     Ss+  Mar11   0:00 /sbin/getty 38400 tty4
+root      3285  0.0  0.0   5932   628 tty5     Ss+  Mar11   0:00 /sbin/getty 38400 tty5
+root      3286  0.0  0.0   5932   628 tty6     Ss+  Mar11   0:00 /sbin/getty 38400 tty6
+postgres  3389  0.0  0.3 100168 14692 ?        Ss   Mar11   0:20 postgres: writer process                                                                                                    
+postgres  3390  0.0  0.0 100168  1956 ?        Ss   Mar11   0:19 postgres: wal writer process                                                                                                
+postgres  3391  0.0  0.0  73676  3248 ?        Ss   Mar11   0:03 postgres: stats collector process                                                                                           
+root      9777  0.0  0.5 229240 20908 ?        Ss   Mar14   0:05 /usr/sbin/apache2 -k start
+root     25042  0.0  0.0   3956   600 ?        S    06:27   0:00 /bin/sh -c /usr/bin/logger -t apache -p local7.info
+root     25043  0.0  0.0   3856   636 ?        S    06:27   0:00 /usr/bin/logger -t apache -p local7.info
+root     26427  0.0  0.0      0     0 ?        S    10:08   0:00 [flush-8:0]
+www-data 27603  0.0  0.5 238524 20616 ?        S    12:38   0:00 /usr/sbin/apache2 -k start
+www-data 27623  0.0  0.4 236444 17468 ?        S    12:39   0:00 /usr/sbin/apache2 -k start
+www-data 28540  0.0  0.4 235536 16488 ?        S    15:40   0:00 /usr/sbin/apache2 -k start
+www-data 28634  0.0  0.3 235464 16120 ?        S    16:26   0:00 /usr/sbin/apache2 -k start
+www-data 28780  0.0  0.3 232108 15220 ?        S    17:35   0:00 /usr/sbin/apache2 -k start
+www-data 28809  0.0  0.3 232144 14504 ?        S    17:43   0:00 /usr/sbin/apache2 -k start
+www-data 28823  0.0  0.4 234940 16324 ?        S    17:50   0:00 /usr/sbin/apache2 -k start
+www-data 28863  0.0  0.3 231948 14996 ?        S    18:13   0:00 /usr/sbin/apache2 -k start
+root     28922  0.0  0.1  86744  4620 ?        Ss   18:43   0:00 sshd: aadolph [priv]
+aadolph  28925  0.0  0.0  86880  2596 ?        S    18:43   0:00 sshd: aadolph@pts/0
+aadolph  28926  0.0  0.2  62792  9500 pts/0    Ss   18:43   0:00 -shell
+root     28962  0.0  0.1  84652  4412 ?        Ss   18:47   0:00 sshd: s10427 [priv]
+s10427   28965  0.0  0.0  84792  2572 ?        S    18:47   0:00 sshd: s10427@notty
+s10427   28966  0.0  0.0  48436  2140 ?        Ss   18:47   0:00 /usr/lib/openssh/sftp-server
+www-data 28970  0.0  0.3 231720 14196 ?        S    18:48   0:00 /usr/sbin/apache2 -k start
+root     28994  0.0  0.1  84648  4408 ?        Ss   18:50   0:00 sshd: s10428 [priv]
+s10428   28996  0.0  0.0  84808  2604 ?        S    18:50   0:00 sshd: s10428@notty
+s10428   28997  0.0  0.0  48724  2336 ?        Ss   18:50   0:00 /usr/lib/openssh/sftp-server
+root     29060  0.0  0.1  86712  4508 ?        Ss   18:56   0:00 sshd: s9918 [priv]
+s9918    29063  0.0  0.0  86860  2552 ?        S    18:56   0:00 sshd: s9918@notty
+s9918    29064  0.0  0.0  48468  2100 ?        Ss   18:56   0:00 /usr/lib/openssh/sftp-server
+root     29074  0.0  0.1  86724  4504 ?        Ss   18:58   0:00 sshd: aadolph [priv]
+aadolph  29076  0.0  0.0  87600  3348 ?        S    18:58   0:00 sshd: aadolph@notty
+aadolph  29077  0.0  0.0  48624  2268 ?        Ss   18:58   0:00 /usr/lib/openssh/sftp-server
+www-data 29079  0.0  0.3 234736 16004 ?        S    18:59   0:00 /usr/sbin/apache2 -k start
+aadolph  29115 40.3  0.0  10768   672 pts/0    R    19:05   4:08 dd if=/dev/zero of=/dev/null
+aadolph  29121 33.7  0.0  10768   672 pts/0    R    19:06   3:07 dd if=/dev/zero of=/dev/null
+aadolph  29128 32.3  0.0  10768   668 pts/0    R    19:07   2:44 dd if=/dev/zero of=/dev/null
+root     29167  0.0  0.0   3872   508 ?        S    19:10   0:00 sleep 600
+aadolph  29185 24.7  0.0  10768   672 pts/0    R    19:14   0:11 dd if=/dev/zero of=/dev/null
+root     29202  0.0  0.0      0     0 ?        S    19:15   0:00 [flush-0:17]
+aadolph  29203  0.0  0.0  11740  1364 pts/0    S+   19:15   0:00 /bin/bash ./proces2.sh
+aadolph  29205  0.0  0.0  10768   672 pts/0    R+   19:15   0:00 dd if=/dev/zero of=/dev/null
+aadolph  29212  0.0  0.0  54644  2288 pts/0    R+   19:15   0:00 ps axu
+Aby wypisać drzewo procesów:
+  PID  PGID   SID TTY          TIME CMD
+    2     0     0 ?        00:00:00 kthreadd
+    3     0     0 ?        00:00:00   migration/0
+    4     0     0 ?        00:00:00   ksoftirqd/0
+    5     0     0 ?        00:00:00   watchdog/0
+    6     0     0 ?        00:00:05   events/0
+    7     0     0 ?        00:00:00   cpuset
+    8     0     0 ?        00:00:00   khelper
+    9     0     0 ?        00:00:00   netns
+   10     0     0 ?        00:00:00   async/mgr
+   11     0     0 ?        00:00:00   pm
+   12     0     0 ?        00:00:00   sync_supers
+   13     0     0 ?        00:00:00   bdi-default
+   14     0     0 ?        00:00:00   kintegrityd/0
+   15     0     0 ?        00:00:00   kblockd/0
+   16     0     0 ?        00:00:00   kacpid
+   17     0     0 ?        00:00:00   kacpi_notify
+   18     0     0 ?        00:00:00   kacpi_hotplug
+   19     0     0 ?        00:00:00   kseriod
+   21     0     0 ?        00:00:00   kondemand/0
+   22     0     0 ?        00:00:00   khungtaskd
+   23     0     0 ?        00:00:01   kswapd0
+   24     0     0 ?        00:00:00   ksmd
+   25     0     0 ?        00:00:00   aio/0
+   26     0     0 ?        00:00:00   crypto/0
+  193     0     0 ?        00:00:00   ata/0
+  194     0     0 ?        00:00:00   ata_aux
+  195     0     0 ?        00:00:00   scsi_eh_0
+  196     0     0 ?        00:00:00   scsi_eh_1
+  202     0     0 ?        00:00:03   mpt_poll_0
+  203     0     0 ?        00:00:00   mpt/0
+  208     0     0 ?        00:00:00   scsi_eh_2
+  248     0     0 ?        00:00:00   jbd2/sda2-8
+  249     0     0 ?        00:00:00   ext4-dio-unwrit
+  462     0     0 ?        00:00:00   kpsmoused
+  735     0     0 ?        00:00:00   jbd2/sda7-8
+  736     0     0 ?        00:00:00   ext4-dio-unwrit
+  737     0     0 ?        00:00:00   jbd2/sda6-8
+  738     0     0 ?        00:00:00   ext4-dio-unwrit
+  739     0     0 ?        00:00:02   jbd2/sda3-8
+  740     0     0 ?        00:00:00   ext4-dio-unwrit
+  838     0     0 ?        00:00:00   rpciod/0
+  839     0     0 ?        00:00:00   kslowd000
+  840     0     0 ?        00:00:00   kslowd001
+  841     0     0 ?        00:00:00   nfsiod
+  854     0     0 ?        00:00:00   lockd
+ 1173     0     0 ?        00:00:03   vmmemctl
+26427     0     0 ?        00:00:00   flush-8:0
+29202     0     0 ?        00:00:00   flush-0:17
+    1     1     1 ?        00:00:04 init
+  296   296   296 ?        00:00:00   udevd
+  399   296   296 ?        00:00:00     udevd
+  423   296   296 ?        00:00:00     udevd
+  823   823   823 ?        00:00:00   portmap
+  829   829   829 ?        00:00:00   rpc.statd
+ 1026   990   983 ?        00:02:03   rsyslogd
+ 1089  1089  1089 ?        00:00:00   acpid
+ 1095  1095  1095 ?        00:00:00   smbd
+ 1400  1095  1095 ?        00:00:00     smbd
+ 1355  1354  1354 ?        00:03:07   vmtoolsd
+ 1401  1401  1401 ?        00:00:00   atd
+ 1427  1427  1427 ?        00:00:00   cron
+ 1438  1438  1438 ?        00:00:00   dbus-daemon
+ 1460  1458  1458 ?        00:00:00   daemon
+ 1462  1458  1458 ?        00:00:00     mpt-statusd
+29167  1458  1458 ?        00:00:00       sleep
+ 1524  1463   983 ?        00:00:00   mysqld_safe
+ 1635  1463   983 ?        00:01:29     mysqld
+ 1636  1463   983 ?        00:00:00     logger
+ 1756  1756  1756 ?        00:00:12   ntpd
+ 1784  1780  1780 ?        00:00:00   postgres
+ 3389  3389  3389 ?        00:00:20     postgres
+ 3390  3390  3390 ?        00:00:19     postgres
+ 3391  3391  3391 ?        00:00:03     postgres
+ 2661  2661  2661 ?        00:00:00   exim4
+ 3141  3141  3141 ?        00:00:00   sshd
+28922 28922 28922 ?        00:00:00     sshd
+28925 28922 28922 ?        00:00:00       sshd
+28926 28926 28926 pts/0    00:00:00         shell
+29203 29203 28926 pts/0    00:00:00           proces2.sh
+29205 29203 28926 pts/0    00:00:00             dd
+29213 29203 28926 pts/0    00:00:00             ps
+28962 28962 28962 ?        00:00:00     sshd
+28965 28962 28962 ?        00:00:00       sshd
+28966 28966 28966 ?        00:00:00         sftp-server
+28994 28994 28994 ?        00:00:00     sshd
+28996 28994 28994 ?        00:00:00       sshd
+28997 28997 28997 ?        00:00:00         sftp-server
+29060 29060 29060 ?        00:00:00     sshd
+29063 29060 29060 ?        00:00:00       sshd
+29064 29064 29064 ?        00:00:00         sftp-server
+29074 29074 29074 ?        00:00:00     sshd
+29076 29074 29074 ?        00:00:00       sshd
+29077 29077 29077 ?        00:00:00         sftp-server
+ 3281  3281  3281 tty1     00:00:00   getty
+ 3282  3282  3282 tty2     00:00:00   getty
+ 3283  3283  3283 tty3     00:00:00   getty
+ 3284  3284  3284 tty4     00:00:00   getty
+ 3285  3285  3285 tty5     00:00:00   getty
+ 3286  3286  3286 tty6     00:00:00   getty
+ 9777  9777  9777 ?        00:00:05   apache2
+25042  9777  9777 ?        00:00:00     sh
+25043  9777  9777 ?        00:00:00       logger
+27603  9777  9777 ?        00:00:00     apache2
+27623  9777  9777 ?        00:00:00     apache2
+28540  9777  9777 ?        00:00:00     apache2
+28634  9777  9777 ?        00:00:00     apache2
+28780  9777  9777 ?        00:00:00     apache2
+28809  9777  9777 ?        00:00:00     apache2
+28823  9777  9777 ?        00:00:00     apache2
+28863  9777  9777 ?        00:00:00     apache2
+28970  9777  9777 ?        00:00:00     apache2
+29079  9777  9777 ?        00:00:00     apache2
+29115 29113 28926 pts/0    00:04:08   dd
+29121 29119 28926 pts/0    00:03:07   dd
+29128 29126 28926 pts/0    00:02:44   dd
+29185 29183 28926 pts/0    00:00:11   dd
+ PPID   PID  PGID   SID TTY      TPGID STAT   UID   TIME COMMAND
+    0     2     0     0 ?           -1 S        0   0:00 [kthreadd]
+    2     3     0     0 ?           -1 S        0   0:00  \_ [migration/0]
+    2     4     0     0 ?           -1 S        0   0:00  \_ [ksoftirqd/0]
+    2     5     0     0 ?           -1 S        0   0:00  \_ [watchdog/0]
+    2     6     0     0 ?           -1 S        0   0:05  \_ [events/0]
+    2     7     0     0 ?           -1 S        0   0:00  \_ [cpuset]
+    2     8     0     0 ?           -1 S        0   0:00  \_ [khelper]
+    2     9     0     0 ?           -1 S        0   0:00  \_ [netns]
+    2    10     0     0 ?           -1 S        0   0:00  \_ [async/mgr]
+    2    11     0     0 ?           -1 S        0   0:00  \_ [pm]
+    2    12     0     0 ?           -1 S        0   0:00  \_ [sync_supers]
+    2    13     0     0 ?           -1 S        0   0:00  \_ [bdi-default]
+    2    14     0     0 ?           -1 S        0   0:00  \_ [kintegrityd/0]
+    2    15     0     0 ?           -1 S        0   0:00  \_ [kblockd/0]
+    2    16     0     0 ?           -1 S        0   0:00  \_ [kacpid]
+    2    17     0     0 ?           -1 S        0   0:00  \_ [kacpi_notify]
+    2    18     0     0 ?           -1 S        0   0:00  \_ [kacpi_hotplug]
+    2    19     0     0 ?           -1 S        0   0:00  \_ [kseriod]
+    2    21     0     0 ?           -1 S        0   0:00  \_ [kondemand/0]
+    2    22     0     0 ?           -1 S        0   0:00  \_ [khungtaskd]
+    2    23     0     0 ?           -1 S        0   0:01  \_ [kswapd0]
+    2    24     0     0 ?           -1 SN       0   0:00  \_ [ksmd]
+    2    25     0     0 ?           -1 S        0   0:00  \_ [aio/0]
+    2    26     0     0 ?           -1 S        0   0:00  \_ [crypto/0]
+    2   193     0     0 ?           -1 S        0   0:00  \_ [ata/0]
+    2   194     0     0 ?           -1 S        0   0:00  \_ [ata_aux]
+    2   195     0     0 ?           -1 S        0   0:00  \_ [scsi_eh_0]
+    2   196     0     0 ?           -1 S        0   0:00  \_ [scsi_eh_1]
+    2   202     0     0 ?           -1 S        0   0:03  \_ [mpt_poll_0]
+    2   203     0     0 ?           -1 S        0   0:00  \_ [mpt/0]
+    2   208     0     0 ?           -1 S        0   0:00  \_ [scsi_eh_2]
+    2   248     0     0 ?           -1 S        0   0:00  \_ [jbd2/sda2-8]
+    2   249     0     0 ?           -1 S        0   0:00  \_ [ext4-dio-unwrit]
+    2   462     0     0 ?           -1 S        0   0:00  \_ [kpsmoused]
+    2   735     0     0 ?           -1 S        0   0:00  \_ [jbd2/sda7-8]
+    2   736     0     0 ?           -1 S        0   0:00  \_ [ext4-dio-unwrit]
+    2   737     0     0 ?           -1 S        0   0:00  \_ [jbd2/sda6-8]
+    2   738     0     0 ?           -1 S        0   0:00  \_ [ext4-dio-unwrit]
+    2   739     0     0 ?           -1 S        0   0:02  \_ [jbd2/sda3-8]
+    2   740     0     0 ?           -1 S        0   0:00  \_ [ext4-dio-unwrit]
+    2   838     0     0 ?           -1 S        0   0:00  \_ [rpciod/0]
+    2   839     0     0 ?           -1 S<       0   0:00  \_ [kslowd000]
+    2   840     0     0 ?           -1 S<       0   0:00  \_ [kslowd001]
+    2   841     0     0 ?           -1 S        0   0:00  \_ [nfsiod]
+    2   854     0     0 ?           -1 S        0   0:00  \_ [lockd]
+    2  1173     0     0 ?           -1 S        0   0:03  \_ [vmmemctl]
+    2 26427     0     0 ?           -1 S        0   0:00  \_ [flush-8:0]
+    2 29202     0     0 ?           -1 S        0   0:00  \_ [flush-0:17]
+    0     1     1     1 ?           -1 Ss       0   0:04 init [2]  
+    1   296   296   296 ?           -1 S<s      0   0:00 udevd --daemon
+  296   399   296   296 ?           -1 S<       0   0:00  \_ udevd --daemon
+  296   423   296   296 ?           -1 S<       0   0:00  \_ udevd --daemon
+    1   823   823   823 ?           -1 Ss       1   0:00 /sbin/portmap
+    1   829   829   829 ?           -1 Ss     102   0:00 /sbin/rpc.statd
+    1  1026   990   983 ?           -1 Sl       0   2:03 /usr/sbin/rsyslogd -c4
+    1  1089  1089  1089 ?           -1 Ss       0   0:00 /usr/sbin/acpid
+    1  1095  1095  1095 ?           -1 Ss       0   0:00 /usr/sbin/smbd -D
+ 1095  1400  1095  1095 ?           -1 S        0   0:00  \_ /usr/sbin/smbd -D
+    1  1355  1354  1354 ?           -1 Sl       0   3:07 /usr/sbin/vmtoolsd
+    1  1401  1401  1401 ?           -1 Ss       1   0:00 /usr/sbin/atd
+    1  1427  1427  1427 ?           -1 Ss       0   0:00 /usr/sbin/cron
+    1  1438  1438  1438 ?           -1 Ss     105   0:00 /usr/bin/dbus-daemon --system
+    1  1460  1458  1458 ?           -1 S        0   0:00 /usr/bin/daemon /etc/init.d/mpt-statusd check_mpt
+ 1460  1462  1458  1458 ?           -1 S        0   0:00  \_ /bin/sh /etc/init.d/mpt-statusd check_mpt
+ 1462 29167  1458  1458 ?           -1 S        0   0:00      \_ sleep 600
+    1  1524  1463   983 ?           -1 S        0   0:00 /bin/sh /usr/bin/mysqld_safe
+ 1524  1635  1463   983 ?           -1 Sl     106   1:29  \_ /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+ 1524  1636  1463   983 ?           -1 S        0   0:00  \_ logger -t mysqld -p daemon.error
+    1  1756  1756  1756 ?           -1 Ss     107   0:12 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 107:111
+    1  1784  1780  1780 ?           -1 S      104   0:00 /usr/lib/postgresql/8.4/bin/postgres -D /var/lib/postgresql/8.4/main -c config_file=/etc/postgresql/8.4/main/postgresql.conf
+ 1784  3389  3389  3389 ?           -1 Ss     104   0:20  \_ postgres: writer process                                                                                                    
+ 1784  3390  3390  3390 ?           -1 Ss     104   0:19  \_ postgres: wal writer process                                                                                                
+ 1784  3391  3391  3391 ?           -1 Ss     104   0:03  \_ postgres: stats collector process                                                                                           
+    1  2661  2661  2661 ?           -1 Ss     101   0:00 /usr/sbin/exim4 -bd -q30m
+    1  3141  3141  3141 ?           -1 Ss       0   0:00 /usr/sbin/sshd
+ 3141 28922 28922 28922 ?           -1 Ss       0   0:00  \_ sshd: aadolph [priv]
+28922 28925 28922 28922 ?           -1 S     8193   0:00  |   \_ sshd: aadolph@pts/0
+28925 28926 28926 28926 pts/0    29203 Ss    8193   0:00  |       \_ -shell
+28926 29203 29203 28926 pts/0    29203 S+    8193   0:00  |           \_ /bin/bash ./proces2.sh
+29203 29205 29203 28926 pts/0    29203 R+    8193   0:00  |               \_ dd if=/dev/zero of=/dev/null
+29203 29214 29203 28926 pts/0    29203 R+    8193   0:00  |               \_ ps axjf
+ 3141 28962 28962 28962 ?           -1 Ss       0   0:00  \_ sshd: s10427 [priv]
+28962 28965 28962 28962 ?           -1 S    14350   0:00  |   \_ sshd: s10427@notty
+28965 28966 28966 28966 ?           -1 Ss   14350   0:00  |       \_ /usr/lib/openssh/sftp-server
+ 3141 28994 28994 28994 ?           -1 Ss       0   0:00  \_ sshd: s10428 [priv]
+28994 28996 28994 28994 ?           -1 S    14349   0:00  |   \_ sshd: s10428@notty
+28996 28997 28997 28997 ?           -1 Ss   14349   0:00  |       \_ /usr/lib/openssh/sftp-server
+ 3141 29060 29060 29060 ?           -1 Ss       0   0:00  \_ sshd: s9918 [priv]
+29060 29063 29060 29060 ?           -1 S    13486   0:00  |   \_ sshd: s9918@notty
+29063 29064 29064 29064 ?           -1 Ss   13486   0:00  |       \_ /usr/lib/openssh/sftp-server
+ 3141 29074 29074 29074 ?           -1 Ss       0   0:00  \_ sshd: aadolph [priv]
+29074 29076 29074 29074 ?           -1 S     8193   0:00      \_ sshd: aadolph@notty
+29076 29077 29077 29077 ?           -1 Ss    8193   0:00          \_ /usr/lib/openssh/sftp-server
+    1  3281  3281  3281 tty1      3281 Ss+      0   0:00 /sbin/getty 38400 tty1
+    1  3282  3282  3282 tty2      3282 Ss+      0   0:00 /sbin/getty 38400 tty2
+    1  3283  3283  3283 tty3      3283 Ss+      0   0:00 /sbin/getty 38400 tty3
+    1  3284  3284  3284 tty4      3284 Ss+      0   0:00 /sbin/getty 38400 tty4
+    1  3285  3285  3285 tty5      3285 Ss+      0   0:00 /sbin/getty 38400 tty5
+    1  3286  3286  3286 tty6      3286 Ss+      0   0:00 /sbin/getty 38400 tty6
+    1  9777  9777  9777 ?           -1 Ss       0   0:05 /usr/sbin/apache2 -k start
+ 9777 25042  9777  9777 ?           -1 S        0   0:00  \_ /bin/sh -c /usr/bin/logger -t apache -p local7.info
+25042 25043  9777  9777 ?           -1 S        0   0:00  |   \_ /usr/bin/logger -t apache -p local7.info
+ 9777 27603  9777  9777 ?           -1 S       33   0:00  \_ /usr/sbin/apache2 -k start
+ 9777 27623  9777  9777 ?           -1 S       33   0:00  \_ /usr/sbin/apache2 -k start
+ 9777 28540  9777  9777 ?           -1 S       33   0:00  \_ /usr/sbin/apache2 -k start
+ 9777 28634  9777  9777 ?           -1 S       33   0:00  \_ /usr/sbin/apache2 -k start
+ 9777 28780  9777  9777 ?           -1 S       33   0:00  \_ /usr/sbin/apache2 -k start
+ 9777 28809  9777  9777 ?           -1 S       33   0:00  \_ /usr/sbin/apache2 -k start
+ 9777 28823  9777  9777 ?           -1 S       33   0:00  \_ /usr/sbin/apache2 -k start
+ 9777 28863  9777  9777 ?           -1 S       33   0:00  \_ /usr/sbin/apache2 -k start
+ 9777 28970  9777  9777 ?           -1 S       33   0:00  \_ /usr/sbin/apache2 -k start
+ 9777 29079  9777  9777 ?           -1 S       33   0:00  \_ /usr/sbin/apache2 -k start
+    1 29115 29113 28926 pts/0    29203 R     8193   4:08 dd if=/dev/zero of=/dev/null
+    1 29121 29119 28926 pts/0    29203 R     8193   3:07 dd if=/dev/zero of=/dev/null
+    1 29128 29126 28926 pts/0    29203 R     8193   2:44 dd if=/dev/zero of=/dev/null
+    1 29185 29183 28926 pts/0    29203 R     8193   0:11 dd if=/dev/zero of=/dev/null
+Aby wyświetlić informację o wątkach:
+UID        PID  PPID   LWP  C NLWP STIME TTY          TIME CMD
+root         1     0     1  0    1 Mar11 ?        00:00:04 init [2]  
+root         2     0     2  0    1 Mar11 ?        00:00:00 [kthreadd]
+root         3     2     3  0    1 Mar11 ?        00:00:00 [migration/0]
+root         4     2     4  0    1 Mar11 ?        00:00:00 [ksoftirqd/0]
+root         5     2     5  0    1 Mar11 ?        00:00:00 [watchdog/0]
+root         6     2     6  0    1 Mar11 ?        00:00:05 [events/0]
+root         7     2     7  0    1 Mar11 ?        00:00:00 [cpuset]
+root         8     2     8  0    1 Mar11 ?        00:00:00 [khelper]
+root         9     2     9  0    1 Mar11 ?        00:00:00 [netns]
+root        10     2    10  0    1 Mar11 ?        00:00:00 [async/mgr]
+root        11     2    11  0    1 Mar11 ?        00:00:00 [pm]
+root        12     2    12  0    1 Mar11 ?        00:00:00 [sync_supers]
+root        13     2    13  0    1 Mar11 ?        00:00:00 [bdi-default]
+root        14     2    14  0    1 Mar11 ?        00:00:00 [kintegrityd/0]
+root        15     2    15  0    1 Mar11 ?        00:00:00 [kblockd/0]
+root        16     2    16  0    1 Mar11 ?        00:00:00 [kacpid]
+root        17     2    17  0    1 Mar11 ?        00:00:00 [kacpi_notify]
+root        18     2    18  0    1 Mar11 ?        00:00:00 [kacpi_hotplug]
+root        19     2    19  0    1 Mar11 ?        00:00:00 [kseriod]
+root        21     2    21  0    1 Mar11 ?        00:00:00 [kondemand/0]
+root        22     2    22  0    1 Mar11 ?        00:00:00 [khungtaskd]
+root        23     2    23  0    1 Mar11 ?        00:00:01 [kswapd0]
+root        24     2    24  0    1 Mar11 ?        00:00:00 [ksmd]
+root        25     2    25  0    1 Mar11 ?        00:00:00 [aio/0]
+root        26     2    26  0    1 Mar11 ?        00:00:00 [crypto/0]
+root       193     2   193  0    1 Mar11 ?        00:00:00 [ata/0]
+root       194     2   194  0    1 Mar11 ?        00:00:00 [ata_aux]
+root       195     2   195  0    1 Mar11 ?        00:00:00 [scsi_eh_0]
+root       196     2   196  0    1 Mar11 ?        00:00:00 [scsi_eh_1]
+root       202     2   202  0    1 Mar11 ?        00:00:03 [mpt_poll_0]
+root       203     2   203  0    1 Mar11 ?        00:00:00 [mpt/0]
+root       208     2   208  0    1 Mar11 ?        00:00:00 [scsi_eh_2]
+root       248     2   248  0    1 Mar11 ?        00:00:00 [jbd2/sda2-8]
+root       249     2   249  0    1 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+root       296     1   296  0    1 Mar11 ?        00:00:00 udevd --daemon
+root       399   296   399  0    1 Mar11 ?        00:00:00 udevd --daemon
+root       423   296   423  0    1 Mar11 ?        00:00:00 udevd --daemon
+root       462     2   462  0    1 Mar11 ?        00:00:00 [kpsmoused]
+root       735     2   735  0    1 Mar11 ?        00:00:00 [jbd2/sda7-8]
+root       736     2   736  0    1 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+root       737     2   737  0    1 Mar11 ?        00:00:00 [jbd2/sda6-8]
+root       738     2   738  0    1 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+root       739     2   739  0    1 Mar11 ?        00:00:02 [jbd2/sda3-8]
+root       740     2   740  0    1 Mar11 ?        00:00:00 [ext4-dio-unwrit]
+daemon     823     1   823  0    1 Mar11 ?        00:00:00 /sbin/portmap
+statd      829     1   829  0    1 Mar11 ?        00:00:00 /sbin/rpc.statd
+root       838     2   838  0    1 Mar11 ?        00:00:00 [rpciod/0]
+root       839     2   839  0    1 Mar11 ?        00:00:00 [kslowd000]
+root       840     2   840  0    1 Mar11 ?        00:00:00 [kslowd001]
+root       841     2   841  0    1 Mar11 ?        00:00:00 [nfsiod]
+root       854     2   854  0    1 Mar11 ?        00:00:00 [lockd]
+root      1026     1  1026  0    4 Mar11 ?        00:00:00 /usr/sbin/rsyslogd -c4
+root      1026     1  1052  0    4 Mar11 ?        00:00:49 /usr/sbin/rsyslogd -c4
+root      1026     1  1053  0    4 Mar11 ?        00:00:00 /usr/sbin/rsyslogd -c4
+root      1026     1 29182  0    4 19:14 ?        00:00:00 /usr/sbin/rsyslogd -c4
+root      1089     1  1089  0    1 Mar11 ?        00:00:00 /usr/sbin/acpid
+root      1095     1  1095  0    1 Mar11 ?        00:00:00 /usr/sbin/smbd -D
+root      1173     2  1173  0    1 Mar11 ?        00:00:03 [vmmemctl]
+root      1355     1  1355  0    2 Mar11 ?        00:03:07 /usr/sbin/vmtoolsd
+root      1355     1  1501  0    2 Mar11 ?        00:00:00 /usr/sbin/vmtoolsd
+root      1400  1095  1400  0    1 Mar11 ?        00:00:00 /usr/sbin/smbd -D
+daemon    1401     1  1401  0    1 Mar11 ?        00:00:00 /usr/sbin/atd
+root      1427     1  1427  0    1 Mar11 ?        00:00:00 /usr/sbin/cron
+105       1438     1  1438  0    1 Mar11 ?        00:00:00 /usr/bin/dbus-daemon --system
+root      1460     1  1460  0    1 Mar11 ?        00:00:00 /usr/bin/daemon /etc/init.d/mpt-statusd check_mpt
+root      1462  1460  1462  0    1 Mar11 ?        00:00:00 /bin/sh /etc/init.d/mpt-statusd check_mpt
+root      1524     1  1524  0    1 Mar11 ?        00:00:00 /bin/sh /usr/bin/mysqld_safe
+mysql     1635  1524  1635  0   11 Mar11 ?        00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+mysql     1635  1524  1648  0   11 Mar11 ?        00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+mysql     1635  1524  1649  0   11 Mar11 ?        00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+mysql     1635  1524  1650  0   11 Mar11 ?        00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+mysql     1635  1524  1651  0   11 Mar11 ?        00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+mysql     1635  1524  1703  0   11 Mar11 ?        00:00:40 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+mysql     1635  1524  1704  0   11 Mar11 ?        00:00:46 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+mysql     1635  1524  1705  0   11 Mar11 ?        00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+mysql     1635  1524  1706  0   11 Mar11 ?        00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+mysql     1635  1524  1707  0   11 Mar11 ?        00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+mysql     1635  1524  1710  0   11 Mar11 ?        00:00:00 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+root      1636  1524  1636  0    1 Mar11 ?        00:00:00 logger -t mysqld -p daemon.error
+ntp       1756     1  1756  0    1 Mar11 ?        00:00:12 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 107:111
+postgres  1784     1  1784  0    1 Mar11 ?        00:00:00 /usr/lib/postgresql/8.4/bin/postgres -D /var/lib/postgresql/8.4/main -c config_file=/etc/postgresql/8.4/main/postgresql.conf
+101       2661     1  2661  0    1 Mar11 ?        00:00:00 /usr/sbin/exim4 -bd -q30m
+root      3141     1  3141  0    1 Mar11 ?        00:00:00 /usr/sbin/sshd
+root      3281     1  3281  0    1 Mar11 tty1     00:00:00 /sbin/getty 38400 tty1
+root      3282     1  3282  0    1 Mar11 tty2     00:00:00 /sbin/getty 38400 tty2
+root      3283     1  3283  0    1 Mar11 tty3     00:00:00 /sbin/getty 38400 tty3
+root      3284     1  3284  0    1 Mar11 tty4     00:00:00 /sbin/getty 38400 tty4
+root      3285     1  3285  0    1 Mar11 tty5     00:00:00 /sbin/getty 38400 tty5
+root      3286     1  3286  0    1 Mar11 tty6     00:00:00 /sbin/getty 38400 tty6
+postgres  3389  1784  3389  0    1 Mar11 ?        00:00:20 postgres: writer process                                                                                                    
+postgres  3390  1784  3390  0    1 Mar11 ?        00:00:19 postgres: wal writer process                                                                                                
+postgres  3391  1784  3391  0    1 Mar11 ?        00:00:03 postgres: stats collector process                                                                                           
+root      9777     1  9777  0    1 Mar14 ?        00:00:05 /usr/sbin/apache2 -k start
+root     25042  9777 25042  0    1 06:27 ?        00:00:00 /bin/sh -c /usr/bin/logger -t apache -p local7.info
+root     25043 25042 25043  0    1 06:27 ?        00:00:00 /usr/bin/logger -t apache -p local7.info
+root     26427     2 26427  0    1 10:08 ?        00:00:00 [flush-8:0]
+www-data 27603  9777 27603  0    1 12:38 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 27623  9777 27623  0    1 12:39 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28540  9777 28540  0    1 15:39 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28634  9777 28634  0    1 16:26 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28780  9777 28780  0    1 17:35 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28809  9777 28809  0    1 17:43 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28823  9777 28823  0    1 17:50 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 28863  9777 28863  0    1 18:13 ?        00:00:00 /usr/sbin/apache2 -k start
+root     28922  3141 28922  0    1 18:43 ?        00:00:00 sshd: aadolph [priv]
+aadolph  28925 28922 28925  0    1 18:43 ?        00:00:00 sshd: aadolph@pts/0
+aadolph  28926 28925 28926  0    1 18:43 pts/0    00:00:00 -shell
+root     28962  3141 28962  0    1 18:47 ?        00:00:00 sshd: s10427 [priv]
+s10427   28965 28962 28965  0    1 18:47 ?        00:00:00 sshd: s10427@notty
+s10427   28966 28965 28966  0    1 18:47 ?        00:00:00 /usr/lib/openssh/sftp-server
+www-data 28970  9777 28970  0    1 18:48 ?        00:00:00 /usr/sbin/apache2 -k start
+root     28994  3141 28994  0    1 18:50 ?        00:00:00 sshd: s10428 [priv]
+s10428   28996 28994 28996  0    1 18:50 ?        00:00:00 sshd: s10428@notty
+s10428   28997 28996 28997  0    1 18:50 ?        00:00:00 /usr/lib/openssh/sftp-server
+root     29060  3141 29060  0    1 18:56 ?        00:00:00 sshd: s9918 [priv]
+s9918    29063 29060 29063  0    1 18:56 ?        00:00:00 sshd: s9918@notty
+s9918    29064 29063 29064  0    1 18:56 ?        00:00:00 /usr/lib/openssh/sftp-server
+root     29074  3141 29074  0    1 18:58 ?        00:00:00 sshd: aadolph [priv]
+aadolph  29076 29074 29076  0    1 18:58 ?        00:00:00 sshd: aadolph@notty
+aadolph  29077 29076 29077  0    1 18:58 ?        00:00:00 /usr/lib/openssh/sftp-server
+www-data 29079  9777 29079  0    1 18:59 ?        00:00:00 /usr/sbin/apache2 -k start
+aadolph  29115     1 29115 40    1 19:05 pts/0    00:04:08 dd if=/dev/zero of=/dev/null
+aadolph  29121     1 29121 33    1 19:06 pts/0    00:03:07 dd if=/dev/zero of=/dev/null
+aadolph  29128     1 29128 32    1 19:07 pts/0    00:02:44 dd if=/dev/zero of=/dev/null
+root     29167  1462 29167  0    1 19:10 ?        00:00:00 sleep 600
+aadolph  29185     1 29185 24    1 19:14 pts/0    00:00:11 dd if=/dev/zero of=/dev/null
+root     29202     2 29202  0    1 19:15 ?        00:00:00 [flush-0:17]
+aadolph  29203 28926 29203  0    1 19:15 pts/0    00:00:00 /bin/bash ./proces2.sh
+aadolph  29205 29203 29205 10    1 19:15 pts/0    00:00:00 dd if=/dev/zero of=/dev/null
+aadolph  29215 29203 29215  0    1 19:15 pts/0    00:00:00 ps -eLf
+  UID   PID          PENDING          BLOCKED          IGNORED           CAUGHT STAT TTY        TIME COMMAND
+    0     1 0000000000000000                -                -                - -    ?          0:04 init [2]  
+    0     - 0000000000000000 0000000000000000 fffffffe57f0d8fc 00000000280b2603 Ss   -          0:04 -
+    0     2 0000000000000000                -                -                - -    ?          0:00 [kthreadd]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0     3 0000000000000000                -                -                - -    ?          0:00 [migration/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0     4 0000000000000000                -                -                - -    ?          0:00 [ksoftirqd/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0     5 0000000000000000                -                -                - -    ?          0:00 [watchdog/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0     6 0000000000000000                -                -                - -    ?          0:05 [events/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:05 -
+    0     7 0000000000000000                -                -                - -    ?          0:00 [cpuset]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0     8 0000000000000000                -                -                - -    ?          0:00 [khelper]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0     9 0000000000000000                -                -                - -    ?          0:00 [netns]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    10 0000000000000000                -                -                - -    ?          0:00 [async/mgr]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    11 0000000000000000                -                -                - -    ?          0:00 [pm]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    12 0000000000000000                -                -                - -    ?          0:00 [sync_supers]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    13 0000000000000000                -                -                - -    ?          0:00 [bdi-default]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    14 0000000000000000                -                -                - -    ?          0:00 [kintegrityd/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    15 0000000000000000                -                -                - -    ?          0:00 [kblockd/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    16 0000000000000000                -                -                - -    ?          0:00 [kacpid]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    17 0000000000000000                -                -                - -    ?          0:00 [kacpi_notify]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    18 0000000000000000                -                -                - -    ?          0:00 [kacpi_hotplug]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    19 0000000000000000                -                -                - -    ?          0:00 [kseriod]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    21 0000000000000000                -                -                - -    ?          0:00 [kondemand/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    22 0000000000000000                -                -                - -    ?          0:00 [khungtaskd]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    23 0000000000000000                -                -                - -    ?          0:01 [kswapd0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:01 -
+    0    24 0000000000000000                -                -                - -    ?          0:00 [ksmd]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 SN   -          0:00 -
+    0    25 0000000000000000                -                -                - -    ?          0:00 [aio/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0    26 0000000000000000                -                -                - -    ?          0:00 [crypto/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   193 0000000000000000                -                -                - -    ?          0:00 [ata/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   194 0000000000000000                -                -                - -    ?          0:00 [ata_aux]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   195 0000000000000000                -                -                - -    ?          0:00 [scsi_eh_0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   196 0000000000000000                -                -                - -    ?          0:00 [scsi_eh_1]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   202 0000000000000000                -                -                - -    ?          0:03 [mpt_poll_0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:03 -
+    0   203 0000000000000000                -                -                - -    ?          0:00 [mpt/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   208 0000000000000000                -                -                - -    ?          0:00 [scsi_eh_2]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   248 0000000000000000                -                -                - -    ?          0:00 [jbd2/sda2-8]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   249 0000000000000000                -                -                - -    ?          0:00 [ext4-dio-unwrit]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   296 0000000000000000                -                -                - -    ?          0:00 udevd --daemon
+    0     - 0000000000000000 fffffffe7ffbfeff 0000000000000000 0000000000000000 S<s  -          0:00 -
+    0   399 0000000000010000                -                -                - -    ?          0:00 udevd --daemon
+    0     - 0000000000000000 fffffffe7ffb9eff 0000000000000000 0000000000006000 S<   -          0:00 -
+    0   423 0000000000000000                -                -                - -    ?          0:00 udevd --daemon
+    0     - 0000000000000000 fffffffe7ffb9eff 0000000000000000 0000000000006000 S<   -          0:00 -
+    0   462 0000000000000000                -                -                - -    ?          0:00 [kpsmoused]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   735 0000000000000000                -                -                - -    ?          0:00 [jbd2/sda7-8]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   736 0000000000000000                -                -                - -    ?          0:00 [ext4-dio-unwrit]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   737 0000000000000000                -                -                - -    ?          0:00 [jbd2/sda6-8]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   738 0000000000000000                -                -                - -    ?          0:00 [ext4-dio-unwrit]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   739 0000000000000000                -                -                - -    ?          0:02 [jbd2/sda3-8]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:02 -
+    0   740 0000000000000000                -                -                - -    ?          0:00 [ext4-dio-unwrit]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    1   823 0000000000000000                -                -                - -    ?          0:00 /sbin/portmap
+    1     - 0000000000000000 0000000000000000 0000000000011000 0000000000000002 Ss   -          0:00 -
+  102   829 0000000000000000                -                -                - -    ?          0:00 /sbin/rpc.statd
+  102     - 0000000000000000 0000000000000000 0000000000011000 0000000000004a03 Ss   -          0:00 -
+    0   838 0000000000000000                -                -                - -    ?          0:00 [rpciod/0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   839 0000000000000000                -                -                - -    ?          0:00 [kslowd000]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S<   -          0:00 -
+    0   840 0000000000000000                -                -                - -    ?          0:00 [kslowd001]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S<   -          0:00 -
+    0   841 0000000000000000                -                -                - -    ?          0:00 [nfsiod]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+    0   854 0000000000000000                -                -                - -    ?          0:00 [lockd]
+    0     - 0000000000000000 0000000000000000 fffffffffffffeff 0000000000000100 S    -          0:00 -
+    0  1026 0000000000000000                -                -                - -    ?          2:03 /usr/sbin/rsyslogd -c4
+    0     - 0000000000000000 0000000000000000 0000000001001206 0000000180014c21 Sl   -          0:00 -
+    0     - 0000000000000000 fffffffe7ffbfeff 0000000001001206 0000000180014c21 Sl   -          0:49 -
+    0     - 0000000000000000 fffffffe7ffbfeff 0000000001001206 0000000180014c21 Sl   -          0:00 -
+    0     - 0000000000000000 fffffffe7ffbfeff 0000000001001206 0000000180014c21 Sl   -          0:00 -
+    0  1089 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/acpid
+    0     - 0000000000000000 0000000000000000 0000000000001000 0000000000004007 Ss   -          0:00 -
+    0  1095 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/smbd -D
+    0     - 0000000000000000 0000000000001880 0000000000002002 0000000180014661 Ss   -          0:00 -
+    0  1173 0000000000000000                -                -                - -    ?          0:03 [vmmemctl]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:03 -
+    0  1355 0000000000000000                -                -                - -    ?          3:07 /usr/sbin/vmtoolsd
+    0     - 0000000000000000 0000000000000000 0000000000000800 0000000180014207 Sl   -          3:07 -
+    0     - 0000000000000000 0000000000000000 0000000000000800 0000000180014207 Sl   -          0:00 -
+    0  1400 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/smbd -D
+    0     - 0000000000000000 0000000000001880 0000000000002002 0000000180014661 S    -          0:00 -
+    1  1401 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/atd
+    1     - 0000000000000000 0000000000000000 0000000000000000 0000000000014003 Ss   -          0:00 -
+    0  1427 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/cron
+    0     - 0000000000000000 0000000000000000 0000000000000002 0000000000010001 Ss   -          0:00 -
+  105  1438 0000000000000000                -                -                - -    ?          0:00 /usr/bin/dbus-daemon --system
+  105     - 0000000000000000 0000000000000000 0000000000001002 0000000180000001 Ss   -          0:00 -
+    0  1460 0000000000000000                -                -                - -    ?          0:00 /usr/bin/daemon /etc/init.d/mpt-statusd check_mpt
+    0     - 0000000000000000 0000000000000000 0000000000000003 0000000180014200 S    -          0:00 -
+    0  1462 0000000000000000                -                -                - -    ?          0:00 /bin/sh /etc/init.d/mpt-statusd check_mpt
+    0     - 0000000000000000 0000000000000000 0000000000000003 0000000000000000 S    -          0:00 -
+    0  1524 0000000000000000                -                -                - -    ?          0:00 /bin/sh /usr/bin/mysqld_safe
+    0     - 0000000000000000 0000000000000000 0000000000000006 0000000000004001 S    -          0:00 -
+  106  1635 0000000000000000                -                -                - -    ?          1:29 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+  106     - 0000000000000000 0000000000087007 0000000000001006 00000001800066e9 Sl   -          0:00 -
+  106     - 0000000000000000 0000000000087007 0000000000001006 00000001800066e9 Sl   -          0:00 -
+  106     - 0000000000000000 0000000000087007 0000000000001006 00000001800066e9 Sl   -          0:00 -
+  106     - 0000000000000000 0000000000087007 0000000000001006 00000001800066e9 Sl   -          0:00 -
+  106     - 0000000000000000 0000000000087007 0000000000001006 00000001800066e9 Sl   -          0:00 -
+  106     - 0000000000000000 0000000000087007 0000000000001006 00000001800066e9 Sl   -          0:40 -
+  106     - 0000000000000000 0000000000087007 0000000000001006 00000001800066e9 Sl   -          0:46 -
+  106     - 0000000000000000 0000000000087007 0000000000001006 00000001800066e9 Sl   -          0:00 -
+  106     - 0000000000000000 0000000000087007 0000000000001006 00000001800066e9 Sl   -          0:00 -
+  106     - 0000000000000000 0000000000001002 0000000000001006 00000001800066e9 Sl   -          0:00 -
+  106     - 0000000000000000 0000000000087007 0000000000001006 00000001800066e9 Sl   -          0:00 -
+    0  1636 0000000000000000                -                -                - -    ?          0:00 logger -t mysqld -p daemon.error
+    0     - 0000000000000000 0000000000000000 0000000000000006 0000000000000000 S    -          0:00 -
+  107  1756 0000000000000000                -                -                - -    ?          0:12 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 107:111
+  107     - 0000000000000000 0000000000000000 0000000000001000 0000000180006a47 Ss   -          0:12 -
+  104  1784 0000000000000000                -                -                - -    ?          0:00 /usr/lib/postgresql/8.4/bin/postgres -D /var/lib/postgresql/8.4/main -c config_file=/etc/postgresql/8.4/main/postgresql.conf
+  104     - 0000000000000000 0000000000000000 0000000001303000 0000000180014a07 S    -          0:00 -
+  101  2661 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/exim4 -bd -q30m
+  101     - 0000000000000000 0000000000000000 0000000000001002 0000000180012201 Ss   -          0:00 -
+    0  3141 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/sshd
+    0     - 0000000000000000 0000000000000000 0000000000001002 0000000180014005 Ss   -          0:00 -
+    0  3281 0000000000000000                -                -                - -    tty1       0:00 /sbin/getty 38400 tty1
+    0     - 0000000000000000 0000000000000000 0000000000000000 0000000000000000 Ss+  -          0:00 -
+    0  3282 0000000000000000                -                -                - -    tty2       0:00 /sbin/getty 38400 tty2
+    0     - 0000000000000000 0000000000000000 0000000000000000 0000000000000000 Ss+  -          0:00 -
+    0  3283 0000000000000000                -                -                - -    tty3       0:00 /sbin/getty 38400 tty3
+    0     - 0000000000000000 0000000000000000 0000000000000000 0000000000000000 Ss+  -          0:00 -
+    0  3284 0000000000000000                -                -                - -    tty4       0:00 /sbin/getty 38400 tty4
+    0     - 0000000000000000 0000000000000000 0000000000000000 0000000000000000 Ss+  -          0:00 -
+    0  3285 0000000000000000                -                -                - -    tty5       0:00 /sbin/getty 38400 tty5
+    0     - 0000000000000000 0000000000000000 0000000000000000 0000000000000000 Ss+  -          0:00 -
+    0  3286 0000000000000000                -                -                - -    tty6       0:00 /sbin/getty 38400 tty6
+    0     - 0000000000000000 0000000000000000 0000000000000000 0000000000000000 Ss+  -          0:00 -
+  104  3389 0000000000000000                -                -                - -    ?          0:20 postgres: writer process                                                                                                    
+  104     - 0000000000000000 0000000000000000 0000000001007200 0000000180000807 Ss   -          0:20 -
+  104  3390 0000000000000000                -                -                - -    ?          0:19 postgres: wal writer process                                                                                                
+  104     - 0000000000000000 0000000000000000 0000000001003a00 0000000180004007 Ss   -          0:19 -
+  104  3391 0000000000000000                -                -                - -    ?          0:03 postgres: stats collector process                                                                                           
+  104     - 0000000000000000 0000000000000000 0000000001007a02 0000000180000005 Ss   -          0:03 -
+    0  9777 0000000000000000                -                -                - -    ?          0:05 /usr/sbin/apache2 -k start
+    0     - 0000000000000000 0000000000000000 0000000000001000 00000001880046eb Ss   -          0:05 -
+    0 25042 0000000000000000                -                -                - -    ?          0:00 /bin/sh -c /usr/bin/logger -t apache -p local7.info
+    0     - 0000000000000000 0000000000000000 0000000000001281 0000000000000002 S    -          0:00 -
+    0 25043 0000000000000000                -                -                - -    ?          0:00 /usr/bin/logger -t apache -p local7.info
+    0     - 0000000000000000 0000000000000000 0000000000001281 0000000000000000 S    -          0:00 -
+    0 26427 0000000000000000                -                -                - -    ?          0:00 [flush-8:0]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+   33 27603 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/apache2 -k start
+   33     - 0000000000000000 0000000000000000 0000000000001000 000000018c0046eb S    -          0:00 -
+   33 27623 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/apache2 -k start
+   33     - 0000000000000000 0000000000000000 0000000000001000 000000018c0046eb S    -          0:00 -
+   33 28540 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/apache2 -k start
+   33     - 0000000000000000 0000000000000000 0000000000001000 000000018c0046eb S    -          0:00 -
+   33 28634 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/apache2 -k start
+   33     - 0000000000000000 0000000000000000 0000000000001000 000000018c0046eb S    -          0:00 -
+   33 28780 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/apache2 -k start
+   33     - 0000000000000000 0000000000000000 0000000000001000 000000018c0046eb S    -          0:00 -
+   33 28809 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/apache2 -k start
+   33     - 0000000000000000 0000000000000000 0000000000001000 00000001880046eb S    -          0:00 -
+   33 28823 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/apache2 -k start
+   33     - 0000000000000000 0000000000000000 0000000000001000 000000018c0046eb S    -          0:00 -
+   33 28863 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/apache2 -k start
+   33     - 0000000000000000 0000000000000000 0000000000001000 000000018c0046eb S    -          0:00 -
+    0 28922 0000000000000000                -                -                - -    ?          0:00 sshd: aadolph [priv]
+    0     - 0000000000000000 0000000000000000 0000000000001000 0000000180004003 Ss   -          0:00 -
+ 8193 28925 0000000000000000                -                -                - -    ?          0:00 sshd: aadolph@pts/0
+ 8193     - 0000000000000000 0000000000000000 0000000000001000 0000000180010000 S    -          0:00 -
+ 8193 28926 0000000000000000                -                -                - -    pts/0      0:00 -shell
+ 8193     - 0000000000000000 0000000000010000 0000000000384004 00000001cb813efb Ss   -          0:00 -
+    0 28962 0000000000000000                -                -                - -    ?          0:00 sshd: s10427 [priv]
+    0     - 0000000000000000 0000000000000000 0000000000001000 0000000180004003 Ss   -          0:00 -
+14350 28965 0000000000000000                -                -                - -    ?          0:00 sshd: s10427@notty
+14350     - 0000000000000000 0000000000000000 0000000000001000 0000000180010000 S    -          0:00 -
+14350 28966 0000000000000000                -                -                - -    ?          0:00 /usr/lib/openssh/sftp-server
+14350     - 0000000000000000 0000000000000000 0000000000000000 0000000180000000 Ss   -          0:00 -
+   33 28970 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/apache2 -k start
+   33     - 0000000000000000 0000000000000000 0000000000001000 00000001880046eb S    -          0:00 -
+    0 28994 0000000000000000                -                -                - -    ?          0:00 sshd: s10428 [priv]
+    0     - 0000000000000000 0000000000000000 0000000000001000 0000000180004003 Ss   -          0:00 -
+14349 28996 0000000000000000                -                -                - -    ?          0:00 sshd: s10428@notty
+14349     - 0000000000000000 0000000000000000 0000000000001000 0000000180010000 S    -          0:00 -
+14349 28997 0000000000000000                -                -                - -    ?          0:00 /usr/lib/openssh/sftp-server
+14349     - 0000000000000000 0000000000000000 0000000000000000 0000000180000000 Ss   -          0:00 -
+    0 29060 0000000000000000                -                -                - -    ?          0:00 sshd: s9918 [priv]
+    0     - 0000000000000000 0000000000000000 0000000000001000 0000000180004003 Ss   -          0:00 -
+13486 29063 0000000000000000                -                -                - -    ?          0:00 sshd: s9918@notty
+13486     - 0000000000000000 0000000000000000 0000000000001000 0000000180010000 S    -          0:00 -
+13486 29064 0000000000000000                -                -                - -    ?          0:00 /usr/lib/openssh/sftp-server
+13486     - 0000000000000000 0000000000000000 0000000000000000 0000000180000000 Ss   -          0:00 -
+    0 29074 0000000000000000                -                -                - -    ?          0:00 sshd: aadolph [priv]
+    0     - 0000000000000000 0000000000000000 0000000000001000 0000000180004003 Ss   -          0:00 -
+ 8193 29076 0000000000000000                -                -                - -    ?          0:00 sshd: aadolph@notty
+ 8193     - 0000000000000000 0000000000000000 0000000000001000 0000000180010000 S    -          0:00 -
+ 8193 29077 0000000000000000                -                -                - -    ?          0:00 /usr/lib/openssh/sftp-server
+ 8193     - 0000000000000000 0000000000000000 0000000000000000 0000000180000000 Ss   -          0:00 -
+   33 29079 0000000000000000                -                -                - -    ?          0:00 /usr/sbin/apache2 -k start
+   33     - 0000000000000000 0000000000000000 0000000000001000 000000018c0046eb S    -          0:00 -
+ 8193 29115 0000000000000000                -                -                - -    pts/0      4:08 dd if=/dev/zero of=/dev/null
+ 8193     - 0000000000000000 0000000000000000 0000000000000006 0000000180000200 R    -          4:08 -
+ 8193 29121 0000000000000000                -                -                - -    pts/0      3:07 dd if=/dev/zero of=/dev/null
+ 8193     - 0000000000000000 0000000000000000 0000000000000006 0000000180000200 R    -          3:07 -
+ 8193 29128 0000000000000000                -                -                - -    pts/0      2:44 dd if=/dev/zero of=/dev/null
+ 8193     - 0000000000000000 0000000000000000 0000000000000006 0000000180000200 R    -          2:44 -
+    0 29167 0000000000000000                -                -                - -    ?          0:00 sleep 600
+    0     - 0000000000000000 0000000000000000 0000000000000003 0000000000000000 S    -          0:00 -
+ 8193 29185 0000000000000000                -                -                - -    pts/0      0:11 dd if=/dev/zero of=/dev/null
+ 8193     - 0000000000000000 0000000000000000 0000000000000006 0000000180000200 R    -          0:11 -
+    0 29202 0000000000000000                -                -                - -    ?          0:00 [flush-0:17]
+    0     - 0000000000000000 0000000000000000 ffffffffffffffff 0000000000000000 S    -          0:00 -
+ 8193 29203 0000000000000000                -                -                - -    pts/0      0:00 /bin/bash ./proces2.sh
+ 8193     - 0000000000000000 0000000000010000 0000000000000004 0000000000010002 S+   -          0:00 -
+ 8193 29205 0000000000000000                -                -                - -    pts/0      0:00 dd if=/dev/zero of=/dev/null
+ 8193     - 0000000000000000 0000000000000000 0000000000000006 0000000180000200 R+   -          0:00 -
+ 8193 29216 0000000000000000                -                -                - -    pts/0      0:00 ps axms
+ 8193     - 0000000000000000 0000000000000000 0000000000000000 0000000073d3fef9 R+   -          0:00 -
+Aby wyświetlić informacje związane z bezpieczeństwem:
+EUSER    RUSER    SUSER    FUSER    F COMMAND         LABEL
+root     root     root     root     4 init            -
+root     root     root     root     1 kthreadd        -
+root     root     root     root     1 migration/0     -
+root     root     root     root     1 ksoftirqd/0     -
+root     root     root     root     5 watchdog/0      -
+root     root     root     root     1 events/0        -
+root     root     root     root     1 cpuset          -
+root     root     root     root     1 khelper         -
+root     root     root     root     1 netns           -
+root     root     root     root     1 async/mgr       -
+root     root     root     root     1 pm              -
+root     root     root     root     1 sync_supers     -
+root     root     root     root     1 bdi-default     -
+root     root     root     root     1 kintegrityd/0   -
+root     root     root     root     1 kblockd/0       -
+root     root     root     root     1 kacpid          -
+root     root     root     root     1 kacpi_notify    -
+root     root     root     root     1 kacpi_hotplug   -
+root     root     root     root     5 kseriod         -
+root     root     root     root     1 kondemand/0     -
+root     root     root     root     1 khungtaskd      -
+root     root     root     root     1 kswapd0         -
+root     root     root     root     1 ksmd            -
+root     root     root     root     1 aio/0           -
+root     root     root     root     1 crypto/0        -
+root     root     root     root     1 ata/0           -
+root     root     root     root     1 ata_aux         -
+root     root     root     root     1 scsi_eh_0       -
+root     root     root     root     1 scsi_eh_1       -
+root     root     root     root     1 mpt_poll_0      -
+root     root     root     root     1 mpt/0           -
+root     root     root     root     1 scsi_eh_2       -
+root     root     root     root     1 jbd2/sda2-8     -
+root     root     root     root     1 ext4-dio-unwrit -
+root     root     root     root     5 udevd           -
+root     root     root     root     5 udevd           -
+root     root     root     root     5 udevd           -
+root     root     root     root     1 kpsmoused       -
+root     root     root     root     1 jbd2/sda7-8     -
+root     root     root     root     1 ext4-dio-unwrit -
+root     root     root     root     1 jbd2/sda6-8     -
+root     root     root     root     1 ext4-dio-unwrit -
+root     root     root     root     1 jbd2/sda3-8     -
+root     root     root     root     1 ext4-dio-unwrit -
+daemon   daemon   daemon   daemon   5 portmap         -
+statd    statd    statd    statd    5 rpc.statd       -
+root     root     root     root     5 rpciod/0        -
+root     root     root     root     1 kslowd000       -
+root     root     root     root     1 kslowd001       -
+root     root     root     root     1 nfsiod          -
+root     root     root     root     1 lockd           -
+root     root     root     root     5 rsyslogd        -
+root     root     root     root     1 acpid           -
+root     root     root     root     5 smbd            -
+root     root     root     root     1 vmmemctl        -
+root     root     root     root     0 vmtoolsd        -
+root     root     root     root     1 smbd            -
+daemon   root     daemon   daemon   1 atd             -
+root     root     root     root     5 cron            -
+105      105      105      105      5 dbus-daemon     -
+root     root     root     root     1 daemon          -
+root     root     root     root     0 mpt-statusd     -
+root     root     root     root     4 mysqld_safe     -
+mysql    mysql    mysql    mysql    4 mysqld          -
+root     root     root     root     0 logger          -
+ntp      ntp      ntp      ntp      5 ntpd            -
+postgres postgres postgres postgres 0 postgres        -
+101      101      101      101      5 exim4           -
+root     root     root     root     5 sshd            -
+root     root     root     root     0 getty           -
+root     root     root     root     0 getty           -
+root     root     root     root     0 getty           -
+root     root     root     root     0 getty           -
+root     root     root     root     0 getty           -
+root     root     root     root     0 getty           -
+postgres postgres postgres postgres 1 postgres        -
+postgres postgres postgres postgres 1 postgres        -
+postgres postgres postgres postgres 1 postgres        -
+root     root     root     root     5 apache2         -
+root     root     root     root     0 sh              -
+root     root     root     root     0 logger          -
+root     root     root     root     1 flush-8:0       -
+www-data www-data www-data www-data 5 apache2         -
+www-data www-data www-data www-data 5 apache2         -
+www-data www-data www-data www-data 5 apache2         -
+www-data www-data www-data www-data 5 apache2         -
+www-data www-data www-data www-data 5 apache2         -
+www-data www-data www-data www-data 5 apache2         -
+www-data www-data www-data www-data 5 apache2         -
+www-data www-data www-data www-data 5 apache2         -
+root     root     root     root     4 sshd            -
+aadolph  aadolph  aadolph  aadolph  5 sshd            -
+aadolph  aadolph  aadolph  aadolph  0 shell           -
+root     root     root     root     4 sshd            -
+s10427   s10427   s10427   s10427   5 sshd            -
+s10427   s10427   s10427   s10427   0 sftp-server     -
+www-data www-data www-data www-data 5 apache2         -
+root     root     root     root     4 sshd            -
+s10428   s10428   s10428   s10428   5 sshd            -
+s10428   s10428   s10428   s10428   0 sftp-server     -
+root     root     root     root     4 sshd            -
+s9918    s9918    s9918    s9918    5 sshd            -
+s9918    s9918    s9918    s9918    0 sftp-server     -
+root     root     root     root     4 sshd            -
+aadolph  aadolph  aadolph  aadolph  5 sshd            -
+aadolph  aadolph  aadolph  aadolph  0 sftp-server     -
+www-data www-data www-data www-data 5 apache2         -
+aadolph  aadolph  aadolph  aadolph  0 dd              -
+aadolph  aadolph  aadolph  aadolph  0 dd              -
+aadolph  aadolph  aadolph  aadolph  0 dd              -
+root     root     root     root     0 sleep           -
+aadolph  aadolph  aadolph  aadolph  0 dd              -
+root     root     root     root     1 flush-0:17      -
+aadolph  aadolph  aadolph  aadolph  0 proces2.sh      -
+aadolph  aadolph  aadolph  aadolph  0 dd              -
+aadolph  aadolph  aadolph  aadolph  0 ps              -
+LABEL                             PID TTY      STAT   TIME COMMAND
+-                                   1 ?        Ss     0:04 init [2]  
+-                                   2 ?        S      0:00 [kthreadd]
+-                                   3 ?        S      0:00 [migration/0]
+-                                   4 ?        S      0:00 [ksoftirqd/0]
+-                                   5 ?        S      0:00 [watchdog/0]
+-                                   6 ?        S      0:05 [events/0]
+-                                   7 ?        S      0:00 [cpuset]
+-                                   8 ?        S      0:00 [khelper]
+-                                   9 ?        S      0:00 [netns]
+-                                  10 ?        S      0:00 [async/mgr]
+-                                  11 ?        S      0:00 [pm]
+-                                  12 ?        S      0:00 [sync_supers]
+-                                  13 ?        S      0:00 [bdi-default]
+-                                  14 ?        S      0:00 [kintegrityd/0]
+-                                  15 ?        S      0:00 [kblockd/0]
+-                                  16 ?        S      0:00 [kacpid]
+-                                  17 ?        S      0:00 [kacpi_notify]
+-                                  18 ?        S      0:00 [kacpi_hotplug]
+-                                  19 ?        S      0:00 [kseriod]
+-                                  21 ?        S      0:00 [kondemand/0]
+-                                  22 ?        S      0:00 [khungtaskd]
+-                                  23 ?        S      0:01 [kswapd0]
+-                                  24 ?        SN     0:00 [ksmd]
+-                                  25 ?        S      0:00 [aio/0]
+-                                  26 ?        S      0:00 [crypto/0]
+-                                 193 ?        S      0:00 [ata/0]
+-                                 194 ?        S      0:00 [ata_aux]
+-                                 195 ?        S      0:00 [scsi_eh_0]
+-                                 196 ?        S      0:00 [scsi_eh_1]
+-                                 202 ?        S      0:03 [mpt_poll_0]
+-                                 203 ?        S      0:00 [mpt/0]
+-                                 208 ?        S      0:00 [scsi_eh_2]
+-                                 248 ?        S      0:00 [jbd2/sda2-8]
+-                                 249 ?        S      0:00 [ext4-dio-unwrit]
+-                                 296 ?        S<s    0:00 udevd --daemon
+-                                 399 ?        S<     0:00 udevd --daemon
+-                                 423 ?        S<     0:00 udevd --daemon
+-                                 462 ?        S      0:00 [kpsmoused]
+-                                 735 ?        S      0:00 [jbd2/sda7-8]
+-                                 736 ?        S      0:00 [ext4-dio-unwrit]
+-                                 737 ?        S      0:00 [jbd2/sda6-8]
+-                                 738 ?        S      0:00 [ext4-dio-unwrit]
+-                                 739 ?        S      0:02 [jbd2/sda3-8]
+-                                 740 ?        S      0:00 [ext4-dio-unwrit]
+-                                 823 ?        Ss     0:00 /sbin/portmap
+-                                 829 ?        Ss     0:00 /sbin/rpc.statd
+-                                 838 ?        S      0:00 [rpciod/0]
+-                                 839 ?        S<     0:00 [kslowd000]
+-                                 840 ?        S<     0:00 [kslowd001]
+-                                 841 ?        S      0:00 [nfsiod]
+-                                 854 ?        S      0:00 [lockd]
+-                                1026 ?        Sl     2:03 /usr/sbin/rsyslogd -c4
+-                                1089 ?        Ss     0:00 /usr/sbin/acpid
+-                                1095 ?        Ss     0:00 /usr/sbin/smbd -D
+-                                1173 ?        S      0:03 [vmmemctl]
+-                                1355 ?        Sl     3:07 /usr/sbin/vmtoolsd
+-                                1400 ?        S      0:00 /usr/sbin/smbd -D
+-                                1401 ?        Ss     0:00 /usr/sbin/atd
+-                                1427 ?        Ss     0:00 /usr/sbin/cron
+-                                1438 ?        Ss     0:00 /usr/bin/dbus-daemon --system
+-                                1460 ?        S      0:00 /usr/bin/daemon /etc/init.d/mpt-statusd check_mpt
+-                                1462 ?        S      0:00 /bin/sh /etc/init.d/mpt-statusd check_mpt
+-                                1524 ?        S      0:00 /bin/sh /usr/bin/mysqld_safe
+-                                1635 ?        Sl     1:29 /usr/sbin/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/run/mysqld/mysqld.sock --port=3306
+-                                1636 ?        S      0:00 logger -t mysqld -p daemon.error
+-                                1756 ?        Ss     0:12 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 107:111
+-                                1784 ?        S      0:00 /usr/lib/postgresql/8.4/bin/postgres -D /var/lib/postgresql/8.4/main -c config_file=/etc/postgresql/8.4/main/postgresql.conf
+-                                2661 ?        Ss     0:00 /usr/sbin/exim4 -bd -q30m
+-                                3141 ?        Ss     0:00 /usr/sbin/sshd
+-                                3281 tty1     Ss+    0:00 /sbin/getty 38400 tty1
+-                                3282 tty2     Ss+    0:00 /sbin/getty 38400 tty2
+-                                3283 tty3     Ss+    0:00 /sbin/getty 38400 tty3
+-                                3284 tty4     Ss+    0:00 /sbin/getty 38400 tty4
+-                                3285 tty5     Ss+    0:00 /sbin/getty 38400 tty5
+-                                3286 tty6     Ss+    0:00 /sbin/getty 38400 tty6
+-                                3389 ?        Ss     0:20 postgres: writer process                                                                                                    
+-                                3390 ?        Ss     0:19 postgres: wal writer process                                                                                                
+-                                3391 ?        Ss     0:03 postgres: stats collector process                                                                                           
+-                                9777 ?        Ss     0:05 /usr/sbin/apache2 -k start
+-                               25042 ?        S      0:00 /bin/sh -c /usr/bin/logger -t apache -p local7.info
+-                               25043 ?        S      0:00 /usr/bin/logger -t apache -p local7.info
+-                               26427 ?        S      0:00 [flush-8:0]
+-                               27603 ?        S      0:00 /usr/sbin/apache2 -k start
+-                               27623 ?        S      0:00 /usr/sbin/apache2 -k start
+-                               28540 ?        S      0:00 /usr/sbin/apache2 -k start
+-                               28634 ?        S      0:00 /usr/sbin/apache2 -k start
+-                               28780 ?        S      0:00 /usr/sbin/apache2 -k start
+-                               28809 ?        S      0:00 /usr/sbin/apache2 -k start
+-                               28823 ?        S      0:00 /usr/sbin/apache2 -k start
+-                               28863 ?        S      0:00 /usr/sbin/apache2 -k start
+-                               28922 ?        Ss     0:00 sshd: aadolph [priv]
+-                               28925 ?        S      0:00 sshd: aadolph@pts/0
+-                               28926 pts/0    Ss     0:00 -shell
+-                               28962 ?        Ss     0:00 sshd: s10427 [priv]
+-                               28965 ?        S      0:00 sshd: s10427@notty
+-                               28966 ?        Ss     0:00 /usr/lib/openssh/sftp-server
+-                               28970 ?        S      0:00 /usr/sbin/apache2 -k start
+-                               28994 ?        Ss     0:00 sshd: s10428 [priv]
+-                               28996 ?        S      0:00 sshd: s10428@notty
+-                               28997 ?        Ss     0:00 /usr/lib/openssh/sftp-server
+-                               29060 ?        Ss     0:00 sshd: s9918 [priv]
+-                               29063 ?        S      0:00 sshd: s9918@notty
+-                               29064 ?        Ss     0:00 /usr/lib/openssh/sftp-server
+-                               29074 ?        Ss     0:00 sshd: aadolph [priv]
+-                               29076 ?        S      0:00 sshd: aadolph@notty
+-                               29077 ?        Ss     0:00 /usr/lib/openssh/sftp-server
+-                               29079 ?        S      0:00 /usr/sbin/apache2 -k start
+-                               29115 pts/0    R      4:08 dd if=/dev/zero of=/dev/null
+-                               29121 pts/0    R      3:07 dd if=/dev/zero of=/dev/null
+-                               29128 pts/0    R      2:44 dd if=/dev/zero of=/dev/null
+-                               29167 ?        S      0:00 sleep 600
+-                               29185 pts/0    R      0:11 dd if=/dev/zero of=/dev/null
+-                               29202 ?        S      0:00 [flush-0:17]
+-                               29203 pts/0    S+     0:00 /bin/bash ./proces2.sh
+-                               29205 pts/0    R+     0:00 dd if=/dev/zero of=/dev/null
+-                               29218 pts/0    R+     0:00 ps axZ
+LABEL                             PID TTY          TIME CMD
+-                                   1 ?        00:00:04 init
+-                                   2 ?        00:00:00 kthreadd
+-                                   3 ?        00:00:00 migration/0
+-                                   4 ?        00:00:00 ksoftirqd/0
+-                                   5 ?        00:00:00 watchdog/0
+-                                   6 ?        00:00:05 events/0
+-                                   7 ?        00:00:00 cpuset
+-                                   8 ?        00:00:00 khelper
+-                                   9 ?        00:00:00 netns
+-                                  10 ?        00:00:00 async/mgr
+-                                  11 ?        00:00:00 pm
+-                                  12 ?        00:00:00 sync_supers
+-                                  13 ?        00:00:00 bdi-default
+-                                  14 ?        00:00:00 kintegrityd/0
+-                                  15 ?        00:00:00 kblockd/0
+-                                  16 ?        00:00:00 kacpid
+-                                  17 ?        00:00:00 kacpi_notify
+-                                  18 ?        00:00:00 kacpi_hotplug
+-                                  19 ?        00:00:00 kseriod
+-                                  21 ?        00:00:00 kondemand/0
+-                                  22 ?        00:00:00 khungtaskd
+-                                  23 ?        00:00:01 kswapd0
+-                                  24 ?        00:00:00 ksmd
+-                                  25 ?        00:00:00 aio/0
+-                                  26 ?        00:00:00 crypto/0
+-                                 193 ?        00:00:00 ata/0
+-                                 194 ?        00:00:00 ata_aux
+-                                 195 ?        00:00:00 scsi_eh_0
+-                                 196 ?        00:00:00 scsi_eh_1
+-                                 202 ?        00:00:03 mpt_poll_0
+-                                 203 ?        00:00:00 mpt/0
+-                                 208 ?        00:00:00 scsi_eh_2
+-                                 248 ?        00:00:00 jbd2/sda2-8
+-                                 249 ?        00:00:00 ext4-dio-unwrit
+-                                 296 ?        00:00:00 udevd
+-                                 399 ?        00:00:00 udevd
+-                                 423 ?        00:00:00 udevd
+-                                 462 ?        00:00:00 kpsmoused
+-                                 735 ?        00:00:00 jbd2/sda7-8
+-                                 736 ?        00:00:00 ext4-dio-unwrit
+-                                 737 ?        00:00:00 jbd2/sda6-8
+-                                 738 ?        00:00:00 ext4-dio-unwrit
+-                                 739 ?        00:00:02 jbd2/sda3-8
+-                                 740 ?        00:00:00 ext4-dio-unwrit
+-                                 823 ?        00:00:00 portmap
+-                                 829 ?        00:00:00 rpc.statd
+-                                 838 ?        00:00:00 rpciod/0
+-                                 839 ?        00:00:00 kslowd000
+-                                 840 ?        00:00:00 kslowd001
+-                                 841 ?        00:00:00 nfsiod
+-                                 854 ?        00:00:00 lockd
+-                                1026 ?        00:02:03 rsyslogd
+-                                1089 ?        00:00:00 acpid
+-                                1095 ?        00:00:00 smbd
+-                                1173 ?        00:00:03 vmmemctl
+-                                1355 ?        00:03:07 vmtoolsd
+-                                1400 ?        00:00:00 smbd
+-                                1401 ?        00:00:00 atd
+-                                1427 ?        00:00:00 cron
+-                                1438 ?        00:00:00 dbus-daemon
+-                                1460 ?        00:00:00 daemon
+-                                1462 ?        00:00:00 mpt-statusd
+-                                1524 ?        00:00:00 mysqld_safe
+-                                1635 ?        00:01:29 mysqld
+-                                1636 ?        00:00:00 logger
+-                                1756 ?        00:00:12 ntpd
+-                                1784 ?        00:00:00 postgres
+-                                2661 ?        00:00:00 exim4
+-                                3141 ?        00:00:00 sshd
+-                                3281 tty1     00:00:00 getty
+-                                3282 tty2     00:00:00 getty
+-                                3283 tty3     00:00:00 getty
+-                                3284 tty4     00:00:00 getty
+-                                3285 tty5     00:00:00 getty
+-                                3286 tty6     00:00:00 getty
+-                                3389 ?        00:00:20 postgres
+-                                3390 ?        00:00:19 postgres
+-                                3391 ?        00:00:03 postgres
+-                                9777 ?        00:00:05 apache2
+-                               25042 ?        00:00:00 sh
+-                               25043 ?        00:00:00 logger
+-                               26427 ?        00:00:00 flush-8:0
+-                               27603 ?        00:00:00 apache2
+-                               27623 ?        00:00:00 apache2
+-                               28540 ?        00:00:00 apache2
+-                               28634 ?        00:00:00 apache2
+-                               28780 ?        00:00:00 apache2
+-                               28809 ?        00:00:00 apache2
+-                               28823 ?        00:00:00 apache2
+-                               28863 ?        00:00:00 apache2
+-                               28922 ?        00:00:00 sshd
+-                               28925 ?        00:00:00 sshd
+-                               28926 pts/0    00:00:00 shell
+-                               28962 ?        00:00:00 sshd
+-                               28965 ?        00:00:00 sshd
+-                               28966 ?        00:00:00 sftp-server
+-                               28970 ?        00:00:00 apache2
+-                               28994 ?        00:00:00 sshd
+-                               28996 ?        00:00:00 sshd
+-                               28997 ?        00:00:00 sftp-server
+-                               29060 ?        00:00:00 sshd
+-                               29063 ?        00:00:00 sshd
+-                               29064 ?        00:00:00 sftp-server
+-                               29074 ?        00:00:00 sshd
+-                               29076 ?        00:00:00 sshd
+-                               29077 ?        00:00:00 sftp-server
+-                               29079 ?        00:00:00 apache2
+-                               29115 pts/0    00:04:08 dd
+-                               29121 pts/0    00:03:07 dd
+-                               29128 pts/0    00:02:44 dd
+-                               29167 ?        00:00:00 sleep
+-                               29185 pts/0    00:00:11 dd
+-                               29202 ?        00:00:00 flush-0:17
+-                               29203 pts/0    00:00:00 proces2.sh
+-                               29205 pts/0    00:00:00 dd
+-                               29219 pts/0    00:00:00 ps
+Aby zobaczyć wszystkie procesy poza tymi działającymi jako root - rzeczywiste i efektywne ID:
+  PID TTY          TIME CMD
+  823 ?        00:00:00 portmap
+  829 ?        00:00:00 rpc.statd
+ 1438 ?        00:00:00 dbus-daemon
+ 1635 ?        00:01:29 mysqld
+ 1756 ?        00:00:12 ntpd
+ 1784 ?        00:00:00 postgres
+ 2661 ?        00:00:00 exim4
+ 3389 ?        00:00:20 postgres
+ 3390 ?        00:00:19 postgres
+ 3391 ?        00:00:03 postgres
+27603 ?        00:00:00 apache2
+27623 ?        00:00:00 apache2
+28540 ?        00:00:00 apache2
+28634 ?        00:00:00 apache2
+28780 ?        00:00:00 apache2
+28809 ?        00:00:00 apache2
+28823 ?        00:00:00 apache2
+28863 ?        00:00:00 apache2
+28925 ?        00:00:00 sshd
+28926 pts/0    00:00:00 shell
+28965 ?        00:00:00 sshd
+28966 ?        00:00:00 sftp-server
+28970 ?        00:00:00 apache2
+28996 ?        00:00:00 sshd
+28997 ?        00:00:00 sftp-server
+29063 ?        00:00:00 sshd
+29064 ?        00:00:00 sftp-server
+29076 ?        00:00:00 sshd
+29077 ?        00:00:00 sftp-server
+29079 ?        00:00:00 apache2
+29115 pts/0    00:04:08 dd
+29121 pts/0    00:03:07 dd
+29128 pts/0    00:02:44 dd
+29185 pts/0    00:00:11 dd
+29203 pts/0    00:00:00 proces2.sh
+29205 pts/0    00:00:00 dd
+29220 pts/0    00:00:00 ps
+Wyświetlenie deskryptorów pól AIX:
+RUSER    : USER     :   PID : COMMAND
+aadolph  : aadolph  : 28926 : -shell
+aadolph  : aadolph  : 29115 : dd if=/dev/zero of=/dev/null
+aadolph  : aadolph  : 29121 : dd if=/dev/zero of=/dev/null
+aadolph  : aadolph  : 29128 : dd if=/dev/zero of=/dev/null
+aadolph  : aadolph  : 29185 : dd if=/dev/zero of=/dev/null
+aadolph  : aadolph  : 29203 : /bin/bash ./proces2.sh
+aadolph  : aadolph  : 29205 : dd if=/dev/zero of=/dev/null
+aadolph  : aadolph  : 29221 : ps -o %u : %U : %p : %a

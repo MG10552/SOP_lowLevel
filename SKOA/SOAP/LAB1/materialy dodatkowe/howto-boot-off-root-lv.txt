@@ -1,0 +1,88 @@
+HOW TO BOOT YOUR ROOT FS OFF OF LVM
+---
+
+The following is an email I recieved from Michael, interspersed with my
+own comments. [Also, it may not be valid for more up-to-date versions of
+LVM, it was written back in the pre-1.0 days. -DJE.]
+
+Date: Fri, 20 Oct 2000 23:41:44 +0200
+From: Michael Muehrenberg <Michael.Muehrenberg@t-online.de>
+To: Dominic J. Eidson <sauron@the-infinite.org>
+
+Am Freitag, 20. Oktober 2000 23:39 schrieben Sie:
+> Have a short/quick howto on setting up booting off of an initrd to allow
+> the root filesystem (and others) to be on LVM?
+
+It goes something like this:
+
+Can i have my root filesystem in a logical volume? 
+
+Yes you can. There's basic support since LVM 0.7 to create an initial ram 
+disk containing the necessary executables, device specials etc. to switch to 
+a logical volume containing a root filesystem. See script 
+lvmcreate_initrd(8). 
+
+lvmcreate_initrd creates a new compressed initial ramdisk 
+in /boot/initrd.gz. The initial ramdisk contains all nec­ 
+essary binaries, shared libraries and a linuxrc file to 
+switch to a logical volume based root filesystem. To 
+build an initial ramdisk for a not running but generated 
+kernel add the KernelVersion parameter (for eg. 2.3.25) on 
+the command line. 
+
+The necessary actions to change your system into a "root 
+on logical volume" one are: 
+
+Create a small (~20MB) partition which is bios reachable 
+to hold the /boot filesystem (if you already have a small 
+partition based root filesystem this can as well be used). 
+
+If you like to standalone boot from this partition in case of an emergency, 
+copy all necessary binaries and libraries 
+to that filesystem as well and create a corresponding 
+/etc/lilo.conf entry. In order to be able to edit 
+lilo.conf in case you booted standalone, you should move 
+/etc/lilo.conf to /boot/lilo.conf and create a symbolic 
+link to it in /etc instead. This is not needed if you 
+have a boot/root floppy which contains the LVM binaries 
+and the library in addition. 
+Create all logical volumes you need (for root, usr, opt 
+etc.), create filesystems in them, mount them and transfer 
+all files from the partition based filesystems into the 
+logical volumes based ones. 
+You have to setup your /etc/lilo.conf with a boot configuration like:
+
+image = /boot/vmlinuz 
+initrd = /boot/initrd.gz
+root = /dev/YourVG/YourRootLV
+label = rootonlv
+append = "ramdisk_size=8192"
+
+Replace YourVG and YourRootLV by your actual volume group 
+and root logical volume names. In addition to that your 
+/etc/fstab in your root logical volume has to contain: /dev/YourVG/YourRootLV 
+
+/     ext2   defaults   0   1
+/dev/YourBootPartition       /boot ext2   defaults   0   2
+/dev/YourVG/YourUsrLV        /usr  ext2   defaults   0   3
+/dev/YourVG/YourOptLV        /opt  ext2   defaults   0   4
+
+etc. 
+You can use other supported filesystem types as well 
+(reiserfs for eg.) in case you generated support for those 
+into your kernel. Run lilo, reboot and try... 
+The partitions containing the former /usr, /opt etc. 
+filesystems can now be used as physical volumes. pvcre­ 
+ate(8) them and add them for eg. to YourVG. 
+lvcmcreate_initrd return 0 for success. 1 is returned in 
+all other cases.
+
+
+The only things I had to do, was uncompress and mount the initrd.gz image,
+and remove the "insmod lvm" line - I was using a SuSE 6.4 install, and lvm
+support was compiled into the kernel already.
+
+After this it worked just fine.
+
+Feel free to email me with any questions/comments - email address is
+above.

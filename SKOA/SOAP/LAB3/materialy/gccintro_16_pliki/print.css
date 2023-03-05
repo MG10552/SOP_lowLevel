@@ -1,0 +1,49 @@
+@media print {
+
+body {
+      background: white;
+      color: black;
+      font-size: 11pt;
+      font-family: serif;
+      width: 90%;
+}
+
+h1 { font-size: 14pt; border: none;}
+h2, h3, h4, h5 { font-size: 12pt; border: none;}
+
+div.nav, div.nav2 { display: none !important ; }
+
+pre {
+       white-space: pre-wrap;       /* css-3 */
+       white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+       white-space: -pre-wrap;      /* Opera 4-6 */
+       white-space: -o-pre-wrap;    /* Opera 7 */
+       word-wrap: break-word;       /* Internet Explorer 5.5+ */
+       font-size: 8pt;
+       border: none;
+}
+
+code, samp { font-family: Courier, monospace; }
+
+div.Header {
+        font-family: sans-serif;
+        font-size: 16pt;
+        display: block !important; 
+        border-bottom: solid 1px;
+} 
+
+div.Footer {
+     font-family: sans-serif;
+     font-size: 8pt;
+     font-style: italic;
+     display: block !important; 
+     margin: 2em 0px 1em 0px;
+     padding: 1ex 0px 1ex 0px;
+     border-top: solid 1px; 
+}
+
+.print {
+        display: block;
+}
+
+}

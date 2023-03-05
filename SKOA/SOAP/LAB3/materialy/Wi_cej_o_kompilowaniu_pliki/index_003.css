@@ -1,0 +1,357 @@
+/* Umieszczony tutaj kod CSS wpłynie na wygląd skórki Monobook
+
+Zobacz też [[MediaWiki:Common.css]]
+<pre><nowiki> */
+
+/* Nie dawać większego ze względu na IE! */
+#searchGoButton { padding:0 4px!important; }
+
+a { text-decoration: none; color: #2939B5; }
+a:visited  { color: #00008B; }
+a.external {color: teal; }
+a.stub {color: #2B6653; }
+
+#content { color : black; } 
+#content { background : white; } 
+#p-cactions li { background : white; } 
+#p-cactions li a { background : white; } 
+
+/* Głowna */
+.ns-0 * #content { color : black; } 
+.ns-0 * #content { background : white; }
+.ns-0 * table { background-color : white; }
+.ns-0 * #p-cactions li { background : white; }
+.ns-0 * #p-cactions li a { background : white; }
+.ns-0 * div.thumb { border-color: white; }
+
+/* Dyskusja */
+.ns-1 * #content { color : black; } 
+.ns-1 * #content { background : #FFFFF8; }
+.ns-1 * table { background-color : #FFFFF8; }
+.ns-1 * #p-cactions li { background : #FFFFF8; }
+.ns-1 * #p-cactions li a { background : #FFFFF8; }
+.ns-1 * div.thumb { border-color: #FFFFF8; }
+
+/* Wikipisarze */
+.ns-2 * #content { color : black; } 
+.ns-2 * #content { background : #F8FCFF; }
+.ns-2 * table { background-color : #F8FCFF; }
+.ns-2 * #p-cactions li { background : #F8FCFF; }
+.ns-2 * #p-cactions li a { background : #F8FCFF; }
+.ns-2 * div.thumb { border-color: #F8FCFF; }
+
+/* Dyskusja Wikipisarza */
+.ns-3 * #content { color : black; } 
+.ns-3 * #content { background : #FFFFF8; }
+.ns-3 * table { background-color : #FFFFF8; }
+.ns-3 * #p-cactions li { background : #FFFFF8; }
+.ns-3 * #p-cactions li a { background : #FFFFF8; }
+.ns-3 * div.thumb { border-color: #FFFFF8; }
+
+/* Wikibooks */
+.ns-4 * #content { color : black; } 
+.ns-4 * #content { background : #F8FCFF; }
+.ns-4 * table { background-color : #F8FCFF; }
+.ns-4 * #p-cactions li { background : #F8FCFF; }
+.ns-4 * #p-cactions li a { background : #F8FCFF; }
+.ns-4 * div.thumb { border-color: #F8FCFF; }
+
+/* Dyskusja Wikibooks */
+.ns-5 * #content { color : black; } 
+.ns-5 * #content { background : #FFFFF8; }
+.ns-5 * table { background-color : #FFFFF8; }
+.ns-5 * #p-cactions li { background : #FFFFF8; }
+.ns-5 * #p-cactions li a { background : #FFFFF8; }
+.ns-5 * div.thumb { border-color: #FFFFF8; }
+
+/* Grafika */
+.ns-6 * #content { color : black; } 
+.ns-6 * #content { background : #F0F0F0; }
+.ns-6 * table { background-color : #F0F0F0; }
+.ns-6 * #p-cactions li { background : #F0F0F0; }
+.ns-6 * #p-cactions li a { background : #F0F0F0; }
+.ns-6 * div.thumb { border-color: #F0F0F0; }
+
+/* Dyskusja grafiki */
+.ns-7 * #content { background : #FFFFF8; }
+.ns-7 * #content { color : black; } 
+.ns-7 * table { background-color : #FFFFF8; }
+.ns-7 * #p-cactions li { background : #FFFFF8; }
+.ns-7 * #p-cactions li a { background : #FFFFF8; }
+.ns-7 * div.thumb { border-color: #FFFFF8; }
+
+/* MediaWiki */
+.ns-8 * #content { color : black; } 
+.ns-8 * #content { background : #F0F0F0; }
+.ns-8 * table { background-color : #F0F0F0; }
+.ns-8 * #p-cactions li { background : #F0F0F0; }
+.ns-8 * #p-cactions li a { background : #F0F0F0; }
+.ns-8 * div.thumb { border-color: #F0F0F0; }
+
+/* Dyskusja MediaWiki */
+.ns-9 * #content { color : black; } 
+.ns-9 * #content { background : #FFFFF8; }
+.ns-9 * table { background-color : #FFFFF8; }
+.ns-9 * #p-cactions li { background : #FFFFF8; }
+.ns-9 * #p-cactions li a { background : #FFFFF8; }
+.ns-9 * div.thumb { border-color: #FFFFF8; }
+
+/* Szablon */
+.ns-10 * #content { color : black; } 
+.ns-10 * #content { background : #F0F0F0; }
+.ns-10 * table { background-color : #F0F0F0; }
+.ns-10 * #p-cactions li { background : #F0F0F0; }
+.ns-10 * #p-cactions li a { background : #F0F0F0; }
+.ns-10 * div.thumb { border-color: #F0F0F0; }
+
+/* Dyskusja szablonu */
+.ns-11 * #content { color : black; } 
+.ns-11 * #content { background : #FFFFF8; }
+.ns-11 * table { background-color : #FFFFF8; }
+.ns-11 * #p-cactions li { background : #FFFFF8; }
+.ns-11 * #p-cactions li a { background : #FFFFF8; }
+.ns-11 * div.thumb { border-color: #FFFFF8; }
+
+/* Pomoc */
+.ns-12 * #content { color : black; } 
+.ns-12 * #content { background : #F8FCFF; }
+.ns-12 * table { background-color : #F8FCFF; }
+.ns-12 * #p-cactions li { background : #F8FCFF; }
+.ns-12 * #p-cactions li a { background : #F8FCFF; }
+.ns-12 * div.thumb { border-color: #F8FCFF; }
+
+/* Dyskusja pomocy */
+.ns-13 * #content { color : black; } 
+.ns-13 * #content { background : #FFFFF8; }
+.ns-13 * table { background-color : #FFFFF8; }
+.ns-13 * #p-cactions li { background : #FFFFF8; }
+.ns-13 * #p-cactions li a { background : #FFFFF8; }
+.ns-13 * div.thumb { border-color: #FFFFF8; }
+
+/* Kategoria */
+/* ns-14 */
+
+/* Dyskusja kategorii */
+.ns-15 * #content { color : black; } 
+.ns-15 * #content { background : #FFFFF8; }
+.ns-15 * table { background-color : #FFFFF8; }
+.ns-15 * #p-cactions li { background : #FFFFF8; }
+.ns-15 * #p-cactions li a { background : #FFFFF8; }
+.ns-15 * div.thumb { border-color: #FFFFF8; }
+
+#ca-edit a { font-weight: bold !important; }
+
+td.diff-otitle { background-color: inherit; }
+td.diff-ntitle { background-color: inherit; }
+.diffchange { font-weight: bold; background-color: inherit; }
+td.diff-addedline, td.diff-deletedline, td.diff-context { font-size: 85%; color: inherit; }
+
+/* Remove padding from external links displayed without icon */
+#bodyContent .plainlinks a {padding: 0 !important }
+
+span.subpages {
+   display: none;
+}
+
+#pwContent {
+   font-size: 120%;
+   margin-bottom: 5px;
+}
+
+#pwFHButtonDiv {
+   clear: right;
+   float: right;
+}
+
+#pwNavInput {
+   width: 70%;
+   padding: 1px;
+   font-size: 90%;
+}
+
+#pwdiv {
+   width: 70%;
+   padding: 2px 2px 4px 2px;
+   font-size: 100%;
+   margin-bottom: 3px;
+}
+
+#pwtools-input {
+   width: 25%;
+   height: 10pt;
+   font-size: 8pt;
+}
+
+span.firstHeading-prefix {
+   color: #8683A0;
+   font-size: 90%;
+}
+
+span.firstHeading-title {
+   color: #000000;
+}
+
+.NavToggle {font-size: x-small;float:right; margin-right: 5px;}
+
+.highlight-keyword {
+        color: #0F1E72;
+        font-weight: bold;
+}
+
+.highlight-string {
+        color: #9A0003;
+}
+
+.highlight-int {
+        color: #025891;
+}
+
+.highlight-float {
+        color: #500266;
+}
+
+.highlight-comment {
+        color: #4F5564;
+        font-style: italic;
+}
+
+/* fenetre arrondi (pour les navigateurs moz/firefox/gecko) */
+.pBody 
+{
+   padding: 0.3em 0.1em;
+  /* -moz-border-radius-topright: 0.5em;*/
+}
+.portlet h5 
+{
+   background-color: #e0e3e6;
+   border: thin solid silver;
+   -moz-border-radius-topright: 0.5em;
+}
+/*#p-cactions ul li, #p-cactions ul li a 
+{  
+  -moz-border-radius-topright: 0.5em;
+  -moz-border-radius-topleft: 0.5em;
+}
+*/
+/*#content
+{
+  -moz-border-radius-topleft: 0.5em;
+}
+*/
+div.BoxenVerschmelzen,
+div.NavFrame {
+        margin: 0px;
+        padding: 2px;
+        border: 1px solid #aaaaaa;
+        text-align: center;
+        border-collapse: collapse;
+        font-size: 95%;
+}
+div.BoxenVerschmelzen div.NavFrame {
+        border-style: none;
+        border-style: hidden;
+}
+div.NavFrame + div.NavFrame {
+        border-top-style: none;
+        border-top-style: hidden;
+}
+div.NavPic {
+        background-color: #ffffff;
+        margin: 0px;
+        padding: 2px;
+        float: left;
+}
+div.NavFrame div.NavHead {
+        height: 1.6em;
+        font-weight: bold;
+        font-size: 100%;
+        background-color: #efefef;
+}
+div.NavFrame p {
+        font-size: 100%;
+}
+div.NavFrame div.NavContent {
+        font-size: 100%;
+}
+div.NavFrame div.NavContent p {
+        font-size: 100%;
+}
+div.NavEnd {
+        margin: 0px;
+        padding: 0px;
+        line-height: 1px;
+        clear: both;
+}
+
+.NavToggle {
+    font-size: x-small;
+    float:right;
+}
+
+/* obramowanie wokół zmienionego tekstu w podglądzie zmian */
+td.diff-otitle {background-color: inherit;}
+td.diff-ntitle {background-color: inherit;}
+.diffchange {font-weight: bold; background-color: inherit; border:1px dotted rgb(170, 170, 170);}
+td.diff-addedline, td.diff-deletedline, td.diff-context {font-size: 85%; color: inherit;}
+
+/*</nowiki></pre>*/
+
+/*Tabele kont dla podręczników*/
+
+table.konta td {
+     vertical-align: top;
+}
+
+table.konto { 
+    margin: 1em 1em 1em 0; 
+    color: black; background: #f9f9f9; 
+    border: 1px #aaaaaa solid; border-collapse: collapse; width: 240px;
+}
+
+table.konto .tytul {
+    width: 15%; 
+} 
+table.konto .kwota {
+    width: 35%; 
+} 
+table.konto .winien {
+    background-color: #dfd;  
+}
+table.konto .ma {
+    background-color: white; 
+}
+
+table.konto th {
+    text-align: center; 
+}
+table.konto th.ma, th.winien {
+    border-bottom: 3px black solid; 
+}
+
+
+table.konto td {
+    border-top: 1px #aaaaaa solid; 
+    border-bottom: 1px #aaaaaa solid; 
+    padding: 0.5em 0.5em 0.5ex 0.5ex;
+    text-align: right;  
+}
+
+table.konto td.winien.kwota  {
+    border-right:  3px black solid; 
+} 
+
+table.konto td.ma.kwota {
+    border-left:   3px black solid; 
+}
+
+table.konto td.ma.tytul {
+    text-align: left; 
+}
+
+table.konto td.winien.tytul {
+    text-align: right; 
+}
+ 
+table.konto tr.stopka {
+    border-top: 2px black solid;  
+}
