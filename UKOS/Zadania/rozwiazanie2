@@ -1,0 +1,46 @@
+#!/bin/bash
+if [ $# -eq 1 ]
+then
+  NOW=$1
+else
+  NOW=`date +%Y%m%d`
+fi
+  
+DZIEN=`date --date $NOW +%A`
+MIESIAC=`date --date $NOW +%b`
+NUMER=`date --date $NOW +%d`
+TERAZ=`date --date $NOW`
+echo "DZIS JEST $TERAZ ($DZIEN)"
+
+case $MIESIAC in
+  kwi | maj)
+    echo "Kolejny dzień wiosny"
+    ;;
+  lip | sie)
+    echo "Kolejny dziań lata"
+    ;;
+  paź | lis)
+    echo "Kolejny dziań jesieni"
+    ;;
+  sty | lut)
+    echo "Kolejny dzień zimy"
+    ;;
+esac
+
+if [ $MIESIAC == gru -a $NUMER -ge 22 -o $MIESIAC == mar -a $NUMER -lt 21 ]
+then
+  echo "Kolejny dzień zimy"
+fi
+if [ $MIESIAC == mar -a $NUMER -ge 21 -o $MIESIAC == cze -a $NUMER -lt 22 ]
+then
+  echo "Kolejny dzień wiosny"
+fi
+if [ $MIESIAC == cze -a $NUMER -ge 22 -o $MIESIAC == wrz -a $NUMER -lt 23 ]
+then
+  echo "Kolejny dzień lata"
+fi
+if [ $MIESIAC == wrz -a $NUMER -ge 23 -o $MIESIAC == gru -a $NUMER -lt 22 ]
+then
+  echo "Kolejny dzień jesieni"
+fi
+

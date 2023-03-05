@@ -1,0 +1,28 @@
+1. Napisz skrypt, który przyjmuje jeden 
+parametr -  liczbę naturalną n
+i wypisuje na ekanie wszystkie 
+litery alfabrtu, ich liczbę oraz 
+n-tą literę alfabetu
+
+ALFA = ( x a b c d ... )
+ALFA = ( [1] a b c d ... )
+
+2. Napisz skrypt wyświetlający informację
+o tym, jaki jest dzień tygodnia 
+i aktualna pora roku
+
+zima=22.XII-20.III
+wiosna=21.III-21.VI
+lato=22.VI-22.IX
+jesien=23.IX-21.XII
+
+dodawanie liczb 
+B=$(( A + 1 ))
+a nie tak: 
+B=A+1
+
+let B=A+1
+
+
+
+

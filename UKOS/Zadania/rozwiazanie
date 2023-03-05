@@ -1,0 +1,8 @@
+#!/bin/bash
+ALFABET=([1]=a b c d e f g h i j k l m n o p r s t u w x y z)
+echo ${ALFABET[*]}
+echo ${#ALFABET[@]}
+echo ${ALFABET[$1]}
+n=$1
+echo ${ALFABET[$n]}
+
