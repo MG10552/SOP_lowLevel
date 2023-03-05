@@ -1,0 +1,107 @@
+//---------------------------- Zadanie 1
+
+!#/bin/bash
+
+function fib() {
+
+	if [ $1 -le 0 ]; then
+	  echo 0
+	elif [ $1 -eq 1]; then
+	  echo 1
+	else 
+	  echo $[ 'fib $[$1-2]' + 'fib $[$1-1]' ];
+	if
+}
+
+for i in 'seq l $1'; do
+	echo -n "dla elementu $i ";
+	fib $i
+done
+
+//------------------------ Zadanie 2
+
+!#/bin/bash
+
+for plik in $(ls)
+do
+	case
+		*.txt ) mv $plik /tmp ;;
+		*.png ) convert $plik "$plik.jpeg" ;;
+		*.c ) gcc $plik -o "$plik.out" ;;
+		* ) echo "Nie wiem co zrobic z plikiem $plik" ;;
+	esac 
+done
+
+//------------------------ Zadanie 4
+
+!#/bin/bash
+
+for var in "$@"
+do
+	echo ${var:1:4}
+done
+
+//------------------------ Zadanie 5
+
+!#/bin/bash 
+
+for $string in "$@"
+do 
+echo $string |cut -d '((' -f1 | read str1  
+echo $string |cut -d '))' -f2 | read str2
+done
+
+//------------------------ Zadanie 6
+
+!#/bin/bash
+
+getent passwd | awk -F "." '{ print $1 " " $6}'
+//lub
+cat etc/passwd | awk -F "." '{ print $1 " " $6}'
+//lub 
+awk -F "." '{ print $1 " " $6}' etc/passwd
+
+//------------------------ Zadanie 7
+
+!#/bin/bash
+
+awk -F ":" '$1~/...+/{ print $1 " " $6}' etc/passwd
+//lub
+awk -F ":" '$1~/.{3,}/{ print $1 " " $6}' etc/passwd
+
+//------------------------ Zadanie 8
+
+!#/bin/bash
+
+echo "<html><body><table>" > plik.html
+getent passwd |awk -F ":" '{print "<tr><td>"$1 "</td></td>" $6 "</td><td>" $7 "</td></tr>"}' >> plik.html
+
+echo "</table></body></html>" >> plik.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

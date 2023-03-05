@@ -1,0 +1,82 @@
+//------------------------------- zadanie 1 ----------------------------------------------
+
+#include <std.h>
+
+int main(){
+	
+	FILE *file =fopen("test.txt", "rb");
+	if (fseek(file,0,SEEK_END)){
+	 printf("ERROR");
+	 return 1;
+	}
+	 else{
+	 long dlugosc=ftell(file);
+	 if(dlugosc<0){
+	 printf("ERROR");
+	 return 2;
+	}
+	else{
+	 printf("dlugosc: %d bytes\n", dlugosc);
+	 fclose(file);
+	 return 0;	
+	}
+}
+
+//------------------------------- zadanie 2 ----------------------------------------------
+
+#include <stdio.h>
+
+int main(int argc, char *argv[]){
+	
+	FILE *file = fopen(argv[1], "rb");
+	if (fseek(file,0,SEEK_END)){
+	 printf("ERROR");
+	 return 1;
+	}
+	 else{
+	 long dlugosc=ftell(file);
+	 if(dlugosc<0){
+	 printf("ERROR");
+	 return 2;
+	}
+	else{
+	char* bufor = malloc(dlugosc); //alokacja panięciu
+	fseek(file, 0, SEEK_SET);
+	fread(buffer, 1, dlugosc, file);
+	printf("Dane wczytane: %s ", bufor);
+	free(bufor);
+	fclose(file);		
+	return 0;	
+	}
+}
+
+//------------------------------- zadanie 2 ----------------------------------------------
+
+
+#include <stdio.h>
+
+int main(int argc, char *argv[]){
+
+FILE *file = fopen(argv[1], "rb");
+	if (fseek(file,0,SEEK_END)){
+	 printf("ERROR");
+	 return 1;
+	}
+	 else{
+	 long dlugosc=ftell(file);
+	 if(dlugosc<0){
+	 printf("ERROR");
+	 return 2;
+	}
+	else{
+	
+
+	}
+	
+
+	free(bufor);
+	fclose(file);		
+	return 0;	
+	}
+
+}

@@ -1,0 +1,200 @@
+//---------------------------- zad1
+#include <stdio.h>
+
+int main(){
+printf("Sup-prise motherfucker!");
+return 0;
+}
+
+//---------------------------- zad2
+
+#include <stdio.h>
+main(){
+int liczba;
+printf("Podaj liczbę: ");
+scanf("%d", &liczba);
+wynik = liczba * liczba;
+printf("Kwadrat liczby %d to %d\n", liczba);
+return 0;
+}
+
+//---------------------------- zad3
+
+#include <stdio.h>
+
+int main(){
+int x,y, wynik;
+char znak[2];
+printf("Podaj pierwszą liczbe\n");
+scanf("%d", &x);
+printf("Podaj podaj działanie\n");
+scanf("%1s", znak);
+printf("Podaj drugą liczbe\n");
+scanf("%d", &y);
+
+switch(znak)
+	case '+': wynik = x+y; break;
+	case '-': wynik = x-y; break;
+	case '*': wynik = x*y; break;
+	case '/': if (y == 0){
+		 printf("error\n");
+		}else{
+		 wynik = x/y;} break;
+	default: printf("Done nothing");
+}
+printf("wynik %d:", wynik);
+
+return 0;
+}
+
+//---------------------------- zad4
+
+#include <stdio.h>
+
+int main()
+{
+int liczba, i;
+char text[10];
+
+scanf("%d", &liczba);
+scanf("%9s", text);
+
+for (i=0; i<liczba; i++)
+	printf("%s\n", text);
+return 0;
+}
+
+//---------------------------- zad5+1
+
+int gcd (int i, int b){if (b==0){return a;}esle return gcd(b, a%b);}
+
+#include <stdio.h>
+int main(){
+	int a, b;
+scanf("%d %d", &a, &b)
+printf("%d\n", gcd(a,b))
+return 0;
+} 
+
+//---------------------------- zad6+1
+
+int fib(int a){if (a==0){return 0;} else if (a==1){return 1;} else return fib(a-1)+fib(a-2);}
+
+#include <stdio.h>
+int main(){
+	int a, b;
+scanf("%d %d", &a, &b)
+printf("%d\n", fib(a))
+return 0;
+} 
+
+//---------------------------- zad7+1
+
+#include <stdio.h>
+
+int main(){
+int i,n;
+	printf("Podaj rozmiar tablicy: ");
+	scanf("%d", &n);
+int tab[n];
+	printf("Podaj znak: \n");
+		for (i=0;;i<n;]i++){
+	scanf("%d", &tab[i]);
+}
+for (i=n-1; i>=0; i--) {
+printf(%d, tab[i]);
+}
+return 0;
+
+}
+
+//---------------------------- zad8+1
+
+#include <stdio.h>
+
+void bubblesort(int *tab, int dlugosc){
+int i,j, temp;
+
+for(i=0;i<dlugosc-1;i++){
+for(j=0; j<dlugosc-1;j++){
+if(tab[j] > tab[j+1]){
+temp=tab[j];
+tab[j]=tab[j+1];
+tab[j+1]=temp;
+}
+}
+}
+}
+
+int main(){
+int tab[10] = {4,5,20,7,3,15,2,0,8,50};
+int i;
+
+for i=0; i<10; i++)
+{ printf("%d", tab[i]); }
+
+printf("\npo sortowaniu: \n");
+bubblesort(tab,10);
+
+for (i=0; i<10; i++){
+printf(%d, tab[i]);
+}
+printf("\n");
+
+return 0;
+}
+
+//---------------------------- zad9+1
+
+#include <stdio.h>
+
+typedef struct Lista Lista;
+struct Lista
+{void* Value; Lista* Next;};
+
+void AddToList(Lista* List, void* Thing);
+void RemoveFromList(Lista* List, void* Thing);
+void FindOnList(Lista* List, void* Thing);
+Lista* CreateList();
+
+int main(){
+
+return 0;
+}
+
+AddToList(Lista* List, void* Thing)
+{
+	if (List->Next){
+	AddToList(List->Next, Thing);
+	return;
+}
+	Lista* NewElement = malloc(sizeof(Lista));
+	List->Next = NewElement;
+	NewElement->Value = Thing;
+}
+
+void RemoveFromList(Lista* List, void* Thing)
+{
+	if(!List->Next)
+	{
+	return;
+	}
+	if(List->Next->Value == Thing)
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
