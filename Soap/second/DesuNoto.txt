@@ -1,0 +1,80 @@
+Soap1
+
+L1Z1:
+grep -e [A-ZĄĆŁÓĘ].\*a\$ 01imiona.txt
+
+L1Z2:
+grep -v [A-ZĄĆŁÓĘ].\*a\$ 01imiona.txt
+//lub
+grep -e [A-ZĄĆŁÓĘ].\*[^a]\$ 01imiona.txt
+
+L1Z3:
+cat 01imiona.txt | grep -E '.*@([a-z]+\.)*[a-z]+$'
+
+L1Z4:
+ 
+export PS1='cake'
+echo $PS1
+//lub 
+export PS1="[\@] \u@\h>" //bierzący kotalog będzie znakiem zachęty
+
+L1Z6:
+export AD="lubie placki"
+echo $AD
+
+L1Z8:
+Script:
+
+#!/bin/bash
+echo "sokme"
+
+//chmod 777 script8
+
+L1Z9:
+
+#!/bin/bash
+echo "sokme $1 heu"
+
+L1Z10:
+
+#!/bin/bash
+$USER
+echo "Witaj $USER, jak sie masz?
+
+L1Z12:
+#!/bin/bash
+
+for zmienna in $(ls | grep -e '^.*\.tmp$')
+do
+echo "Znalazlem plink $zmienna"
+done
+
+L1ZX:
+Choinka:
+
+#!/bin/bash
+
+for ((i=1; $i<=$1; i++))
+do
+for ((j=$1; $1 >= $()($i-1));j--)
+do
+echo -n " "
+done
+for ((j=0;j<$(($i *2 - 1)); j++))
+do
+echo -n "*"
+done
+echo ""
+done
+
+//koniec choinki
+
+fork bomb:
+
+#!/bin/bash
+
+while true;
+do
+$0 &
+done
+//

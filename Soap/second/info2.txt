@@ -1,0 +1,28 @@
+Oczekiwanie na procesy
+----------------------
+
+1. ZOMBI
+Po utworzeniu nowego procesu za pomocą fork() lub exec(), proces nadrzędny powinien
+poczekać, aż proces podrzędny zakończy działanie, aby pobrać kod wyjścia i zapobiec
+powstawaniu procesu "ZOMBI". (Podstawowe funkcje to: wait() i waitpid()).
+Proces zombi jest procesem podrzędnym, który kończy działanie, zanim proces nadrzędny 
+pobierze jego stan końcowy zapomocą funkcji wait() i waitpid().
+
+Proces nadrzędny zbiera stan końcowy procesu podrzędnego, używając jednej z funkcji
+wait (jest kilka !!!), służącej do pobrania stanu koncowego z tabeli procesów jadra.
+Proces nazywany jest zombi, ponieważ już nie działa, ale w dalszym ciągu jest obecny
+w tabeli procesów. proces podrzędny zakończył działanie, po czym pamięć i inne zasoby 
+alokowane dla niego (przez jadro) zostały zwolnione, ale w dalszym ciągu zajmuje miejsce
+w tabeli procesów jadra.
+
+Jeden lub dwa procesy zombi nie stanowią żadnego problemu, ale jeżeli program cały czas
+wykonuje funkcje fork() i exec() i nie zbiera stanów końcowych, tabela procesów w końcu
+zostanie wypełniona, co znacznie zmniejsza wydajność i sprawia, że konieczne jest ponowne
+uruchomienie systemu, co jest niezbyt pożądaną sytuacją w krytycznym środowisku produkcyjnym
+- na serwerze.
+-------------------------------------------------------------------------------------------- 
+
+2. SIEROTA (ORPHAN)
+Proces sierota (orphan proces) jest procesem podrzędnym, którego proces nadrzędny zakończył działanie
+przed wywołaniem funkcji wait() lub waitpid(). W takim przypadku proces init stanie sie procesem 
+nadrzednym tego procesu i zbiera jego stan koncowy, w ten sposób zapobiegając zombi.

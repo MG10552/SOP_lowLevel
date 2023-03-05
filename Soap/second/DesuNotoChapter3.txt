@@ -182,7 +182,7 @@ void RemoveFromList(Lista* List, void* Thing)
 	if(List->Next->Value == Thing)
 {
 
-
+CDN...
 
 
 

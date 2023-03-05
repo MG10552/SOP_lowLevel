@@ -1,0 +1,36 @@
+// 'resusg1.c' - pobierz czasy procesu i wykorzystanie zasobów
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/times.h>
+#include <time.h>
+#include <unistd.h>
+
+void doit (char *, clock_t);
+
+int main (void)
+{
+  clock_t start, end;
+  struct tms t_start, t_end;
+
+  start = times(&t_start);
+  system ("grep the /usr/doc/*/* > /dev/null 2>/dev/null"); //przekieruj wyjscie, aby zapobiec przepełnieni ekranu
+  system ("find / -name stdio.h -print > /dev/null 2>/dev/null");
+  end = times(&t_end);
+
+  doit ("Elapsed time: ", end - start);
+  puts ("Parent times");
+    doit("\tuser CPU", t_end.tms_utime);
+    doit("\tsys CPU: ", t_end.tms_stime);
+  puts ("Child times ");
+    doit("\tuser CPU", t_end.tms_cutime);
+    doit("\tsys CPU", t_end.tms_cstime);
+ 
+ exit (EXIT_SUCCESS);
+}
+
+void doit (char *str, clock_t time)
+{
+  //Pobierz liczbę taktów/sekundę
+  long tps = sysconf(_SC_CLK_TCK);
+  printf ("%s: %6.2f secs\n", str, (float)time/tps);
+}

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# echo "grep -E '^[upper]([a-z])*[0-9]+$'"
+
+for szukajdowodu in $(grep -E '^[upper]([a-z])*[0-9]+$')
+do
+echo "Tak, $szukajdowodu jest identyfikator dowodu osobistego"
+done

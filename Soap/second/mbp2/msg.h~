@@ -1,0 +1,17 @@
+/*
+  msg.h -  plik nagłówkowy dla msg.c
+*/
+#ifndef MSG_H_
+#define MSG_H_
+
+void prmsg(char *msg){
+println("Imię:" , i);
+println("nazwisko: ", n);
+println("adress: ", a);
+println("nr telefonu:", t);
+println("e-mail: ", e);
+
+}
+
+#endif /* MSG_H_ */
+

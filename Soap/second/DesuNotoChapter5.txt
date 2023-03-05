@@ -1,0 +1,62 @@
+//1. własna wersja kill'a
+
+#include<stdio.h>
+int main(int argc, char **argv){
+int PID = atoi(argv[2]);
+int action = atoi(argv[1]);
+kill(PID, action);
+}
+
+
+
+//2. program, który będzie działał przez 10s i ignorował CTRL+C
+
+#include <stdio.h>
+#include <signal.h>
+int main(int argc, char **argv){
+signal(SIGINT, SIG_IGN);
+sleep(20);
+printf("koniec działania");
+return 0;
+}
+
+//3 
+
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv){
+int status;
+pid_t pid;
+p = fork();        
+printf("Signal %d \n", sig);
+
+//wysłać sigusr1 i czekać
+
+//odebrać sigusr1, poinformować i zabić potomka
+
+printf("Otrzymałem sygnał, więc popełnię samobójstwo")
+//rodzic czeka aż dziecko umrze
+
+
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

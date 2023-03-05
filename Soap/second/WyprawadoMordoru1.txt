@@ -1,0 +1,438 @@
+wget [ścieżka] <----- pociąga pliki z internetów
+
+wget szuflandia.pjwstk.edu.pl/~.baginski/program1.c
+
+kompilacja w krokach:
+gcc -E program1.c -o program1.cpp <--- użycie preprocesora
+
+zaglądamy do środka
+cat program1.cpp | more
+
+gcc -x cpp-output -c program1.cpp -o program1.c
+
+cat program1.o
+
+./program1
+///////////////////////////////////////////////////////////////////////////////
+
+wget szuflandia.pjwstk.edu.pl/~.baginski/pid2.c
+
+gcc -o pid2 pid2.c 
+
+./pid2
+
+
+jak sprawdzić jak ppid odpowiada aplikacji/procesowi? 
+
+ps aux | grep [ppid]
+
+echo $$
+
+ps aux |  grep init
+
+pstree <-- wyświetla drzewo procesów
+init <-- proces który startuje wraz ze startem systemu
+
+ls -la /sbin/init
+
+najważniejszee procesy: 
+	-fork
+	-exec
+	-system
+
+orphan / zombie <--- na egzamin
+
+cd /boot
+ls -la <-- sprawdzamy wersję kernela
+
+cd ~
+pwd
+
+deklaracja forka jest w <unistd.h> pid_t fork(void)
+
+
+find -name unistd.h -print 2>/dev/null <--- szukanie plików w systemie
+
+cat /usr/include/unistd.h | grep fork
+
+vfork() - proces rozwidlania, związany jest z kopiowaniem całego obrazu procesu nadrzędnego do procesu podrzędnego. Jest to powolny proces, więc projektancji unixa utworzyli wywołanie vfork(). Również tworzy nowy proces, lecz nie tworzy kopii procesu nadrzędnego. Dopóki nie zostanie wywołana funkcji exec() lub exit() nowy proces działa w przestrzeni adresowej procesu nadrzędnego. - jeżeli proces podrzędny korzysta z pamięci procesu nadrzędnego , ta część pamięci jest kopiowana do przestrzeni procesu nadrzędnego. Nazywa się to kopiowaniem po zapisie (copy-on-write).
+
+
+kompilacja skrośna
+
+PRACA DOMOWA:
+jak zobaczyć w systemie proces zombie?
+jak wygenerować proces zombie?
+man ps (wszytko o)
+
+
+//-------------------------------------------------------
+
+ssh szuflandia.pjwstk.edu.pl
+
+ls -la /sbin/init -> startup / dowiązanie  (jest w Debianie i Ubuntu)
+
+systemd -> udaje init (jest w redHat, Fedora, Suse) [w nowym Ubuntu też jest] //można poczytać o tym na wiki
+
+-----------------------------------------------------------------------------------------------------------------------
+Oczekiwanie na procesy
+----------------------
+
+1. ZOMBI
+Po utworzeniu nowego procesu za pomocÄ… fork() lub exec(), proces nadrzÄ™dny powinien
+poczekaÄ‡, aÅ¼ proces podrzÄ™dny zakoÅ„czy dziaÅ‚anie, aby pobraÄ‡ kod wyjÅ›cia i zapobiec
+powstawaniu procesu "ZOMBI". (Podstawowe funkcje to: wait() i waitpid()).
+Proces zombi jest procesem podrzÄ™dnym, ktÃ³ry koÅ„czy dziaÅ‚anie, zanim proces nadrzÄ™dny 
+pobierze jego stan koÅ„cowy zapomocÄ… funkcji wait() i waitpid().
+
+Proces nadrzÄ™dny zbiera stan koÅ„cowy procesu podrzÄ™dnego, uÅ¼ywajÄ…c jednej z funkcji
+wait (jest kilka !!!), sÅ‚uÅ¼Ä…cej do pobrania stanu koncowego z tabeli procesÃ³w jadra.
+Proces nazywany jest zombi, poniewaÅ¼ juÅ¼ nie dziaÅ‚a, ale w dalszym ciÄ…gu jest obecny
+w tabeli procesÃ³w. proces podrzÄ™dny zakoÅ„czyÅ‚ dziaÅ‚anie, po czym pamiÄ™Ä‡ i inne zasoby 
+alokowane dla niego (przez jadro) zostaÅ‚y zwolnione, ale w dalszym ciÄ…gu zajmuje miejsce
+w tabeli procesÃ³w jadra.
+
+Jeden lub dwa procesy zombi nie stanowiÄ… Å¼adnego problemu, ale jeÅ¼eli program caÅ‚y czas
+wykonuje funkcje fork() i exec() i nie zbiera stanÃ³w koÅ„cowych, tabela procesÃ³w w koÅ„cu
+zostanie wypeÅ‚niona, co znacznie zmniejsza wydajnoÅ›Ä‡ i sprawia, Å¼e konieczne jest ponowne
+uruchomienie systemu, co jest niezbyt poÅ¼Ä…danÄ… sytuacjÄ… w krytycznym Å›rodowisku produkcyjnym
+- na serwerze.
+-------------------------------------------------------------------------------------------- 
+
+2. SIEROTA (ORPHAN)
+Proces sierota (orphan proces) jest procesem podrzÄ™dnym, ktÃ³rego proces nadrzÄ™dny zakoÅ„czyÅ‚ dziaÅ‚anie
+przed wywoÅ‚aniem funkcji wait() lub waitpid(). W takim przypadku proces init stanie sie procesem 
+nadrzednym tego procesu i zbiera jego stan koncowy, w ten sposÃ³b zapobiegajÄ…c zombi.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Usuwanie procesÃ³w.
+------------------
+Proces moÅ¼e zakoÅ„czyÄ‡ dziaÅ‚anie z jednego z poniÅ¼szych powodÃ³w:
+1. Jego funkcja main() wywoÅ‚uje return()
+2. Proces wywoÅ‚uje exit()
+3. Proces wywoÅ‚uje abort()
+4. Proces jest zakoÅ„czony przez sygnaÅ‚
+
+Pierwsze dwa powody, to normalne zakoÅ„czenie dziaÅ‚ania, natomiast dwa ostatnie
+nienormalne! NiezaleÅ¼nie od przyczyny, zktÃ³rej proces koÅ„czy dziaÅ‚anie, wykonywany
+jest ten sam kod jÄ…dra, zamykajacy otwarte pliki, zwalniajÄ…cy zasoby pamiÄ™ci i 
+wykonujacy inne procesy czyszczÄ…ce.
+Funkcje return() i exit() powodujÄ… normalne zakoÅ„czenie dziaÅ‚ania programu i zwracajÄ… status
+do programu nadrzednego. 
+
+
+Active Directory - przechowuje dane na serverze (dystrybucja MSServer), synchronizują dane w czasie rzeczywistym
+OpenLDAP - linuxowy odpowiednik bazy serverowej
+
+Pierwsze byly systemy BSD. Później systemy komercyjne SySV. Linux jest z nimi spokrewniony. (Zgodny z instrukcjami Posix - działa częściowa zgodność jest dopuszczalna, gdy pełna zgodnośc wymaga kosztownej certyfikacji.)
+
+Poczytać:
+tryb użytkownika, tryb jądra -> będzie pytanie
+wywołanie systemowe
+
+
+Śledzenie czasu:
+
+ru_time -> czas spędzony przy wykonywaniu kodów w trybie użytkownika
+
+ru_stime ->  czas spędzony przy wykonywaniu kodów w trybie jądra (żądania z kodu użytkownika usług systemowych)
+
+ru_minflt -> liczba "błędów" podrzędnych (dostępy do pamięci które NIE kończą się dostępem do dysku)
+
+ru_majflt -> liczba "błędów" głównych (dostępy do pamięci które kończą się dostępem do dysku)
+
+ru_nswp -> liczba stron pamięci odczytanych z dysku w wyniku błędów głownych.
+
+
+time find / -name init -print 2>/dev/null -> wyszukanie wszędzie initów, a błędy przekieruj do pustki
+
+strace -> pokazuje jakie wywołania systemowe zostały użyte przez dane polecenie
+
+fg - pokazuje zadanie aktualnie działające
+bg - pokazuje zadanie działające w tle
+jobs -  pokazuje działające zadania
+nohup - umożliwia np. kompilację w tle
+
+kontrola zadan i procesów
+ps
+ps anx
+pstree
+top
+
+//--------------------------------------------------------------------------------
+biblioteki programistyczne
+
+-------------------------------
+Tworzenie biblioteki statycznej
+-------------------------------
+gcc -c msg.c -o libmsg.o
+ar  rsc libmsg.a libmsg.o
+
+gcc showit.c -o newhello-lib -I. -L. -lmsg
+------------------------------------------
+nm - wypisuje wszystkie symbole/funkcje zakodowane w
+     pliku binarnym, obiektowym lub bibliotece statycznej.
+     
+nm newhello-lib
+nm libmsg.o
+nm libmsg.a
+---------------
+ar - tworzy, modyfikuje lub rozpakowuje archiwa. Jest najczÄĹciej
+     uĹźywane przy tworzeniu bibliotek statycznych, ktĂłre sÄ plikami
+     zawierajÄcymi jeden lub wiÄcej plikĂłw obiektowych.
+     Biblioteki statyczne sÄ plikami obiektowymi, ktĂłrych kod jest
+     zaprojektowany tak, by byÄ przyĹÄczonym do programĂłw w czasie
+     kompilacji, a nie dynamicznie w czasie dziaĹania programu.
+     
+------------------------------------------------------------------
+  
+find / -name *.a -print 2>/dev/null  <-- wyszukiwanie bibliotek
+
+cd -  <--- przenosi do katalogu w którym byliśmy poprzednio
+cd ~  <--- bezpośredni powrót do katalogu domowego
+
+--------------------------------------------
+Biblioteki dzielone/wspĂłĹdzielone/dynamiczne
+ -odpowiednik Windowsowych DLL
+-----------------------------------------------------------------------------------
+gcc -shared -Wl,-soname,nazwa_so_biblioteki -o nazwa_pliku lista_plikow_obiektowych
+-----------------------------------------------------------------------------------
+
+PrzykĹad_1
+----------
+gcc -fPIC -g -c libmsg.c -o libmsg.o
+gcc -g -shared -Wl,-soname,libmsg.so.1.0.0 -o libmsg.so.1.0.0 libmsg.o 
+----------------------------------------------------------------------
+ln -s libmsg.so.1.0.0 libmsg.so.1
+ln -s libmsg.so.1.0.0 libmsg.so
+--------------------------------------------
+gcc -g showit.c -o newhello-shared -L. -lmsg
+--------------------------------------------
+
+export LD_LIBRARY_PATH="."
+
+./newhello-shared
+-----------------
+ldd newhello-shared (biblioteki uĹźywane przez program)
+------------------------------------------------------
+
+str.294
+ldconfig -p
+$LD_LIBRARY_PATH
+/etc/ld.so.conf
+/etc/ld.so.cache - ldconfig uaktualnia
+
+
+dowiązania miękkie:
+
+ln -s libok.so.1.0.0 libok.so.1.0.1        <---- druga jest dowiązana do pierwszej
+
+
+Biblioteka Ĺadowana dynamicznie
+Interfejs dl
+------------------------------------
+gcc -g -Wall showit.c -o showit -ldl
+------------------------------------
+
+dlopen()
+dlsym()
+dlerror()
+dlclose()
+
+str.309
+
+na koło
+procesy, sygnały, biblioteki
+
+-----------------------------------
+------------------------------------
+SYGNAĹY - def. pogladowa (praktyczna)
+-------------------------------------
+
+Przerwania programowe, dostarczajÄce mechanizmu pozwalajacego na obsĹugÄ zdarzeĹ
+asynchronicznych. Zdarzenia te mogÄ powstawaÄ poza systemem (np. nacisniÄcie przez
+uĹźytkownika CTRL+C) lub byÄ generowane przez program lub jÄdro (np. gdy proces wykonuje 
+kod operacji dzielenia przez zero). Proces moĹźe wysyĹaÄ sygnaĹy do innego procesu i
+przez to realizowaÄ prymitywna odmianÄ komunikacji miÄdzyprocesowej (IPC). 
+----------------------------------------------------------------------------------------
+
+//Mechanizmy IPC obsĹugiwane przez system LINUX: potoki, potoki nazwane, semafory,
+//kolejki komunikatĂłw, pamiÄc dzielona oraz futeksy.
+//TakĹźe sygnaĹy i gniazda (domeny UNIX oraz sieciowe - np. TCP/IP) ???!!!
+------------------------------------------------------------------------------------------
+
+SygnaĹy mogÄ byÄ: zignorowane, przechwycone i obsĹuĹźone, wykonana zostanie akcja domyĹlna.
+
+------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
+SygnaĹy obsĹugiwane przez system Linux (31 szt.)
+(kill -l lista sygnaĹĂłw w systemie)
+* - sygnaĹy szczegĂłlnie waĹźne
+sygnaĹ/opis/akcja domyĹlna 
+---------------------------------------------------------------------------------------------
+*SIGABRT  - WysyĹany przez funkcjÄ abort(). Przerwanie procesu i zrzucenie cora.
+*SIGALARM - WysyĹany przez funkcjÄ alarm(). Przerwanie procesu.
+SIGBUS    - BĹÄd sprzetu lub wyrĂłwnanie. Przerwanie procesu.
+*SIGCHLD  - Proces potomny zostaĹ zakoĹczony. Ignorowanie sygnaĹu.
+*SIGCONT  - Zatrzymany proces ponownie rozpoczyna swoje dziaĹanie. Ignorowanie sygnaĹu. 
+SIGFPE    - WyjÄtek arytmetyczny. Przerwanie procesu i wygenerowanie cora.
+*SIGHUP   - SterujÄcy terminal procesu zostaĹ zamkniÄty (wylogowanie?). Przerwanie procesu.
+SIGILL    - proces prĂłbowaĹ wykonaÄ niedopuszczalnÄ instrukcjÄ. Przerwanie pr. i zrzut cora.
+*SIGINT   - UĹźytkownik wysĹaĹ znak przerwania (Ctrl+C). Przerwanie procesu.
+SIGIO     - Zdarzenie asynchronicznej operacji we/wy. Przerwanie procesu.
+---------------------------------------------------------------------------------------------
+*SIGKILL  - Bezwarunkowe przerwanie procesu. Przerwanie procesu.
+SIGPIPE   - Proces zapisywal do potoku, lecz nie istnieli odbiorcy wiadomoĹci. Przerwanie pr.
+SIGPROF   - UpĹynÄĹ czas licznika profilujÄcego. Przerwanie procesu.
+*SIGPWR   - Awaria zasilania. Przerwanie procesu.
+SIGQUIT   - UĹźytkownik wysĹaĹ znak wyjĹcia (Ctrl+\). Przerwanie procesu + core.
+SIGSEGV   - BĹÄd dostepu do pamiÄci. Przerwanie procesu + core.
+SIGTKFLT  - BĹÄd stosu koprocesora. Przerwanie procesu.
+*SIGSTOP  - Zatrzymanie wykonywania procesu. zatrzymanie procesu. 
+SIGSYS    - Proces prĂłbowaĹ wykonaÄ bĹÄdnÄ funkcjÄ systemowÄ. Przerwanie pr. + core.
+*SIGTERM  - Przerwanie wykonywania procesu, moĹźliwe do przechwycenia. Przerwanie procesu.
+----------------------------------------------------------------------------------------------
+SIGTRAP   - Napotkano punkt wstrzymania. Przerwanie pr. + core.
+*SIGTSTP  - UĹźytkownik wysĹaĹ znak zatrzymania (Ctrl+Z). Zatrzymanie procesu.
+SIGTTIN   - Proces drugorzÄdny czytaĹ z terminala sterujÄcego. Zatrzymanie procesu.
+SIGTTOU   - Proces drugorzedny pisaĹ do terminala sterujÄcego. Zatrzymanie procesu.
+SIGURG    - Pilna operacja wejĹcia i wyjĹcia oczekuje na obsĹugÄ. Ignorowanie sygnaĹu.
+SIGUSR1   - SygnaĹ zdefiniowany dla procesu. Przerwanie procesu.
+SIGUSR2   - SygnaĹ zdefiniowany dla procesu. Przerwanie procesu.
+SIGVTALRM - Sygnal wygenerowany przez funkcjÄ setitimer() podczas jej wywoĹania, z ustawionym
+            znacznikiem ITIMER_VIRTUAL. Przerwanie procesu.
+SIGWINCH  - Rozmiar okna terminala sterujacego ulegĹ zmianie. Ignorowanie sygnaĹu.
+SIGXCPU   - Przekroczenie ograniczeĹ dla zasobĂłw procesora. Przerwanie pr. + core.
+SIGXFSZ   - Przekroczenie ograniczeĹ dla zasobĂłw plikowych. Przerwanie pr. + core.
+----------------------------------------------------------------------------------------------
+
+----------------------------------
+SYGNAĹY - polecenia (man 7 signal)
+----------------------------------
+Nr   Nazwa       Opis
+--   ------      -----
+1    SIGHUP      Restart/wczytaj ponownie konfiguracjÄ.
+2    SIGINT      WysĹanie przerwania z klawiatury (Ctrl+C).
+9    SIGKILL     BezwzglÄdne zatrzymanie procesu.
+15   SIGTERM     SygnaĹ zamkniÄcia procesu (DEFAULT).
+18   SIGCONT     WysĹanie sygnaĹu kontynuacji procesu.
+19   SIGSTOP     Zatrzymanie (chwilowe) procesu.
+-----------------------------------------------------------
+
+PrzykĹady
+---------
+kill 1234 (kill -15 1234, kill -TERM 1234)
+kill -9 1234 (kill -KILL 1234)
+kill -stop 1234
+kill -cont 1234
+xkill - pod GNOME
+-------------------------------------------
+
+Zadania (dziaĹanie 1 lub wiÄcej powiÄzanych ze sobÄ procesĂłw)
+-------------------------------------------------------------
+fg, bg, jobs, nohup, &
+-----------------------
+
+na egzamin: 
+1. Rodzaje systemĂłw Windows.
+2. Dystrubucje systemu Linux.
+3. Rodzaje systemĂłw BSD.
+4. Funkcje jÄdra systemu - pokazaÄ plik jÄdra w Linuksie i Windows.
+5. Rola systemu operacyjnego.
+6. WieloprocesorowoĹÄ, wielowÄtkowoĹÄ, wielouĹźytkonikowoĹÄ.
+7. WspĂłĹbieĹźnoĹÄ, planista. WywĹaszczanie.
+8. Proces, zadanie. Procesy pierwszoplanowe i dziaĹajÄce w tle.
+9. RISC, CISC. Procesory Intel AMD, ARM. Tryb chroniony.
+10.JÄdro monolityczne i mikrojadro. ModuĹy jÄdra.
+11.Po co kompilujemy jÄdro? "Paczowanie" jÄdra.
+12.Procesy zombi i sierota.
+13.Kopiowanie przy zapisie.
+14.WÄtki sprzÄtowe - Hyper Threading.
+15.Licencje: GPL, BSD.
+16.WieloprocesorowoĹÄ: SMP, ASMP, AMP.
+17.Kompilacja skroĹna.
+18.Poziomy pracy w systemie Linux.
+19.Zarzadzanie usĹugami: /etc/init.d, service, innserv, telnet, ps.
+20.Rodzaje bibliotek programistycznych.
+21.Co to jest daemon i jak dziaĹa?
+22.Instalacja oprogramowania ze ĹşrĂłdeĹ.
+23.Pliki ukryte, pliki specjalne: link twardy i miÄkki, urzadzenie blokowe i znakowe, potok, socket, katalog, i-wÄzeĹ.
+24.Priorytety procesĂłw. nice, nice(), setpriority(), getpriority().
+25.Zmienne Ĺrodowiskowe. 
+26.Paczki oprogramowania. RPM, DEB, zypper, apt, "piekĹo zaleznoĹci".
+27.XWindows, managery okien, Ĺrodowiska graficzne.
+28.Logi systemowe. logger i interface C.
+29.UĹźytkownicy i grupy. /etc/passwd, /etc/shadow, /etc/group, OpenLDAP, Active Directory.
+30.PamiÄÄ wspĂłĹdzielona, usĹuga D-bus.
+31.Proces startu systemu Unix/Linux. 
+32.Systemy plikĂłw: ext3/ext4/nfs, mkfs.
+33.Prawa dostepu: chmod, acl.
+34.Partycje, fdisk, /etc/fstab, mount.
+35.SygnaĹy. kill, xkill.
+
+=-------------------------------------------
+
+API do obsługi sygnałów
+int sigemptyset(sigset_t *set)
+int sigfillset(sigset_t *set)
+int sigaddset(sigset_t *set, int signum)
+int sigdelset(sigset_t *set, int signum)
+int sigmember(const sigset_t *set, int signum)
+
+SIGCHLD - proces podrzędny zatrzymał się lub zakończył działanie (POSIX)
+(effect)DFL: sygnał jest ignorowany
+SIGTERM - proces otrzymał sygnał zakonczenia (POSIX)
+(effect)DFL: proces kończy działanie
+
+SIGALRM (POSIX) - sygnał [nieczytelne] generowany przez wywołanie systemu alarm()
+(effect)DFL: proces kończy działanie
+
+ps aux | grep block
+kill -alrm 4445  <---pid
+kill -term 4445
+
+kill -term $(pidof ./block)
+kill -alrm $(pidof ./block)
+
+powyższe nie dadzą oczekiwanego efektu trzeba użyć
+kill -quit $(pidof ./block)
+
+kill -kill $(pidof ./block)
+
+sigprocmask(int how, const sigset_t *set, sigset_t *oldset),
+
+SIG_BLOCK - set zmienia dodatkowo sygnały do zablokowania
+
+SIG_UNBLOCK - set zamienia sygnały do odblokowania
+
+SIG_SETMASK - set zamienia nowy maski sygnałowej
+
+sigaction:
+
+action.sa_handler
+		(wskaźnik do funkcji określającej program obsłgi lub funkcji która ma być wywołana)
+
+SA_NOCCLDSTOP - proces zignoruje wszystkie sygnały (SIGSTOP, SIGTSTP, SIGTTIN, SIGTTOU) generowane przez procesy potomne
+
+SA_ONESHOT	} wykonają sie tylko raz potem zostanie przywrócone domyślne działanie sygnałów
+SA_RESETLIAND	}
+
+SA_RESTART
+SA_NO_MASK
+SA_NODEFER
+
+28. logi systemowe: cd /var/log
+		cat syslog <--- sprawdzanie zawartości logów systemowych.
+
+"demony bardzo lubią logi"
+
+
+
+
+
+
+
+
+

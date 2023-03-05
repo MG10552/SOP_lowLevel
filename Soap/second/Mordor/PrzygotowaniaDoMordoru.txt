@@ -1,0 +1,10 @@
+Instalacja oprogramowania
+
+Jak sprawdziæ jaki to plik ma plik jeœli nie ma rozszerzenia?
+
+file [nazwa pliku]
+
+touch plik1.txt
+file plik1.txt
+
+echo "coœ" > plik1.txt

@@ -1,0 +1,14 @@
+Usuwanie procesów.
+------------------
+Proces może zakończyć działanie z jednego z poniższych powodów:
+1. Jego funkcja main() wywołuje return()
+2. Proces wywołuje exit()
+3. Proces wywołuje abort()
+4. Proces jest zakończony przez sygnał
+
+Pierwsze dwa powody, to normalne zakończenie działania, natomiast dwa ostatnie
+nienormalne! Niezależnie od przyczyny, zktórej proces kończy działanie, wykonywany
+jest ten sam kod jądra, zamykajacy otwarte pliki, zwalniający zasoby pamięci i 
+wykonujacy inne procesy czyszczące.
+Funkcje return() i exit() powodują normalne zakończenie działania programu i zwracają status
+do programu nadrzednego. 
